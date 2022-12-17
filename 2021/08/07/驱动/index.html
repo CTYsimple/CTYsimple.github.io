@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>CTYsimple</title>
+  <title>计算机操作系统/驱动篇 | CTYsimple</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做一个一直努力的人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CTYsimple">
-<meta property="og:url" content="http://example.com/page/2/index.html">
+  <meta name="description" content="驱动是什么东西？为什么需要驱动？从计算机的眼睛里看，设备就是一组寄存器，比如说IO设备， 串口，键盘，磁盘，打印机，总线，中断控制器，DMA，GPU 这些设备就是挂在计算机下面的。那么，操作系统，如何使应用程序能访问这些设备？ 本质上需要驱动的原因：操作系统需要能够访问和操作这些设备。我们知道，IO设备在计算机看来，或者说在处理器看来就是一组#寄存器和协议#。 本节内容主要解决两个问题： 1、什么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机操作系统&#x2F;驱动篇">
+<meta property="og:url" content="http://example.com/2021/08/07/%E9%A9%B1%E5%8A%A8/index.html">
 <meta property="og:site_name" content="CTYsimple">
-<meta property="og:description" content="做一个一直努力的人">
+<meta property="og:description" content="驱动是什么东西？为什么需要驱动？从计算机的眼睛里看，设备就是一组寄存器，比如说IO设备， 串口，键盘，磁盘，打印机，总线，中断控制器，DMA，GPU 这些设备就是挂在计算机下面的。那么，操作系统，如何使应用程序能访问这些设备？ 本质上需要驱动的原因：操作系统需要能够访问和操作这些设备。我们知道，IO设备在计算机看来，或者说在处理器看来就是一组#寄存器和协议#。 本节内容主要解决两个问题： 1、什么">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-07T04:05:08.000Z">
+<meta property="article:modified_time" content="2022-12-17T02:50:09.781Z">
 <meta property="article:author" content="TY-Chen">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CTYsimple" type="application/atom+xml">
@@ -150,16 +153,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-驱动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-驱动" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/07/%E9%A9%B1%E5%8A%A8/">计算机操作系统/驱动篇</a>
+    <h1 class="article-title" itemprop="name">
+      计算机操作系统/驱动篇
     </h1>
   
 
@@ -209,16 +210,33 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/07/%E9%A9%B1%E5%8A%A8/">展开全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/08/07/%E5%9B%BE%E5%83%8F%E7%9F%A9%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          图像矩的概念和使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/02/11/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E6%8A%80%E6%9C%AF%E6%A0%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自动驾驶技术栈</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -238,445 +256,14 @@
 
 
 
-
-  
-    <article id="post-自动驾驶技术栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/11/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E6%8A%80%E6%9C%AF%E6%A0%88/">自动驾驶技术栈</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/11/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E6%8A%80%E6%9C%AF%E6%A0%88/" class="archive-article-date">
-  	<time datetime="2021-02-10T16:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="自动驾驶技术栈"><a href="#自动驾驶技术栈" class="headerlink" title="自动驾驶技术栈"></a>自动驾驶技术栈</h1><p>自动驾驶技术是复杂科学，在学习阶段能够精通其中一小部分内容就已经非常厉害了。<br>总结了相关的技术，根据这个思维图，能帮助自己更好理解自动实现自动驾驶需要什么。<br>点击以下的图片进行下载。<br><a href="/download/AUTO.png">自动驾驶技术栈</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自动驾驶技术栈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/11/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E6%8A%80%E6%9C%AF%E6%A0%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-白嫖endnotes的方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/01/%E7%99%BD%E5%AB%96endnotes%E7%9A%84%E6%96%B9%E6%B3%95/">endnote</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/01/%E7%99%BD%E5%AB%96endnotes%E7%9A%84%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-09-01T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="如何使用文献管理软件"><a href="#如何使用文献管理软件" class="headerlink" title="如何使用文献管理软件"></a>如何使用文献管理软件</h1><p>开始了新的研究生涯，但是每次知网下载文献看了，都存放得乱七八糟，很难做管理。<br>于是乎寻找文献管理软件，做研究和做工程有很多的差距，还是要多看新的思维，多看新的论文。<br>这里贴出一个很好用的文献管理软件ENDNOTE<br>这个软件是收费的，学校是购买了这个软件的，但是手续很麻烦，要拿着校园卡去图书馆申请，鉴于疫情期间学校很多事情办的流程长，还是有其他办法的！<br>！！！好在国内有很多方法可以使用到免费的正版endnote20<br><a target="_blank" rel="noopener" href="https://www.nais.net.cn/publish/default//fwgg/content/2020110217273217370.html">https://www.nais.net.cn/publish/default//fwgg/content/2020110217273217370.html</a><br>感谢国家农业图书馆，感谢！！<br>点击这个链接，获取正版。记住安装的时候专门建一个文件夹，许可证和安装包放在一起。<br>此外关于endnote如何使用，参考这个博文。<br><a target="_blank" rel="noopener" href="https://study.zwjjiaozhu.top/posts/EndNote.html">https://study.zwjjiaozhu.top/posts/EndNote.html</a><br>作者一直在更新。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/01/%E7%99%BD%E5%AB%96endnotes%E7%9A%84%E6%96%B9%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-微控制器平台" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/07/%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B9%B3%E5%8F%B0/">微控制器四大平台</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/07/%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B9%B3%E5%8F%B0/" class="archive-article-date">
-  	<time datetime="2019-12-07T03:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="微控制器"><a href="#微控制器" class="headerlink" title="微控制器"></a>微控制器</h1><p>微控制器，MCU。本质上还是微型计算机，广泛应用在各个行业。<br>MCU，又称微控制器或单片机，是把CPU的频率与规格做适当缩减，<br>并将内存(Memory)、计数器(Timer)、USB、A&#x2F;D转换、UART、PLC、DMA等周边接口，甚至LCD驱动电路都整合在单一芯片上，形成芯片级计算机。<br>从而实现终端控制的功能，具有性能高、功耗低、可编程、灵活度高等优点。MCU一般分为8位、16位、32位和64位。<br>无论是DIY还是专业产品，任何嵌入式电子设备的核心都是微控制器。微控制器通过运行代码&#x2F;固件，帮助开发人员从传感器获得输入，并输出给执行器以实现对设备的控制。<br>以下总结了单片机、FPGA、DSP的知识，用于备忘。可以点击下载<br><a href="/download/MCU.pdf">微控制器总结</a><br>Micro control unit<br>微型控制单元</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/07/%E5%BE%AE%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B9%B3%E5%8F%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-现代编程语言_构造器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/01/%E7%8E%B0%E4%BB%A3%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80_%E6%9E%84%E9%80%A0%E5%99%A8/">构造器、构造方法、静态方法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/01/%E7%8E%B0%E4%BB%A3%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80_%E6%9E%84%E9%80%A0%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2018-10-01T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="现代编程语言，构造器"><a href="#现代编程语言，构造器" class="headerlink" title="现代编程语言，构造器"></a>现代编程语言，构造器</h1><p>构造器，或者说构造函数，是一个很基础的概念，在Java和C++中，它们的存在形式和类的名称相同，通过改变参数列表来定义一些需要初始化的量<br>在创建对象的同时为成员变量赋值<br>1.构造器，也称构造方法、构造函数。作用是构造出来一个类的实例，确保对象得到初始化。<br>2.构造器的格式： 权限修饰符 类名(无参&#x2F;有参){}。<br>3.根据有无参数，可分为无参构造 和有参构造。<br>构造器最大的用处就是在创建对象时执行初始化，当创建一个对象时，系统会为这个对象的实例进行默认的初始化。如果想改变这种默认的初始化，就可以通过自定义构造器来实现。<br>构造器可以用来在初始化对象时初始化数据成员，一个类可以有多个构造器。一个类的构造器的名称必须与该类的名称一致。</p>
-<p>##构造器的特性<br>1.与一般方法名不同的是，构造方法名必须和类名保持一致，并且没有返回值，甚至连void都没有。<br>2.Java编译器会自动创建无参构造函数，因此在类中，无参构造即使没有，我们也可省略不写。实例化对象时无需赋值在。<br>而c++中类的构造函数不会自动初始化类的变量,它们的值将取决于内存中读取的值,所以,在构造函数中,建议对成员变量赋上初值.<br>当为一个类设定了有参数的constructor之后,编译器将不会为类提供默认的构造函数<br>3.倘若类中已存在有参构造函数，则编译器不再提供默认无参构造。实例化对象时需赋值，不然报错。<br>4.当类实例化一个对象时会自动调用构造方法。<br>5.不能被static、final、synchronized、abstract和native修饰。构造方法不能被子类继承<br>6.每个类可以有零个或多个构造方法.</p>
-<h2 id="python中的‘构造器’"><a href="#python中的‘构造器’" class="headerlink" title="python中的‘构造器’"></a>python中的‘构造器’</h2><p>在python中其实也有构造器这个概念，至少它被定义为了一种魔法方法。</p>
-<figure class="highlight plaintext"><figcaption><span>__init__(self,p1,p2.....):</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">self.p1 = p1</span><br><span class="line">self.p2 = p2</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
-<p>其中self这个很有意思，它指代的是实例化之后的数据体本身，代表“我有这种属性”<br>在本类中调用某一个属性的时候，用self.xxx来使用，这样可以和类外的同名方法区分开来</p>
-<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><p>这里厘清一个重要的概念，静态方法，在Java中，在实例化之前就能使用静态方法<br>@staticmethod<br>静态方法只是名义上归属类管理，但是不能使用类变量和实例变量，是类的工具包<br>放在函数前（该函数不传入self或者cls），所以不能访问类属性和实例属性</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/01/%E7%8E%B0%E4%BB%A3%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80_%E6%9E%84%E9%80%A0%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-如何在电脑端下载哔哩哔哩的视频" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/01/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E7%9A%84%E8%A7%86%E9%A2%91/">如何下载哔哩哔哩电脑端的视频</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/01/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E7%9A%84%E8%A7%86%E9%A2%91/" class="archive-article-date">
-  	<time datetime="2017-11-01T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Bilibili下载"><a href="#Bilibili下载" class="headerlink" title="Bilibili下载"></a>Bilibili下载</h1><p>电脑端用不了缓存的功能，很多视频怕被和谐以后看不了。<br>推荐一个小工具，可以下载。<br>现在很多教程都可以通过b站学到，推荐当成一个学习网站来使用。<br><a href="/download/bilidown.zip">bilibili下载小工具</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小tips</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/01/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E7%9A%84%E8%A7%86%E9%A2%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-博客部署转移方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/07/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E8%BD%AC%E7%A7%BB%E6%96%B9%E6%B3%95/">古早博客转移记录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/07/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E8%BD%AC%E7%A7%BB%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2017-01-07T04:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、下载node.js因为hexo依赖node来运行<br>2、下载完成后直接安装，在cmd里node -v一下看看版本，如果有就是安装好了<br>3、因为国内下载很慢，执行npm install -g cnpm –registry&#x3D;<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org安装cnpm/">https://registry.npm.taobao.org安装cnpm</a><br>4、利用cnpm来安装cnpm install -g hexo-cli  可以hexo -v看一下版本 cnpm -v看一下版本<br>5、建一个新的空目录，切换到这个根目录下面<br>hexo init 这个命令在国内是没办法用的因github是被墙了的，只能说xxxxx<br>解决办法：<br>C:\Users\TaoYang Chen\AppData\Roaming\npm\node_modules\hexo-cli\lib\console这个下面有个init.js<br>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43580193/article/details/117341489">https://blog.csdn.net/qq_43580193/article/details/117341489</a><br>将const GIT_REPO_URL &#x3D; ‘<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-starter.git">https://github.com/hexojs/hexo-starter.git</a>‘;<br>更改为：const GIT_REPO_URL &#x3D; ‘<a target="_blank" rel="noopener" href="https://github.com.cnpmjs.org/hexojs/hexo-starter.git">https://github.com.cnpmjs.org/hexojs/hexo-starter.git</a>‘;<br>仍然不行，真是操蛋<br>只能上加速器了<br>还好，最后找到了一个可以用的镜像网站<a target="_blank" rel="noopener" href="https://kgithub.com/%E5%BD%93%E7%84%B6%E8%BF%99%E4%B8%AA%E6%98%AF%E6%9C%89%E6%97%B6%E6%95%88%E6%80%A7%E7%9A%84%EF%BC%8C%E4%BB%A5%E5%90%8E%E4%B8%8D%E4%B8%80%E5%AE%9A%E5%A5%BD%E7%94%A8">https://kgithub.com/当然这个是有时效性的，以后不一定好用</a></p>
-<p>在本地的git bash里面看看自己的邮箱和名字是否是github上对应的邮箱和名字<br>如果不是，设置一下<br> git config user.name<br> git config user.email<br>接着需要给本机搞一个ssh的公钥和私钥，键入ssh-keygen -t rsa -C “email”<br>结果是：<br>Your identification has been saved in &#x2F;c&#x2F;Users&#x2F;TaoYang Chen&#x2F;.ssh&#x2F;id_rsa<br>Your public key has been saved in &#x2F;c&#x2F;Users&#x2F;TaoYang Chen&#x2F;.ssh&#x2F;id_rsa.pub</p>
-<p>连续回车，生成密钥，在指定的位置找到两个文件<br>然后打开github自己的网站，去setting里面找到ssh设置，新建一个ssh链接，把公钥文件给打开，全部复制粘贴到框里，点击完成。<br>然后试一试是否能ssh上仓库<br>$ ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#111;&#x6d;">&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#111;&#x6d;</a></p>
-<p>Hi CTYsimple! You’ve successfully authenticated, but GitHub does not provide shell access.<br>显示已经链接</p>
-<p>则当前仓库已经可以ssh</p>
-<p>接着，hexo init之后，会在相应的目录下产生初始的一些文件和目录，当然，我们不用再重复搭一遍<br>由于博客里有pdf，需要在博客的主目录下安装这个插件陈cnpm install –save hexo-pdf 否则在生成静态网页文件的时候会报错<br>我们在原本的博客源文件夹下面，把一些重要的东西复制过来。<br>1、public<br>2、scaffolds<br>3、source<br>4、themes<br>5、_config.yml<br>6、package.json<br>当然这个不一定是准确的，先复制粘贴过去再说，覆盖掉。<br>不行就百度查一下</p>
-<p>然后进到cmd<br>hexo clean<br>hexo g<br>hexo s看一下效果<br>如果能成功生成静态网页，就可以直接部署<br>直接hexo d<br>如果没问题的话就是没问题了<br>这个就是hexo博客在两台电脑上转移的方法</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">不知所云</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/07/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E8%BD%AC%E7%A7%BB%E6%96%B9%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -699,8 +286,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
