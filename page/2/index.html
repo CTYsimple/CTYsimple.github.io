@@ -519,6 +519,109 @@
 
 
   
+    <article id="post-GDB调试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/27/GDB%E8%B0%83%E8%AF%95/">GDB</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/27/GDB%E8%B0%83%E8%AF%95/" class="archive-article-date">
+  	<time datetime="2019-12-26T17:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h1><p>编译程序时需要加上-g，之后才能用gdb进行调试：gcc -g main.c -o main</p>
+<p>gdb中命令：</p>
+<p>回车键：重复上一命令</p>
+<p>（gdb）help：查看命令帮助，具体命令查询在gdb中输入help + 命令,简写h</p>
+<p>（gdb）run：重新开始运行文件（run-text：加载文本文件，run-bin：加载二进制文件）,简写r</p>
+<p>（gdb）start：单步执行，运行程序，停在第一执行语句</p>
+<p>（gdb）list：查看原代码（list-n,从第n行开始查看代码。list+ 函数名：查看具体函数）,简写l</p>
+<p>（gdb）set：设置变量的值</p>
+<p>（gdb）next：单步调试（逐过程，函数直接执行）,简写n</p>
+<p>（gdb）step：单步调试（逐语句：跳入自定义函数内部执行）,简写s</p>
+<p>（gdb）backtrace：查看函数的调用的栈帧和层级关系,简写bt</p>
+<p>（gdb）frame：切换函数的栈帧,简写f</p>
+<p>（gdb）info：查看函数内部局部变量的数值,简写i</p>
+<p>（gdb）finish：结束当前函数，返回到函数调用点</p>
+<p>（gdb）continue：继续运行,简写c</p>
+<p>（gdb）print：打印值及地址,简写p</p>
+<p>（gdb）quit：退出gdb,简写q</p>
+<p>（gdb）break+num：在第num行设置断点,简写b</p>
+<p>（gdb）info breakpoints：查看当前设置的所有断点</p>
+<p>（gdb）delete breakpoints num：删除第num个断点,简写d</p>
+<p>（gdb）display：追踪查看具体变量值</p>
+<p>（gdb）undisplay：取消追踪观察变量</p>
+<p>（gdb）watch：被设置观察点的变量发生修改时，打印显示</p>
+<p>（gdb）i watch：显示观察点</p>
+<p>（gdb）enable breakpoints：启用断点</p>
+<p>（gdb）disable breakpoints：禁用断点</p>
+<p>（gdb）x：查看内存x&#x2F;20xw 显示20个单元，16进制，4字节每单元</p>
+<p>（gdb）run argv[1] argv[2]：调试时命令行传参</p>
+<p>（gdb）set follow-fork-mode child#Makefile项目管理：选择跟踪父子进程（fork()）</p>
+<p>core文件：先用$ ulimit -c 1024 开启core，当程序出错会自动生成core文件。调试时 gdb a.out core</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/27/GDB%E8%B0%83%E8%AF%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-微控制器平台" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -757,7 +860,7 @@
       
         <p>1、下载node.js因为hexo依赖node来运行<br>2、下载完成后直接安装，在cmd里node -v一下看看版本，如果有就是安装好了<br>3、因为国内下载很慢，执行npm install -g cnpm –registry&#x3D;<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org安装cnpm/">https://registry.npm.taobao.org安装cnpm</a><br>4、利用cnpm来安装cnpm install -g hexo-cli  可以hexo -v看一下版本 cnpm -v看一下版本<br>5、建一个新的空目录，切换到这个根目录下面<br>hexo init 这个命令在国内是没办法用的因github是被墙了的，只能说xxxxx<br>解决办法：<br>C:\Users\TaoYang Chen\AppData\Roaming\npm\node_modules\hexo-cli\lib\console这个下面有个init.js<br>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43580193/article/details/117341489">https://blog.csdn.net/qq_43580193/article/details/117341489</a><br>将const GIT_REPO_URL &#x3D; ‘<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-starter.git">https://github.com/hexojs/hexo-starter.git</a>‘;<br>更改为：const GIT_REPO_URL &#x3D; ‘<a target="_blank" rel="noopener" href="https://github.com.cnpmjs.org/hexojs/hexo-starter.git">https://github.com.cnpmjs.org/hexojs/hexo-starter.git</a>‘;<br>仍然不行，真是操蛋<br>只能上加速器了<br>还好，最后找到了一个可以用的镜像网站<a target="_blank" rel="noopener" href="https://kgithub.com/%E5%BD%93%E7%84%B6%E8%BF%99%E4%B8%AA%E6%98%AF%E6%9C%89%E6%97%B6%E6%95%88%E6%80%A7%E7%9A%84%EF%BC%8C%E4%BB%A5%E5%90%8E%E4%B8%8D%E4%B8%80%E5%AE%9A%E5%A5%BD%E7%94%A8">https://kgithub.com/当然这个是有时效性的，以后不一定好用</a></p>
 <p>在本地的git bash里面看看自己的邮箱和名字是否是github上对应的邮箱和名字<br>如果不是，设置一下<br> git config user.name<br> git config user.email<br>接着需要给本机搞一个ssh的公钥和私钥，键入ssh-keygen -t rsa -C “email”<br>结果是：<br>Your identification has been saved in &#x2F;c&#x2F;Users&#x2F;TaoYang Chen&#x2F;.ssh&#x2F;id_rsa<br>Your public key has been saved in &#x2F;c&#x2F;Users&#x2F;TaoYang Chen&#x2F;.ssh&#x2F;id_rsa.pub</p>
-<p>连续回车，生成密钥，在指定的位置找到两个文件<br>然后打开github自己的网站，去setting里面找到ssh设置，新建一个ssh链接，把公钥文件给打开，全部复制粘贴到框里，点击完成。<br>然后试一试是否能ssh上仓库<br>$ ssh -T <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#109;</a></p>
+<p>连续回车，生成密钥，在指定的位置找到两个文件<br>然后打开github自己的网站，去setting里面找到ssh设置，新建一个ssh链接，把公钥文件给打开，全部复制粘贴到框里，点击完成。<br>然后试一试是否能ssh上仓库<br>$ ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;</a></p>
 <p>Hi CTYsimple! You’ve successfully authenticated, but GitHub does not provide shell access.<br>显示已经链接</p>
 <p>则当前仓库已经可以ssh</p>
 <p>接着，hexo init之后，会在相应的目录下产生初始的一些文件和目录，当然，我们不用再重复搭一遍<br>由于博客里有pdf，需要在博客的主目录下安装这个插件陈cnpm install –save hexo-pdf 否则在生成静态网页文件的时候会报错<br>我们在原本的博客源文件夹下面，把一些重要的东西复制过来。<br>1、public<br>2、scaffolds<br>3、source<br>4、themes<br>5、_config.yml<br>6、package.json<br>当然这个不一定是准确的，先复制粘贴过去再说，覆盖掉。<br>不行就百度查一下</p>
@@ -817,7 +920,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -916,7 +1019,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -928,15 +1031,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">目标检测</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
               </li>
              
               <li class="article-tag-list-item">
