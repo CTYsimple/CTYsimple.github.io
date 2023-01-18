@@ -685,6 +685,112 @@
 
 
   
+    <article id="post-Linux中的软连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/27/Linux%E4%B8%AD%E7%9A%84%E8%BD%AF%E8%BF%9E%E6%8E%A5/">Linux</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/27/Linux%E4%B8%AD%E7%9A%84%E8%BD%AF%E8%BF%9E%E6%8E%A5/" class="archive-article-date">
+  	<time datetime="2019-11-26T17:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux-软连接的使用"><a href="#Linux-软连接的使用" class="headerlink" title="Linux 软连接的使用"></a>Linux 软连接的使用</h1><p>软连接是Linux中一个常用命令，它的功能是为某一个文件在另外一个位置建立一个同不的链接。<br>具体用法是：ln -s 源文件 目标文件。<br>当 我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在其它的 目录下用ln命令链接（link）就可以，不必重复的占用磁盘空间。<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `-s ``/usr/local/mysql/bin/mysql` `/usr/binL</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就对&#x2F;usr&#x2F;bin目录下的mysql命令创建了软连接 L</p>
+<p>【硬连接】<br>硬连接指通过索引节点来进行连接。在Linux的文件系统中，保存在磁盘分区中的文件不管是什么类型都给它分配一个编号，称为索引节点号(Inode Index)。在Linux中，多个文件名指向同一索引节点是存在的。一般这种连接就是硬连接。硬连接的作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止“误删”的功能。其原因如上所述，因为对应该目录的索引节点有一个以上的连接。只删除一个连接并不影响索引节点本身和其它的连接，只有当最后一个连接被删除后，文件的数据块及目录的连接才会被释放。也就是说，文件真正删除的条件是与之相关的所有硬连接文件均被删除。</p>
+<p>【软连接】<br>另外一种连接称之为符号连接（Symbolic Link），也叫软连接。软链接文件有类似于Windows的快捷方式。它实际上是一个特殊的文件。在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。</p>
+<p><strong>使用方式</strong></p>
+<p>创建软链接</p>
+<p>ln  -s [源文件或目录] [目标文件或目录]</p>
+<p>例：</p>
+<p>当前路径创建test 引向&#x2F;var&#x2F;www&#x2F;test 文件夹 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `–s ``/var/www/test` `test</span><br></pre></td></tr></table></figure>
+
+<p>创建&#x2F;var&#x2F;test 引向&#x2F;var&#x2F;www&#x2F;test 文件夹 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `–s ``/var/www/test`  `/var/test</span><br></pre></td></tr></table></figure>
+
+<p>删除软链接</p>
+<p>和删除普通的文件是一样的，删除都是使用rm来进行操作</p>
+<p>例：</p>
+<p>删除test</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm` `–rf ``test</span><br></pre></td></tr></table></figure>
+
+<p>修改软链接</p>
+<p>ln –snf  [新的源文件或目录] [目标文件或目录]</p>
+<p>这将会修改原有的链接地址为新的地址</p>
+<p>例如：</p>
+<p>创建一个软链接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `–s ``/var/www/test`  `/var/test</span><br></pre></td></tr></table></figure>
+
+<p>修改指向的新路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `–snf ``/var/www/test1`  `/var/test</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用参数：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">　　-f : 链结时先将与 dist 同档名的档案删除</span><br><span class="line">　　-d : 允许系统管理者硬链结自己的目录</span><br><span class="line">　　-i : 在删除与 dist 同档名的档案时先进行询问</span><br><span class="line">　　-n : 在进行软连结时，将 dist 视为一般的档案</span><br><span class="line">　　-s : 进行软链结(symbolic link)</span><br><span class="line">　　-v : 在连结之前显示其档名</span><br><span class="line">　　-b : 将在链结时会被覆写或删除的档案进行备份</span><br><span class="line">　　-S SUFFIX : 将备份的档案都加上 SUFFIX 的字尾</span><br><span class="line">　　-V METHOD : 指定备份的方式</span><br><span class="line">　　--help : 显示辅助说明</span><br><span class="line">　　--version : 显示版本</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/27/Linux%E4%B8%AD%E7%9A%84%E8%BD%AF%E8%BF%9E%E6%8E%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-现代编程语言_构造器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -809,86 +915,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/11/01/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E7%9A%84%E8%A7%86%E9%A2%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-博客部署转移方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/07/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E8%BD%AC%E7%A7%BB%E6%96%B9%E6%B3%95/">古早博客转移记录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/07/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E8%BD%AC%E7%A7%BB%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2017-01-07T04:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、下载node.js因为hexo依赖node来运行<br>2、下载完成后直接安装，在cmd里node -v一下看看版本，如果有就是安装好了<br>3、因为国内下载很慢，执行npm install -g cnpm –registry&#x3D;<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org安装cnpm/">https://registry.npm.taobao.org安装cnpm</a><br>4、利用cnpm来安装cnpm install -g hexo-cli  可以hexo -v看一下版本 cnpm -v看一下版本<br>5、建一个新的空目录，切换到这个根目录下面<br>hexo init 这个命令在国内是没办法用的因github是被墙了的，只能说xxxxx<br>解决办法：<br>C:\Users\TaoYang Chen\AppData\Roaming\npm\node_modules\hexo-cli\lib\console这个下面有个init.js<br>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43580193/article/details/117341489">https://blog.csdn.net/qq_43580193/article/details/117341489</a><br>将const GIT_REPO_URL &#x3D; ‘<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-starter.git">https://github.com/hexojs/hexo-starter.git</a>‘;<br>更改为：const GIT_REPO_URL &#x3D; ‘<a target="_blank" rel="noopener" href="https://github.com.cnpmjs.org/hexojs/hexo-starter.git">https://github.com.cnpmjs.org/hexojs/hexo-starter.git</a>‘;<br>仍然不行，真是操蛋<br>只能上加速器了<br>还好，最后找到了一个可以用的镜像网站<a target="_blank" rel="noopener" href="https://kgithub.com/%E5%BD%93%E7%84%B6%E8%BF%99%E4%B8%AA%E6%98%AF%E6%9C%89%E6%97%B6%E6%95%88%E6%80%A7%E7%9A%84%EF%BC%8C%E4%BB%A5%E5%90%8E%E4%B8%8D%E4%B8%80%E5%AE%9A%E5%A5%BD%E7%94%A8">https://kgithub.com/当然这个是有时效性的，以后不一定好用</a></p>
-<p>在本地的git bash里面看看自己的邮箱和名字是否是github上对应的邮箱和名字<br>如果不是，设置一下<br> git config user.name<br> git config user.email<br>接着需要给本机搞一个ssh的公钥和私钥，键入ssh-keygen -t rsa -C “email”<br>结果是：<br>Your identification has been saved in &#x2F;c&#x2F;Users&#x2F;TaoYang Chen&#x2F;.ssh&#x2F;id_rsa<br>Your public key has been saved in &#x2F;c&#x2F;Users&#x2F;TaoYang Chen&#x2F;.ssh&#x2F;id_rsa.pub</p>
-<p>连续回车，生成密钥，在指定的位置找到两个文件<br>然后打开github自己的网站，去setting里面找到ssh设置，新建一个ssh链接，把公钥文件给打开，全部复制粘贴到框里，点击完成。<br>然后试一试是否能ssh上仓库<br>$ ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
-<p>Hi CTYsimple! You’ve successfully authenticated, but GitHub does not provide shell access.<br>显示已经链接</p>
-<p>则当前仓库已经可以ssh</p>
-<p>接着，hexo init之后，会在相应的目录下产生初始的一些文件和目录，当然，我们不用再重复搭一遍<br>由于博客里有pdf，需要在博客的主目录下安装这个插件陈cnpm install –save hexo-pdf 否则在生成静态网页文件的时候会报错<br>我们在原本的博客源文件夹下面，把一些重要的东西复制过来。<br>1、public<br>2、scaffolds<br>3、source<br>4、themes<br>5、_config.yml<br>6、package.json<br>当然这个不一定是准确的，先复制粘贴过去再说，覆盖掉。<br>不行就百度查一下</p>
-<p>然后进到cmd<br>hexo clean<br>hexo g<br>hexo s看一下效果<br>如果能成功生成静态网页，就可以直接部署<br>直接hexo d<br>如果没问题的话就是没问题了<br>这个就是hexo博客在两台电脑上转移的方法</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">不知所云</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/07/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E8%BD%AC%E7%A7%BB%E6%96%B9%E6%B3%95/">展开全文 >></a>
         </p>
       
 
