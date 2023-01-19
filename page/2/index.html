@@ -519,6 +519,88 @@
 
 
   
+    <article id="post-Python装饰器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/07/Python%E8%A3%85%E9%A5%B0%E5%99%A8/">装饰器</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/07/Python%E8%A3%85%E9%A5%B0%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2020-08-07T03:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h1><p>这个概念就顾名思义：是用来装饰一个东西的作用</p>
+<p>例如一个函数<code>fun</code>想在它函数外面实现一些额外的功能，就可以用装饰器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fun1</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;now_is func1&quot;</span>)</span><br><span class="line">例如我想在fun1前后都<span class="built_in">print</span>某段话，就需要在它的前后都<span class="built_in">print</span>，这个很麻烦，每次都要这么干，怎么弄呢？用个装饰器</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">DP_print</span>(<span class="params">fun1</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;fun1_start_now&quot;</span>)</span><br><span class="line">        fun1()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;fun1_end_now&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"><span class="comment"># 看一下现象</span></span><br><span class="line">fun1 = DP_print(fun1)</span><br><span class="line"></span><br><span class="line">fun1()</span><br><span class="line"><span class="comment"># 可以很明显看到这样的效果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在python里有个语法糖--提供了一个装饰器</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">DP_print</span>(<span class="params">fun1</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>(<span class="params">*args,**kwargs</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;fun1_start_now&quot;</span>)</span><br><span class="line">        fun1(*args,**kwargs)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;fun1_end_now&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@DP_print</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fun1</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;TEST&quot;</span>, x, y)</span><br><span class="line"></span><br><span class="line">fun1(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 可以测试得到同样的结果，前后都输出了相应的语句</span></span><br></pre></td></tr></table></figure>
+
+<p>装饰器说简单一点就是在<em><strong>不改变原来的函数的结构</strong></em>的情况下，去给函数的前面和后面增添一些功能，例如说我想知道某个函数的使用时间，那么就可以写一个装饰器，对于其他的函数我也同样可以使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># 定义装饰器</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">time_calc</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        start_now_T = time.time()</span><br><span class="line">        f = func(*args, **kwargs)</span><br><span class="line">        exec_T = time.time() - start_now_T</span><br><span class="line">        <span class="built_in">print</span>(exec_T)</span><br><span class="line">        <span class="keyword">return</span> f</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用装饰器</span></span><br><span class="line"><span class="meta">@time_calc</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">n</span>):</span><br><span class="line">    pic_sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span> * n):</span><br><span class="line">        pic_sum = pic_sum + <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(pic_sum)</span><br><span class="line">    <span class="keyword">return</span> pic_sum</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sss = add(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小tips</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/07/Python%E8%A3%85%E9%A5%B0%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-GDB调试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -870,80 +952,6 @@
 
 
   
-    <article id="post-如何在电脑端下载哔哩哔哩的视频" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/01/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E7%9A%84%E8%A7%86%E9%A2%91/">如何下载哔哩哔哩电脑端的视频</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/01/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E7%9A%84%E8%A7%86%E9%A2%91/" class="archive-article-date">
-  	<time datetime="2017-11-01T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Bilibili下载"><a href="#Bilibili下载" class="headerlink" title="Bilibili下载"></a>Bilibili下载</h1><p>电脑端用不了缓存的功能，很多视频怕被和谐以后看不了。<br>推荐一个小工具，可以下载。<br>现在很多教程都可以通过b站学到，推荐当成一个学习网站来使用。<br><a href="/download/bilidown.zip">bilibili下载小工具</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小tips</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/01/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E7%9A%84%E8%A7%86%E9%A2%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1049,11 +1057,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">AVM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AVM</a>
+                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1061,7 +1069,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">目标检测</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1069,11 +1077,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+                <a href="javascript:void(0)" class="js-tag color5">目标检测</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
               </li>
              
               <li class="article-tag-list-item">
