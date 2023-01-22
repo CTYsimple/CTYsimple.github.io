@@ -389,8 +389,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="没啥用的小知识！"><a href="#没啥用的小知识！" class="headerlink" title="没啥用的小知识！"></a>没啥用的小知识！</h2><h1 id="C-怎么在main之前print一个东西"><a href="#C-怎么在main之前print一个东西" class="headerlink" title="C++怎么在main之前print一个东西"></a>C++怎么在main之前print一个东西</h1><p>在论坛面试题目上看到一个很搞的问题,正常程序执行都是从main函数开始<br>要在这之前执行print，哈哈哈。。。。<br>&#x2F;&#x2F;<br>&#x2F;&#x2F; Created by TaoYang Chen.<br>&#x2F;&#x2F;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class TT &#123;</span><br><span class="line">public:</span><br><span class="line">    TT() &#123;</span><br><span class="line">        std::cout &lt;&lt; &quot;print_a_line&quot; &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">TT t1;</span><br><span class="line">int main()&#123;</span><br><span class="line">    std::cout&lt;&lt;&quot;whats_up_man&quot;&lt;&lt;std::endl;</span><br><span class="line">    //怎么用奇技淫巧在main之前print一个东西</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="没啥用的小知识！"><a href="#没啥用的小知识！" class="headerlink" title="没啥用的小知识！"></a>没啥用的小知识！</h2><h1 id="C-怎么在main之前print一个东西"><a href="#C-怎么在main之前print一个东西" class="headerlink" title="C++怎么在main之前print一个东西"></a>C++怎么在main之前print一个东西</h1><p>在论坛上看到一个很搞的问题,正常程序执行都是从main函数开始，要在这之前执行print，哈哈哈。。。。只能想到构造器。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TT</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    TT() &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;print_a_line&quot;</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">TT t1;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;whats_up_man&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -970,11 +972,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AVM</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">AVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -982,19 +984,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数字图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">目标检测</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color2">数字图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
