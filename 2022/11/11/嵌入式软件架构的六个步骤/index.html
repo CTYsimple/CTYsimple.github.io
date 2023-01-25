@@ -16,7 +16,7 @@
 <meta property="og:description" content="软件架构–六组份解析：高质量架构指南这份笔记是今年学习的时候开的坑，认真学习，温故知新。 1软件架构这东西，众说纷纭，各有观点。什么是软件架构，我们能在网上找到无数种定义。比如，我们可以这样定义：软件架构是软件系统的基本结构，体现在其组件、组件之间的关系、组件设计与演进的规则，以及体现这些规则的基础设施。怎么定义一般来说，基本上不重要，我们不是在写学术书籍，工程人员嘛，只关心软件架构能解决什么问题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-11T01:05:08.000Z">
-<meta property="article:modified_time" content="2023-01-25T10:04:18.453Z">
+<meta property="article:modified_time" content="2023-01-25T12:20:34.593Z">
 <meta property="article:author" content="TY-Chen">
 <meta property="article:tag" content="软件架构">
 <meta name="twitter:card" content="summary">
@@ -178,6 +178,8 @@
 
 <h1 id="抽象层"><a href="#抽象层" class="headerlink" title="抽象层"></a>抽象层</h1><p>建立硬件&#x2F;设备抽象层，使得应用层不再依赖硬件<br>这个很好理解，找个直观的例子来说就是换芯片。如果开发的产品直接依赖某个芯片厂商的固件库，特别是：在应用层代码直接调用了底层代码。这样产生了强依赖，在移植的时候是非常非常麻烦的。假设现在我们的供应商换成了其他的硬件厂商，那么直接更换就需要去应用层的代码里面找到以前调用的底层代码，并一一根据功能更换为新的硬件厂商提供的代码，这简直是在损耗公司软件工程师的生命啊！！！真的很麻烦。耦合的架构如果更换MCU会非常非常的困难，如果原来使用了DMA，但是新的芯片不支持DMA传输，好家伙，这改动就大了，工程慢，交期慢，拖到最后交不了，尾款拿不不到。</p>
 <p>许多新手乃至老手嵌入式工程师，在未了解软件架构之前，把应用层功能和硬件相关的代码，不由自主的搅和在一起写。这种做法非常普遍。比如下面的代码：</p>
+<span id="more"></span>
+
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">modbus_rtu_write_reply</span><span class="params">(<span class="type">uint8_t</span> add, <span class="type">uint8_t</span> func_code, <span class="type">uint16_t</span> reg, <span class="type">uint16_t</span> data)</span></span><br><span class="line">&#123;</span><br><span class="line">    rs485.buff_tx[<span class="number">0</span>] = add;</span><br><span class="line">    rs485.buff_tx[<span class="number">1</span>] = func_code;</span><br><span class="line">    rs485.buff_tx[<span class="number">2</span>] = (<span class="type">uint8_t</span>)(reg &gt;&gt; <span class="number">8</span>);</span><br><span class="line">    rs485.buff_tx[<span class="number">3</span>] = (<span class="type">uint8_t</span>)(reg);</span><br><span class="line">    rs485.buff_tx[<span class="number">4</span>] = (<span class="type">uint8_t</span>)(data &gt;&gt; <span class="number">8</span>);</span><br><span class="line">    rs485.buff_tx[<span class="number">5</span>] = (<span class="type">uint8_t</span>)(data);</span><br><span class="line"></span><br><span class="line">    <span class="type">uint16_t</span> crc16 = mb_crc16(rs485.buff_tx, <span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">    rs485.buff_tx[<span class="number">6</span>] = (<span class="type">uint8_t</span>)(crc16);</span><br><span class="line">    rs485.buff_tx[<span class="number">7</span>] = (<span class="type">uint8_t</span>)(crc16 &gt;&gt; <span class="number">8</span>);</span><br><span class="line"></span><br><span class="line">    rs485.tx_total = <span class="number">8</span>;</span><br><span class="line">    rs485.tx_num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Send data from the uart port. The hardware related program. */</span></span><br><span class="line">    LL_USART_ClearFlag_TC(USART1);</span><br><span class="line">    LL_USART_EnableIT_TC(USART1);</span><br><span class="line">    USART1-&gt;DR = rs485.buff_tx[rs485.tx_num ++];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面的这一段代码，不是一个好例子。从函数LL_USART_ClearFlag_TC开始的一句，也就意味着，这个Modbus的代码，和MCU提供出的固件库耦合在一起写了。此处的代码，显然违反了这一原则。Modbus作为高层模块，此处对MCU固件库的API进行了依赖。对于这种将硬件相关的代码与功能耦合在一起的软件架构，在本文中，我们姑且称之为“耦合架构”；而要追求的，是将隔离硬件相关的软件架构，称之为“隔离架构”。接下来，我们将详细对比，耦合架构和隔离架构各自的特征。</p>
@@ -377,10 +379,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AVM</a>
               </li>
              
@@ -389,11 +387,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -402,6 +396,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">目标检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
               </li>
              
               <li class="article-tag-list-item">
