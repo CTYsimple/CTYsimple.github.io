@@ -152,6 +152,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-DMPR论文解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/11/DMPR%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">DMPR论文解析</a>
+    </h1>
+  
+
+        
+        <a href="/2021/10/11/DMPR%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2021-10-10T17:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="DMPR论文：DMPR-PS-A-NOVEL-APPROACH-FOR-PARKINGSLOT-DETECTION"><a href="#DMPR论文：DMPR-PS-A-NOVEL-APPROACH-FOR-PARKINGSLOT-DETECTION" class="headerlink" title="DMPR论文：DMPR-PS A NOVEL APPROACH FOR PARKINGSLOT DETECTION"></a>DMPR论文：DMPR-PS A NOVEL APPROACH FOR PARKINGSLOT DETECTION</h1><p>这篇论文的思路很巧妙，是同济大学在2019年做的一些工作，数据集使用的是ps2.0<br>我写的一些初步解析可以下载：<a href="/download/DMPR1.pdf">解析</a><br>论文原文下载：<a href="/download/DMPR.pdf">原文</a><br>其实现在车位识别还是分成三个大方向<br>一是传统的超声波检测，这种方法使用的工况还是有局限性的，必须要在前后有障碍物的时候才行<br>二是采用视觉检测，这种方法也存在许多局限，比如说车位线不清晰的情况，还有没有车位线的情况。<br>视觉这里面还有很多种思路，比如说采用语义分割来对地面进行识别，还有比如说采用目标检测的方法，不管是YOLO还是RCNN系列或者SSD，检测车位入口的角点来构成车位。</p>
+        
+          <a class="article-more-a" href="/2021/10/11/DMPR%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/11/DMPR%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-自动驾驶--小小思考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -832,112 +897,6 @@
 
 
   
-    <article id="post-Linux中的软连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/27/Linux%E4%B8%AD%E7%9A%84%E8%BD%AF%E8%BF%9E%E6%8E%A5/">Linux</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/27/Linux%E4%B8%AD%E7%9A%84%E8%BD%AF%E8%BF%9E%E6%8E%A5/" class="archive-article-date">
-  	<time datetime="2019-11-26T17:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Linux-软连接的使用"><a href="#Linux-软连接的使用" class="headerlink" title="Linux 软连接的使用"></a>Linux 软连接的使用</h1><p>软连接是Linux中一个常用命令，它的功能是为某一个文件在另外一个位置建立一个同不的链接。<br>具体用法是：ln -s 源文件 目标文件。<br>当 我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在其它的 目录下用ln命令链接（link）就可以，不必重复的占用磁盘空间。<br>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `-s ``/usr/local/mysql/bin/mysql` `/usr/binL</span><br></pre></td></tr></table></figure>
-
-<p>这样我们就对&#x2F;usr&#x2F;bin目录下的mysql命令创建了软连接 L</p>
-<p>【硬连接】<br>硬连接指通过索引节点来进行连接。在Linux的文件系统中，保存在磁盘分区中的文件不管是什么类型都给它分配一个编号，称为索引节点号(Inode Index)。在Linux中，多个文件名指向同一索引节点是存在的。一般这种连接就是硬连接。硬连接的作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止“误删”的功能。其原因如上所述，因为对应该目录的索引节点有一个以上的连接。只删除一个连接并不影响索引节点本身和其它的连接，只有当最后一个连接被删除后，文件的数据块及目录的连接才会被释放。也就是说，文件真正删除的条件是与之相关的所有硬连接文件均被删除。</p>
-<p>【软连接】<br>另外一种连接称之为符号连接（Symbolic Link），也叫软连接。软链接文件有类似于Windows的快捷方式。它实际上是一个特殊的文件。在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。</p>
-<p><strong>使用方式</strong></p>
-<p>创建软链接</p>
-<p>ln  -s [源文件或目录] [目标文件或目录]</p>
-<p>例：</p>
-<p>当前路径创建test 引向&#x2F;var&#x2F;www&#x2F;test 文件夹 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `–s ``/var/www/test` `test</span><br></pre></td></tr></table></figure>
-
-<p>创建&#x2F;var&#x2F;test 引向&#x2F;var&#x2F;www&#x2F;test 文件夹 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `–s ``/var/www/test`  `/var/test</span><br></pre></td></tr></table></figure>
-
-<p>删除软链接</p>
-<p>和删除普通的文件是一样的，删除都是使用rm来进行操作</p>
-<p>例：</p>
-<p>删除test</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm` `–rf ``test</span><br></pre></td></tr></table></figure>
-
-<p>修改软链接</p>
-<p>ln –snf  [新的源文件或目录] [目标文件或目录]</p>
-<p>这将会修改原有的链接地址为新的地址</p>
-<p>例如：</p>
-<p>创建一个软链接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `–s ``/var/www/test`  `/var/test</span><br></pre></td></tr></table></figure>
-
-<p>修改指向的新路径</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `–snf ``/var/www/test1`  `/var/test</span><br></pre></td></tr></table></figure>
-
-<p><strong>常用参数：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">　　-f : 链结时先将与 dist 同档名的档案删除</span><br><span class="line">　　-d : 允许系统管理者硬链结自己的目录</span><br><span class="line">　　-i : 在删除与 dist 同档名的档案时先进行询问</span><br><span class="line">　　-n : 在进行软连结时，将 dist 视为一般的档案</span><br><span class="line">　　-s : 进行软链结(symbolic link)</span><br><span class="line">　　-v : 在连结之前显示其档名</span><br><span class="line">　　-b : 将在链结时会被覆写或删除的档案进行备份</span><br><span class="line">　　-S SUFFIX : 将备份的档案都加上 SUFFIX 的字尾</span><br><span class="line">　　-V METHOD : 指定备份的方式</span><br><span class="line">　　--help : 显示辅助说明</span><br><span class="line">　　--version : 显示版本</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/27/Linux%E4%B8%AD%E7%9A%84%E8%BD%AF%E8%BF%9E%E6%8E%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -952,7 +911,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 TY-Chen
+    		&copy; 2024 TY-Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1043,11 +1002,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+                <a href="javascript:void(0)" class="js-tag color2">数字图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1055,7 +1010,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数字图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color4">AVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
               </li>
              
               <li class="article-tag-list-item">

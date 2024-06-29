@@ -152,6 +152,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MOD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/06/20/MOD/">移动目标侦测</a>
+    </h1>
+  
+
+        
+        <a href="/2024/06/20/MOD/" class="archive-article-date">
+  	<time datetime="2024-06-20T10:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="移动目标侦测：思考录"><a href="#移动目标侦测：思考录" class="headerlink" title="移动目标侦测：思考录"></a>移动目标侦测：思考录</h1><p>本篇章是移动目标侦测的研究笔记，来源于实际项目，记录整个过程的思考和历程。并解此对计算机视觉领域的部分前瞻性工作进行介绍。本章节栏目会持续更新，并详细介绍整个体系的知识，对后来的研究者提供一个研究基线，帮助开发者选择使用不同的算法来适配不同的项目需求。</p>
+<h2 id="移动目标侦测的概念"><a href="#移动目标侦测的概念" class="headerlink" title="移动目标侦测的概念"></a>移动目标侦测的概念</h2><p>移动目标侦测所机器视觉体系下的一个子分支。MOD (Motion Detection or Moving Object Detection )称之为运动侦测，移动侦测。例如，在泊车时，周围有人或物体经过探测区域被检测到给驾驶员声音和视觉提醒，移动物体会被黄框标示，提醒驾驶员注意。被检测到的物体必须是移动物的，它不检测静止的物体。此外，移动目标侦测也常用于监控领域，当画面中有移动物体时触发录制或者拍照，这个在家庭监控中非常常见。<br>总之，移动目标侦测的目标是检测画面中是否有移动的物体，不管移动的东西是什么类别。实际上，移动目标检测的应用还和相机的运动状态有关，相机静止时和相机运动的时候，移动目标侦测的难度大大不同。相机静止状态时，相机位姿没有移动，背景也基本上是固定的，此时使用帧差法或者光流法都可以起到比较好的效果，或者使用背景建模的方法都可以起到比较好的效果。但是，相机处于运动状态时，这些算法的准确率都大打折扣，基本上都不能使用了，背景变化得稍微迅速一点，立刻就会产生许多误报。<br>很多机器视觉专业或者计算机视觉专业的同僚乍一看觉得，这个任务很简单(简单的原因是大家都觉得目标检测算法已经相当成熟)，其实最开始我也是这样认为的。但是仔细一想，发现问题并不简单。移动目标，并没有指定目标是什么，也就是它拥有无限的类别，无限的场景；其次，相机的运动是完全无规律的；再有，此类算法一般都有端侧的部署需求，神经网络在设计时就要考虑适配端侧的机器，后续的部署量化更是需要芯片厂的工具链支持，难以在短时间内把工程优化到可产品级。</p>
+<p>​
+        
+          <a class="article-more-a" href="/2024/06/20/MOD/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字图像处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/06/20/MOD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-嵌入式软件架构的六个步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -815,71 +893,6 @@
 
 
   
-    <article id="post-DMPR论文解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/11/DMPR%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">DMPR论文解析</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/11/DMPR%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2021-10-10T17:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="DMPR论文：DMPR-PS-A-NOVEL-APPROACH-FOR-PARKINGSLOT-DETECTION"><a href="#DMPR论文：DMPR-PS-A-NOVEL-APPROACH-FOR-PARKINGSLOT-DETECTION" class="headerlink" title="DMPR论文：DMPR-PS A NOVEL APPROACH FOR PARKINGSLOT DETECTION"></a>DMPR论文：DMPR-PS A NOVEL APPROACH FOR PARKINGSLOT DETECTION</h1><p>这篇论文的思路很巧妙，是同济大学在2019年做的一些工作，数据集使用的是ps2.0<br>我写的一些初步解析可以下载：<a href="/download/DMPR1.pdf">解析</a><br>论文原文下载：<a href="/download/DMPR.pdf">原文</a><br>其实现在车位识别还是分成三个大方向<br>一是传统的超声波检测，这种方法使用的工况还是有局限性的，必须要在前后有障碍物的时候才行<br>二是采用视觉检测，这种方法也存在许多局限，比如说车位线不清晰的情况，还有没有车位线的情况。<br>视觉这里面还有很多种思路，比如说采用语义分割来对地面进行识别，还有比如说采用目标检测的方法，不管是YOLO还是RCNN系列或者SSD，检测车位入口的角点来构成车位。</p>
-        
-          <a class="article-more-a" href="/2021/10/11/DMPR%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/11/DMPR%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -894,7 +907,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 TY-Chen
+    		&copy; 2024 TY-Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -985,11 +998,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+                <a href="javascript:void(0)" class="js-tag color2">数字图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -997,7 +1006,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数字图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color4">AVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
               </li>
              
               <li class="article-tag-list-item">
