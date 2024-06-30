@@ -16,7 +16,7 @@
 <meta property="og:description" content="移动目标侦测：思考录本篇章是移动目标侦测的研究笔记，来源于实际项目，记录整个过程的思考和历程。并解此对计算机视觉领域的部分前瞻性工作进行介绍。本章节栏目会持续更新，并详细介绍整个体系的知识，对后来的研究者提供一个研究基线，帮助开发者选择使用不同的算法来适配不同的项目需求。 移动目标侦测的概念移动目标侦测所机器视觉体系下的一个子分支。MOD (Motion Detection or Moving O">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-20T10:05:08.000Z">
-<meta property="article:modified_time" content="2024-06-29T11:37:08.535Z">
+<meta property="article:modified_time" content="2024-06-30T13:35:55.925Z">
 <meta property="article:author" content="TY-Chen">
 <meta property="article:tag" content="数字图像处理">
 <meta name="twitter:card" content="summary">
@@ -176,13 +176,15 @@
         <h1 id="移动目标侦测：思考录"><a href="#移动目标侦测：思考录" class="headerlink" title="移动目标侦测：思考录"></a>移动目标侦测：思考录</h1><p>本篇章是移动目标侦测的研究笔记，来源于实际项目，记录整个过程的思考和历程。并解此对计算机视觉领域的部分前瞻性工作进行介绍。本章节栏目会持续更新，并详细介绍整个体系的知识，对后来的研究者提供一个研究基线，帮助开发者选择使用不同的算法来适配不同的项目需求。</p>
 <h2 id="移动目标侦测的概念"><a href="#移动目标侦测的概念" class="headerlink" title="移动目标侦测的概念"></a>移动目标侦测的概念</h2><p>移动目标侦测所机器视觉体系下的一个子分支。MOD (Motion Detection or Moving Object Detection )称之为运动侦测，移动侦测。例如，在泊车时，周围有人或物体经过探测区域被检测到给驾驶员声音和视觉提醒，移动物体会被黄框标示，提醒驾驶员注意。被检测到的物体必须是移动物的，它不检测静止的物体。此外，移动目标侦测也常用于监控领域，当画面中有移动物体时触发录制或者拍照，这个在家庭监控中非常常见。<br>总之，移动目标侦测的目标是检测画面中是否有移动的物体，不管移动的东西是什么类别。实际上，移动目标检测的应用还和相机的运动状态有关，相机静止时和相机运动的时候，移动目标侦测的难度大大不同。相机静止状态时，相机位姿没有移动，背景也基本上是固定的，此时使用帧差法或者光流法都可以起到比较好的效果，或者使用背景建模的方法都可以起到比较好的效果。但是，相机处于运动状态时，这些算法的准确率都大打折扣，基本上都不能使用了，背景变化得稍微迅速一点，立刻就会产生许多误报。<br>很多机器视觉专业或者计算机视觉专业的同僚乍一看觉得，这个任务很简单(简单的原因是大家都觉得目标检测算法已经相当成熟)，其实最开始我也是这样认为的。但是仔细一想，发现问题并不简单。移动目标，并没有指定目标是什么，也就是它拥有无限的类别，无限的场景；其次，相机的运动是完全无规律的；再有，此类算法一般都有端侧的部署需求，神经网络在设计时就要考虑适配端侧的机器，后续的部署量化更是需要芯片厂的工具链支持，难以在短时间内把工程优化到可产品级。</p>
 <p>​	<span id="more"></span></p>
-<h2 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h2><h3 id="难点1"><a href="#难点1" class="headerlink" title="难点1"></a>难点1</h3><p>动目标侦测有无穷的类别，无论是人，车，宠物还是移动的异型物体，都是移动目标侦测的目标，所以这是一个无法穷尽的长尾问题，总有无法想象到的特殊工况，并且，很多特殊工况出现的频率还不低。如果使用神经网络，那么，如果这个任务是检测，检测的目标是无穷尽的，同时还需要进行单目深度估计来判断目标的距离。如果这个任务是分割，那么分割后的结果有多种，如何判断它正在移动？如果使用的是光流，如何区分真正的背景和前景呢？</p>
-<h3 id="难点2"><a href="#难点2" class="headerlink" title="难点2"></a>难点2</h3><p>移动目标侦测有无穷的场景，即背景是无穷的，机器放置的位置可能在任何地方，背景也可以完全不一样。诸如站在树木的影子下的静态物体，它本身是没有动的，但是影子在其表面运动，也可能会被识别成运动的物体。</p>
-<h3 id="难点3"><a href="#难点3" class="headerlink" title="难点3"></a>难点3</h3><p>相机静止状态下，算法的实现相对简单，但是相机运动下的时候，传统算法的背景建模是个问题，从图像中恢复相机的运动也是个问题。相机运动，也意味着背景和前景都在运动，背景建模就不再具有较高的置信度，同时也更难区分出哪个是背景，哪个是前景。同时，因为算法本身是以灰度和数学分布出发来设计的，导致需要无限的规则来滤除，很难达到一个良好的效果。采用光流，甚至是深度学习的光流，都有可能误判前景和背景。</p>
-<h3 id="难点4"><a href="#难点4" class="headerlink" title="难点4"></a>难点4</h3><p>如果使用的是鱼眼相机的话，将会带来有很大畸变的图像，由于成像方式的特殊性，超过一定距离后远处的物体会变得非常小，以至于很难检测到。</p>
-<h2 id="方法与体系"><a href="#方法与体系" class="headerlink" title="方法与体系"></a>方法与体系</h2><p>1-传统背景建模与图像处理<br>2-光流&#x2F;深度学习光流<br>SEA-RAFT 一种RAFT的改进算法</p>
-<p>3-目标检测与接地点假设<br>目标检测+接地点假设<br>4-视频理解<br>SlowFast网络<br>一种用于计算机视觉视频理解的双模CNN，通过并行的慢速和快速流处理视频帧序列，分别捕捉静态和动态信息。<br>5-大模型<br>神经网络在移动目标侦测的应用</p>
-<h2 id="部署的难点"><a href="#部署的难点" class="headerlink" title="部署的难点"></a>部署的难点</h2><p>实际项目遇到的问题<br>1- 鱼眼相机畸变很大，远处的人在像中所占的比例很小<br>2- 鱼眼相机的光轴朝向地面，远处的物体在像中的上部<br>3- 如果在单线程中处理，算法就要足够快(目前是在单线程中，下采样8倍)<br>4- 如果使用神经网络：8155的SNPE部分算子不支持，网络部署困难，开发难度大<br>5- 如果使用大一些的模型，即使使用SNPE进行加速，仍然会出现速度较慢的问题。<br>6- 如果使用传统算法，背景变化过快会导致误报。</p>
+<h2 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h2><h3 id="类别无穷"><a href="#类别无穷" class="headerlink" title="类别无穷"></a>类别无穷</h3><p>动目标侦测有无穷的类别，无论是人，车，宠物还是移动的异型物体，都是移动目标侦测的目标，所以这是一个无法穷尽的长尾问题，总有无法想象到的特殊工况，并且，很多特殊工况出现的频率还不低。如果使用神经网络，那么，如果这个任务是检测，检测的目标是无穷尽的，同时还需要进行单目深度估计来判断目标的距离。如果这个任务是分割，那么分割后的结果有多种，如何判断它正在移动？如果使用的是光流，如何区分真正的背景和前景呢？</p>
+<h3 id="背景无穷"><a href="#背景无穷" class="headerlink" title="背景无穷"></a>背景无穷</h3><p>移动目标侦测有无穷的场景，即背景是无穷的，机器放置的位置可能在任何地方，背景也可以完全不一样。诸如站在树木的影子下的静态物体，它本身是没有动的，但是影子在其表面运动，也可能会被识别成运动的物体。</p>
+<h3 id="相机运动未知"><a href="#相机运动未知" class="headerlink" title="相机运动未知"></a>相机运动未知</h3><p>相机静止状态下，算法的实现相对简单，但是相机运动下的时候，传统算法的背景建模是个问题，从图像中恢复相机的运动也是个问题。相机运动，也意味着背景和前景都在运动，背景建模就不再具有较高的置信度，同时也更难区分出哪个是背景，哪个是前景。同时，因为算法本身是以灰度和数学分布出发来设计的，导致需要无限的规则来滤除，很难达到一个良好的效果。采用光流，甚至是深度学习的光流，都有可能误判前景和背景。</p>
+<h3 id="小目标"><a href="#小目标" class="headerlink" title="小目标"></a>小目标</h3><p>如果使用的是鱼眼相机的话，将会带来有很大畸变的图像，由于成像方式的特殊性，超过一定距离后远处的物体会变得非常小，以至于很难检测到。</p>
+<h3 id="部署-x2F-工程化复杂程度较高"><a href="#部署-x2F-工程化复杂程度较高" class="headerlink" title="部署&#x2F;工程化复杂程度较高"></a>部署&#x2F;工程化复杂程度较高</h3><p>实际项目遇到的问题（包括但不限于）<br>1- 鱼眼相机畸变很大，远处的人在像中所占的比例很小<br>2- 鱼眼相机的光轴朝向地面，远处的物体在像中的上部<br>3- 如果在单线程中处理，算法就要足够快。<br>4- 如果使用神经网络：例如高通的8155的SNPE部分算子不支持，网络部署需要大量开发时间。<br>5- 如果使用大一些的模型，即使使用SNPE进行加速，仍然会出现速度较慢的问题。<br>6- 如果使用传统算法，背景变化过快会导致误报。</p>
+<h2 id="方法与体系"><a href="#方法与体系" class="headerlink" title="方法与体系"></a>方法与体系</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1-传统背景建模与图像处理:高斯背景建模及其衍生算法系列</span><br><span class="line">2-光流/深度学习光流 例如RAFT/  SEA-RAFT</span><br><span class="line">3-目标检测与接地点假设</span><br><span class="line">4-视频理解 例如SlowFast网络/ 双流卷积等利用双模CNN，通过并行的慢速和快速流处理视频帧	序列，分别捕捉静态和动态信息。</span><br><span class="line">5-大模型</span><br><span class="line">6-设备存在里程计的情况下，可以使用对极几何关系判断物体是否移动。</span><br><span class="line">7-基于特征点/RANSAC方法区分前景背景，分析是否移动</span><br></pre></td></tr></table></figure>
+<h2 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h2><p>相机移动是个大问题。为了将问题简化并一一解决，可以直接对相机静止和相机运动这两种情况进行分而治之，对于动态的相机来说，对移动目标进行侦测是比较困难的事情，但是对于静止的相机，侦测移动目标相对来说就容易很多，因为背景相对而言的稳定，可以采用的算法和处理手段更多。</p>
+<h3 id="相机静止时"><a href="#相机静止时" class="headerlink" title="相机静止时"></a>相机静止时</h3><p>背景稳定，则可以采用基于背景建模的方法来侦测是否有目标移动。相关的算法有高斯模型，混合高斯模型，带年龄的混合高斯模型等等。</p>
+<h3 id="相机移动时"><a href="#相机移动时" class="headerlink" title="相机移动时"></a>相机移动时</h3><p>背景不再稳定，相机的下一时刻的位姿完全无法确定。此时基于背景建模的方法效果大打折扣，或者基本无法使用。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
       
 
@@ -216,8 +218,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2022/11/11/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%9A%84%E5%85%AD%E4%B8%AA%E6%AD%A5%E9%AA%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">软件架构</div>
+    <a href="/2024/03/21/GPU%E7%BC%96%E7%A8%8B%E4%BD%BF%E7%94%A8OpenGL%E5%AF%B9%E9%B1%BC%E7%9C%BC%E5%9B%BE%E5%83%8F%E5%8E%BB%E7%95%B8%E5%8F%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GPU编程：OpenGL-图像处理算法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -359,15 +361,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">目标检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">目标检测</a>
               </li>
              
               <li class="article-tag-list-item">
