@@ -152,6 +152,154 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-鱼眼相机环视系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/11/%E9%B1%BC%E7%9C%BC%E7%9B%B8%E6%9C%BA%E7%8E%AF%E8%A7%86%E7%B3%BB%E7%BB%9F/">鱼眼相机环视系统</a>
+    </h1>
+  
+
+        
+        <a href="/2021/12/11/%E9%B1%BC%E7%9C%BC%E7%9B%B8%E6%9C%BA%E7%8E%AF%E8%A7%86%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
+  	<time datetime="2021-12-11T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="鱼眼相机环视系统"><a href="#鱼眼相机环视系统" class="headerlink" title="鱼眼相机环视系统"></a>鱼眼相机环视系统</h1><p>此段笔记记录在对鱼眼广角相机标定、拼接的过程中遇到的问题和解决思路，并辅以相关的基础知识备忘。<br>源代码可以下载如下两个压缩包,1用锁实现了同步、2只是简单拼接。两者方法思路基本都是一致的，都可以作为了解原理的起点：<br><a href="/download/surround1.zip">点击下载代码 1</a><br><a href="/download/surround2.zip">点击下载代码 2</a><br>标定板的制作参考如下：<br>Camera Calibration Pattern Generator – calib.io<br><a target="_blank" rel="noopener" href="https://calib.io/pages/camera-calibration-pattern-generator">https://calib.io/pages/camera-calibration-pattern-generator</a><br>可以使用这个小软件来制作标定板</p>
+<h2 id="概念整理"><a href="#概念整理" class="headerlink" title="概念整理"></a>概念整理</h2><p>先理清两个概念：<br>1、畸变系数</p>
+<p>畸变系数，畸变主要分为径向畸变和切向畸变。<br>①径向畸变，沿着透镜半径方向分布的畸变；<br>产生原因：是由透镜质量引起的，光线在远离透镜中心的地方比靠近中心的地方更加弯曲。径向畸变主要包括桶形畸变和枕形畸变两种。<br>就好比把一个直线拉弯了，哈哈镜都玩过，一个原理<br>产生的原因是透镜形状和质量引起的，一般来说市场上的鱼眼相机是桶形畸变<br>②切向畸变，<br>切向畸变是由于透镜本身与相机传感器平面（像平面）或图像平面不平行而产生的。 切向畸变主要发生在相机传感器和镜头不平行的情况下；因为有夹角，所以光透过镜头传到图像传感器上时，成像位置发生了变化。</p>
+<p>[k1, k2, p1, p2, k3]<br>如果是使用的opencv的接口做的标定的话，那么畸变向量的顺序是这个样子的<br>其中k指的是径向畸变radial distortion<br>p指的是切向畸变TangentialDistortion</p>
+        
+          <a class="article-more-a" href="/2021/12/11/%E9%B1%BC%E7%9C%BC%E7%9B%B8%E6%9C%BA%E7%8E%AF%E8%A7%86%E7%B3%BB%E7%BB%9F/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/12/11/%E9%B1%BC%E7%9C%BC%E7%9B%B8%E6%9C%BA%E7%8E%AF%E8%A7%86%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Process_description" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/15/Process_description/">车位识别算法子模块</a>
+    </h1>
+  
+
+        
+        <a href="/2021/11/15/Process_description/" class="archive-article-date">
+  	<time datetime="2021-11-15T01:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="该脚本用于对局部特征子图进行处理"><a href="#该脚本用于对局部特征子图进行处理" class="headerlink" title="该脚本用于对局部特征子图进行处理"></a>该脚本用于对局部特征子图进行处理</h1><p>参考广汽研究院发表的论文复现了其对应的算法并做了改进，由于在停车位识别方面，传统图像处理的算法效果并不好，真的要使用，还是要采用带有深度学习的方案</p>
+<h2 id="背景技术"><a href="#背景技术" class="headerlink" title="背景技术"></a>背景技术</h2><p>这一章由于其特殊性和数学推导的复杂，很难写得很细。我在此只叙述实现的一些方法和一些意见。具体的工程，在附件中有多份深度学习的源码，可以研究和使用。<br>传统的方案是采取直线检测来做的，在AVM图像里，用二值化之后利用霍夫变换来对直线进行检测，可能还会用到聚类算法等，最后来拟合构成车位。<br>但是这一大类利用传统图像处理的方法准确率都偏低，很容易漏检或者混检。</p>
+<p>利用深度学习的方法，缺点是必须要使用带算力的SoC，价格一定是相对昂贵的，不管是GPU还是NPU，严重依赖硬件加速，即使对模型进行量化压缩，想要高效又准确也是个难题。<br>并且各家都在主推自己的工具链，想要在激烈的市场竞争中分得最大的这一块蛋糕，地平线有天工开物，黑芝麻有华山，TI有TIDL，英伟达有TensorRT和CUDA等等。</p>
+<p>深度学习的效果，经过实际的验证，确实比传统图像算法优秀得多，以往的方法都是使用人手工精心设计的特征，来进行提取和处理，<br>比如说利用频谱特征、小波变换、SIFT、ORB、HOG等，但不是所有问题都可以用深度学习来解决！<br>深度学习本质上强大在非线性拟合能力，用一个三层的神经网络能拟合出任意的函数，但具体问题具体分析，它并没有那么“智能”。</p>
+<p>目前已有的空闲车位识别技术可以分为基于超声波雷达探测，基于视觉的空闲车位识别以及超声波与视觉相融合3 种基本模式。<br>得益于360°环视成像技术的成熟发展，基于环视图像的全视觉空闲车位线识别方法较为成熟了。<br>在其他学者既已提出的众多研究车位线自动识别方法中，可划分为依据线检测与依据角点检测定位车位两种基本思路。</p>
+        
+          <a class="article-more-a" href="/2021/11/15/Process_description/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AVM</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/15/Process_description/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Cpp_advanced_Lint" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -727,191 +875,6 @@
 
 
   
-    <article id="post-Python装饰器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/07/Python%E8%A3%85%E9%A5%B0%E5%99%A8/">装饰器</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/07/Python%E8%A3%85%E9%A5%B0%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-08-07T03:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h1><p>这个概念就顾名思义：是用来装饰一个东西的作用</p>
-<p>例如一个函数<code>fun</code>想在它函数外面实现一些额外的功能，就可以用装饰器</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fun1</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;now_is func1&quot;</span>)</span><br><span class="line">例如我想在fun1前后都<span class="built_in">print</span>某段话，就需要在它的前后都<span class="built_in">print</span>，这个很麻烦，每次都要这么干，怎么弄呢？用个装饰器</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">DP_print</span>(<span class="params">fun1</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;fun1_start_now&quot;</span>)</span><br><span class="line">        fun1()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;fun1_end_now&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"><span class="comment"># 看一下现象</span></span><br><span class="line">fun1 = DP_print(fun1)</span><br><span class="line"></span><br><span class="line">fun1()</span><br><span class="line"><span class="comment"># 可以很明显看到这样的效果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在python里有个语法糖--提供了一个装饰器</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">DP_print</span>(<span class="params">fun1</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>(<span class="params">*args,**kwargs</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;fun1_start_now&quot;</span>)</span><br><span class="line">        fun1(*args,**kwargs)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;fun1_end_now&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@DP_print</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fun1</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;TEST&quot;</span>, x, y)</span><br><span class="line"></span><br><span class="line">fun1(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 可以测试得到同样的结果，前后都输出了相应的语句</span></span><br></pre></td></tr></table></figure>
-
-<p>装饰器说简单一点就是在<em><strong>不改变原来的函数的结构</strong></em>的情况下，去给函数的前面和后面增添一些功能，例如说我想知道某个函数的使用时间，那么就可以写一个装饰器，对于其他的函数我也同样可以使用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># 定义装饰器</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">time_calc</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        start_now_T = time.time()</span><br><span class="line">        f = func(*args, **kwargs)</span><br><span class="line">        exec_T = time.time() - start_now_T</span><br><span class="line">        <span class="built_in">print</span>(exec_T)</span><br><span class="line">        <span class="keyword">return</span> f</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用装饰器</span></span><br><span class="line"><span class="meta">@time_calc</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">n</span>):</span><br><span class="line">    pic_sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span> * n):</span><br><span class="line">        pic_sum = pic_sum + <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(pic_sum)</span><br><span class="line">    <span class="keyword">return</span> pic_sum</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sss = add(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小tips</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/07/Python%E8%A3%85%E9%A5%B0%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-GDB调试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/27/GDB%E8%B0%83%E8%AF%95/">GDB</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/27/GDB%E8%B0%83%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2019-12-26T17:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h1><p>编译程序时需要加上-g，之后才能用gdb进行调试：gcc -g main.c -o main</p>
-<p>gdb中命令：</p>
-<p>回车键：重复上一命令</p>
-<p>（gdb）help：查看命令帮助，具体命令查询在gdb中输入help + 命令,简写h</p>
-<p>（gdb）run：重新开始运行文件（run-text：加载文本文件，run-bin：加载二进制文件）,简写r</p>
-<p>（gdb）start：单步执行，运行程序，停在第一执行语句</p>
-<p>（gdb）list：查看原代码（list-n,从第n行开始查看代码。list+ 函数名：查看具体函数）,简写l</p>
-<p>（gdb）set：设置变量的值</p>
-<p>（gdb）next：单步调试（逐过程，函数直接执行）,简写n</p>
-<p>（gdb）step：单步调试（逐语句：跳入自定义函数内部执行）,简写s</p>
-<p>（gdb）backtrace：查看函数的调用的栈帧和层级关系,简写bt</p>
-<p>（gdb）frame：切换函数的栈帧,简写f</p>
-<p>（gdb）info：查看函数内部局部变量的数值,简写i</p>
-<p>（gdb）finish：结束当前函数，返回到函数调用点</p>
-<p>（gdb）continue：继续运行,简写c</p>
-<p>（gdb）print：打印值及地址,简写p</p>
-<p>（gdb）quit：退出gdb,简写q</p>
-<p>（gdb）break+num：在第num行设置断点,简写b</p>
-<p>（gdb）info breakpoints：查看当前设置的所有断点</p>
-<p>（gdb）delete breakpoints num：删除第num个断点,简写d</p>
-<p>（gdb）display：追踪查看具体变量值</p>
-<p>（gdb）undisplay：取消追踪观察变量</p>
-<p>（gdb）watch：被设置观察点的变量发生修改时，打印显示</p>
-<p>（gdb）i watch：显示观察点</p>
-<p>（gdb）enable breakpoints：启用断点</p>
-<p>（gdb）disable breakpoints：禁用断点</p>
-<p>（gdb）x：查看内存x&#x2F;20xw 显示20个单元，16进制，4字节每单元</p>
-<p>（gdb）run argv[1] argv[2]：调试时命令行传参</p>
-<p>（gdb）set follow-fork-mode child#Makefile项目管理：选择跟踪父子进程（fork()）</p>
-<p>core文件：先用$ ulimit -c 1024 开启core，当程序出错会自动生成core文件。调试时 gdb a.out core</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/27/GDB%E8%B0%83%E8%AF%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -926,7 +889,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2024 TY-Chen
+    		&copy; 2025 TY-Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1013,11 +976,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tools</a>
+                <a href="javascript:void(0)" class="js-tag color2">数字图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数字图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">

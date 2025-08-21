@@ -1,0 +1,337 @@
+================================================================================
+======================== 优化版系统性能监控报告 ================================
+生成时间: Wed Aug 13 10:59:57 AM CST 2025
+================================================================================
+
+1. 系统基本信息
+================
+主机名: chentaoyang
+内核版本: 6.8.0-64-generic
+系统架构: x86_64
+系统版本:
+Distributor ID:	Ubuntu
+Description:	Ubuntu 22.04.5 LTS
+Release:	22.04
+Codename:	jammy
+
+2. 网络信息
+============
+本地IP地址:
+192.168.1.101 
+网络接口信息:
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    inet 127.0.0.1/8 scope host lo
+2: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    inet 192.168.1.101/24 brd 192.168.1.255 scope global dynamic noprefixroute enp3s0
+
+3. CPU详细信息
+===============
+CPU核心数量:
+  物理核心数: 4 (物理处理单元数量)
+  逻辑核心数: 4 (包括超线程的核心数)
+  在线核心数: 4 (当前可用的处理核心)
+CPU型号信息:
+Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz
+CPU频率信息:
+Model name:                           Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz
+CPU max MHz:                          3500.0000
+CPU min MHz:                          800.0000
+
+4. CPU使用情况详解
+==================
+CPU使用率参数说明:
+  %us - 用户空间CPU使用百分比 (User Time): 用户进程消耗的CPU时间百分比
+  %sy - 内核空间CPU使用百分比 (System Time): 系统内核消耗的CPU时间百分比
+  %ni - 用户空间优先级调整CPU使用百分比 (Nice Time): 改变过优先级的用户进程CPU时间百分比
+  %id - 空闲CPU百分比 (Idle Time): CPU处于空闲状态的时间百分比
+  %wa - 等待输入输出CPU百分比 (IO Wait): CPU等待IO完成的时间百分比
+  %hi - 硬件中断CPU百分比 (Hardware Interrupts): 处理硬件中断消耗的CPU时间百分比
+  %si - 软件中断CPU百分比 (Software Interrupts): 处理软件中断消耗的CPU时间百分比
+  %st - 虚拟机偷取时间百分比 (Steal Time): 虚拟机被其他虚拟机偷取的CPU时间百分比
+
+当前CPU使用率 (5秒采样):
+3.3 us,  1.0 sy,  0.0 ni, 95.4 id,  0.3 wa,  0.0 hi,  0.0 si,  0.0 st
+
+各核心使用率详情:
+11:00:03 AM     all      3.05      0.00      0.76      0.00      0.00     96.19
+Average:        all      3.05      0.00      0.76      0.00      0.00     96.19
+
+5. 系统负载详解
+===============
+系统负载参数说明:
+  load average: 系统平均负载，表示单位时间内等待CPU和等待IO的平均进程数
+    第一个数值: 1分钟平均负载
+    第二个数值: 5分钟平均负载
+    第三个数值: 15分钟平均负载
+  一般来说，负载值不应超过CPU核心数
+
+系统负载平均值:
+0.63, 0.54, 0.51
+
+负载详细信息:
+0.63 0.54 0.51 2/2206 354980
+  第一列: 1分钟平均负载
+  第二列: 5分钟平均负载
+  第三列: 15分钟平均负载
+  第四列: 正在运行的内核可调度实体数量/总可调度实体数量
+  第五列: 最近创建的进程ID
+
+6. 内存信息详解
+===============
+内存参数说明:
+  MemTotal: 物理内存总量 (单位: KB)
+  MemFree: 空闲物理内存量 (单位: KB)
+  MemAvailable: 可用物理内存量 (单位: KB) - 包括可回收的缓存和缓冲区
+  Buffers: 用于文件系统缓冲的内存量 (单位: KB)
+  Cached: 用于文件系统缓存的内存量 (单位: KB)
+  SwapTotal: 交换分区总大小 (单位: KB)
+  SwapFree: 交换分区剩余大小 (单位: KB)
+
+内存使用情况:
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       8.5Gi       665Mi       157Mi       6.4Gi       6.9Gi
+Swap:          2.0Gi       1.5Gi       522Mi
+
+内存详细信息:
+MemTotal:       16335700 kB
+MemFree:          681048 kB
+MemAvailable:    7189272 kB
+Buffers:          212248 kB
+Cached:          5849460 kB
+SwapCached:        49952 kB
+Active:          8087704 kB
+Inactive:        5901300 kB
+Active(anon):    5631580 kB
+Inactive(anon):  2212784 kB
+Active(file):    2456124 kB
+Inactive(file):  3688516 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:       2097148 kB
+SwapFree:         535172 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:               852 kB
+Writeback:             0 kB
+
+7. 交换分区信息详解
+===================
+交换分区参数说明:
+  Filename: 交换分区文件或设备路径
+  Type: 交换分区类型 (partition=分区, file=文件)
+  Size: 交换分区总大小 (单位: KB)
+  Used: 已使用的交换分区大小 (单位: KB)
+  Priority: 交换分区优先级 (数值越高优先级越高)
+
+交换分区使用情况:
+Filename				Type		Size		Used		Priority
+/swapfile                               file		2097148		1561976		-2
+
+交换分区详细信息:
+Filename				Type		Size		Used		Priority
+/swapfile                               file		2097148		1561976		-2
+
+8. 磁盘信息详解
+===============
+磁盘参数说明:
+  Filesystem: 文件系统类型和设备路径
+  Size: 分区总大小
+  Used: 已使用空间大小
+  Avail: 可用空间大小
+  Use%: 空间使用百分比
+  Mounted on: 挂载点
+
+磁盘使用情况:
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.6G  2.1M  1.6G   1% /run
+/dev/sda3       916G  574G  296G  67% /
+tmpfs           7.8G  191M  7.7G   3% /dev/shm
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+/dev/sda2       512M  6.1M  506M   2% /boot/efi
+tmpfs           1.6G  1.7M  1.6G   1% /run/user/1000
+
+磁盘I/O统计参数说明:
+  rrqm/s: 每秒合并的读请求数
+  wrqm/s: 每秒合并的写请求数
+  r/s: 每秒完成的读请求数
+  w/s: 每秒完成的写请求数
+  rMB/s: 每秒读取的兆字节数
+  wMB/s: 每秒写入的兆字节数
+  avgrq-sz: 平均请求大小(扇区)
+  avgqu-sz: 平均队列长度
+  await: 平均等待时间(毫秒)
+  r_await: 读请求平均等待时间(毫秒)
+  w_await: 写请求平均等待时间(毫秒)
+  svctm: 平均服务时间(毫秒)
+  %util: 设备使用百分比
+
+磁盘I/O统计:
+Linux 6.8.0-64-generic (chentaoyang) 	08/13/2025 	_x86_64_	(4 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          21.07    0.01    0.41    0.29    0.00   78.22
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+loop0            0.00      0.00     0.00   0.00    1.00     1.21    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop1            0.00      0.00     0.00   0.00   13.13     2.91    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop10           0.00      0.01     0.00   0.00    1.00     2.81    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop11           0.00      0.00     0.00   0.00   22.36     4.80    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop12           0.00      0.00     0.00   0.00    9.29    15.62    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop13           0.00      0.00     0.00   0.00   40.58     6.94    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop14           0.00      0.11     0.00   0.00   10.12    42.13    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop15           0.00      0.00     0.00   0.00   87.05     2.76    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop16           0.00      0.00     0.00   0.00    7.14    15.11    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop17           0.00      0.04     0.00   0.00    1.91    15.01    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop18           0.00      0.26     0.00   0.00    3.28    56.32    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop2            0.00      0.00     0.00   0.00    2.77     6.90    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop3            0.00      0.00     0.00   0.00   14.67     4.56    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop4            0.00      0.03     0.00   0.00    6.43    20.64    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop5            0.00      0.00     0.00   0.00   10.20    12.41    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop6            0.00      0.00     0.00   0.00    6.59     8.38    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop7            0.00      0.00     0.00   0.00   78.58    15.42    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop8            0.00      0.00     0.00   0.00    4.04     3.78    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop9            0.01      0.13     0.00   0.00    3.98    21.23    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sda              0.58     25.27     0.23  28.39    9.02    43.20    2.41     75.04     2.46  50.54    6.73    31.12    0.00      0.00     0.00   0.00    0.00     0.00    0.78   11.07    0.03   1.04
+
+
+
+9. 进程信息详解
+===============
+进程状态说明:
+  R (Running): 正在运行或可运行
+  S (Sleeping): 可中断睡眠
+  D (Uninterruptible Sleep): 不可中断睡眠
+  T (Stopped): 停止或被追踪
+  Z (Zombie): 僵尸进程
+  X (Dead): 死进程
+
+当前运行进程数:
+  总进程数: 388 (包括标题行)
+  运行中进程数: 2
+  睡眠进程数: 326
+  僵尸进程数: 1
+
+进程状态统计:
+  Ss: 22
+  SN: 2
+  S<sl: 2
+  I<: 41
+  Sl: 135
+  Z: 1
+  S: 89
+  Ssl+: 1
+  I: 18
+  S+: 3
+  S<s: 1
+  SLl: 2
+  Sl+: 2
+  Ss+: 5
+  R+: 2
+  SNsl: 2
+  Ssl: 58
+
+占用CPU最高的5个进程:
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+cty       336288  9.2  1.2 48948048 198088 ?     Sl   Aug12  99:15 /opt/apps/com.alibabainc.dingtalk/files/7.6.45-Release.5041701/com.alibabainc.dingtalk --type=renderer --log-severity=warning --user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.120 Safari/537.36 dingtalk-win/1.0.0 nw(0.14.7) DingTalk(7.6.45-Release.5041701) Mojo/1.0.0 Native AppType(release) Channel/202100 (Linux6.8.0-64-generic7.6.45-Release.5041701) --enable-speech-input --enable-page-load-app-scheme-opt --enable-page-load-metrics --enable-print-preview --user-data-dir=/home/cty/.config/DingTalk/cache --crashpad-handler-pid=336051 --no-sandbox --autoplay-policy=no-user-gesture-required --log-file=/home/cty/.config/DingTalk/log/cef_debug.log.2025-08-12 --disable-gpu-compositing --lang=en-US --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=11 --time-ticks-at-unix-epoch=-1753667953110568 --launch-time-ticks=1321467068443 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,9038824796504477433,8403913619035040339,131072 --disable-features=BackForwardCache,CalculateNativeWinOcclusion,CrossOriginEmbedderPolicyCredentialless
+cty       335978  3.4  4.1 4797920 675924 ?      Sl   Aug12  37:04 ./com.alibabainc.dingtalk
+cty       156573  2.2  0.2 2748868 37440 ?       Sl   Aug01 379:13 /opt/kingsoft/wps-office/office6/wpscloudsvr /qingbangong /start_from=qingipc autologin
+cty       333760  1.0  2.9 1461163396 479216 ?   Sl   Aug12  11:59 /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=zh-CN --service-sandbox-type=none --dns-result-order=ipv4first --experimental-network-inspection --inspect-port=0 --crashpad-handler-pid=332488 --enable-crash-reporter=0b124995-c61e-4d9d-9fb5-0705b4568056,no_channel --user-data-dir=/home/cty/.config/Code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,17672242567298526491,2030527484601192775,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync --disable-features=CalculateNativeWinOcclusion,SpareRendererForSitePerProcess --variations-seed-version
+cty       332714  0.9  2.8 1461162552 462884 ?   Sl   Aug12  11:25 /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=zh-CN --service-sandbox-type=none --dns-result-order=ipv4first --experimental-network-inspection --inspect-port=0 --crashpad-handler-pid=332488 --enable-crash-reporter=0b124995-c61e-4d9d-9fb5-0705b4568056,no_channel --user-data-dir=/home/cty/.config/Code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,17672242567298526491,2030527484601192775,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync --disable-features=CalculateNativeWinOcclusion,SpareRendererForSitePerProcess --variations-seed-version
+
+占用内存最高的5个进程:
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+cty         6556  0.4  6.3 13883744 1030208 ?    Sl   Jul28  98:30 /snap/firefox/6565/usr/lib/firefox/firefox /home/cty/hsae_data/qnn/qnn_sdk_v2.34.0_auto_qnx/qaisw-v2.34.0.250424201103_119471-auto-qnx/docs/QNN/index.html
+cty       334029  0.0  4.4 1462832652 724388 ?   Sl   Aug12   1:07 /usr/share/code/code /home/cty/.vscode/extensions/ms-python.vscode-pylance-2025.7.1/dist/server.bundle.js --cancellationReceive=file:550c8f4967c2e5c511e17d74682f1539b3405159c5 --node-ipc --clientProcessId=333760
+cty       335978  3.4  4.1 4797920 675924 ?      Sl   Aug12  37:04 ./com.alibabainc.dingtalk
+cty       332976  0.0  2.9 1462831968 488324 ?   Sl   Aug12   0:35 /usr/share/code/code /home/cty/.vscode/extensions/ms-python.vscode-pylance-2025.7.1/dist/server.bundle.js --cancellationReceive=file:6740b191b4c48279d7413f90c65641cb5665b70cb4 --node-ipc --clientProcessId=332714
+cty       333760  1.0  2.9 1461163396 479216 ?   Sl   Aug12  11:59 /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=zh-CN --service-sandbox-type=none --dns-result-order=ipv4first --experimental-network-inspection --inspect-port=0 --crashpad-handler-pid=332488 --enable-crash-reporter=0b124995-c61e-4d9d-9fb5-0705b4568056,no_channel --user-data-dir=/home/cty/.config/Code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,17672242567298526491,2030527484601192775,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync --disable-features=CalculateNativeWinOcclusion,SpareRendererForSitePerProcess --variations-seed-version
+
+10. 系统上下文切换和中断详解
+============================
+参数说明:
+  ctxt: 上下文切换次数 - CPU从一个进程或线程切换到另一个进程或线程的次数
+  intr: 中断次数 - 系统启动后处理的中断总数
+  processes: 创建的进程数 - 系统启动后创建的进程总数
+  procs_running (r): 就绪队列中运行或等待运行的进程数
+  procs_blocked (b): 等待IO完成的进程数
+
+上下文切换和中断次数:
+  上下文切换次数: 15772018330 次
+  启动后中断次数: 9145592783 次
+
+任务队列信息:
+  就绪队列长度(r): 0, 等待IO的进程数(b): 0
+
+11. 网络连接信息详解
+===================
+网络连接统计:
+Total: 1981
+TCP:   66 (estab 34, closed 10, orphaned 0, timewait 6)
+
+Transport Total     IP        IPv6
+RAW	  1         0         1        
+UDP	  13        10        3        
+TCP	  56        48        8        
+INET	  70        58        12       
+FRAG	  0         0         0        
+
+
+活动连接数:
+  TCP连接数: 34
+  UDP连接数: 3
+
+12. 系统启动时间和运行时间
+==========================
+系统启动时间:
+         system boot  2025-07-28 09:59
+系统运行时间:
+up 2 weeks, 2 days, 1 hour
+
+13. 系统温度信息
+===============
+温度监控参数说明:
+  CPU温度: 处理器核心温度 (单位: 摄氏度°C)
+  主板温度: 主板芯片组温度 (单位: 摄氏度°C)
+  风扇转速: 散热风扇转速 (单位: RPM - 每分钟转数)
+
+硬件温度传感器信息:
+acpitz-acpi-0
+Adapter: ACPI interface
+temp1:        +27.8°C  
+temp2:        +29.8°C  
+
+coretemp-isa-0000
+Adapter: ISA adapter
+Package id 0:  +43.0°C  (high = +80.0°C, crit = +100.0°C)
+Core 0:        +43.0°C  (high = +80.0°C, crit = +100.0°C)
+Core 1:        +41.0°C  (high = +80.0°C, crit = +100.0°C)
+Core 2:        +42.0°C  (high = +80.0°C, crit = +100.0°C)
+Core 3:        +40.0°C  (high = +80.0°C, crit = +100.0°C)
+
+
+14. 详细CPU统计信息
+==================
+CPU时间分配参数说明:
+  cpu: 所有CPU核心的统计信息
+  user: 用户态时间 (单位: jiffies)
+  nice: 低优先级用户态时间 (单位: jiffies)
+  system: 内核态时间 (单位: jiffies)
+  idle: 空闲时间 (单位: jiffies)
+  iowait: IO等待时间 (单位: jiffies)
+  irq: 硬件中断时间 (单位: jiffies)
+  softirq: 软件中断时间 (单位: jiffies)
+  steal: 虚拟机偷取时间 (单位: jiffies)
+  guest: 虚拟CPU为客户操作系统服务的时间 (单位: jiffies)
+
+CPU时间分配:
+cpu  115937921 37501 2233741 430455339 1590916 0 27659 0 0 0
+
+15. I/O等待和队列信息
+====================
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          21.07    0.01    0.41    0.29    0.00   78.22
+
+================================================================================
+优化版系统性能监控完成
+报告已保存到: optimized_system_performance_20250813_105957.log
+================================================================================
