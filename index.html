@@ -229,6 +229,86 @@
 
 
   
+    <article id="post-QNN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/08/21/QNN/">高通8775 QNN部署端到端头部位姿估计模型</a>
+    </h1>
+  
+
+        
+        <a href="/2025/08/21/QNN/" class="archive-article-date">
+  	<time datetime="2025-08-20T17:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个专栏将介绍如何使用高通的QNN SDK部署一个自己训练的端到端头部位姿估计模型。我使用的平台是高通的汽车级8775处理器，是面向下一代的舱驾融合平台。开发环境是Ubuntu 22.04。由于高通的部署工具链是闭源且门槛费高昂，参考的资料很少，所以本文将以自己的经验和理解为主，介绍如何使用QNN SDK部署一个端到端头部位姿估计模型，模型用于DMS&#x2F;OMS等专用应用。</p>
+<h3 id="1-环境安装"><a href="#1-环境安装" class="headerlink" title="1- 环境安装"></a>1- 环境安装</h3><p><img src="/download/QNN_assets/Pasted_image_20250724155751.png"><br>从2.3.4QNN SDK的手册来看:<br>使用HTP，是V73版本的架构，Hexagon SDK 版本为5.4.0</p>
+<h4 id="qnn-python环境"><a href="#qnn-python环境" class="headerlink" title="qnn_python环境"></a>qnn_python环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1-创建虚拟python环境, qnn2.3.4版本只支持这个python版本，请注意</span></span><br><span class="line">conda create -n qnn234_env python==3.10.4</span><br><span class="line">conda activate qnn234_env</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /home/cty/hsae_data/qnn/qnn_sdk_v2.34.0_auto_qnx/qaisw-v2.34.0.250424201103_119471-auto-qnx/bin/</span><br><span class="line"><span class="comment"># 2-设置一下基础环境</span></span><br><span class="line"><span class="built_in">source</span> ./envsetup.sh</span><br><span class="line"><span class="comment"># 3- 准备安装相关的依赖</span></span><br><span class="line">python <span class="string">&quot;<span class="variable">$&#123;QNN_SDK_ROOT&#125;</span>/bin/check-python-dependency&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这里要注意了，因为是在国内，所以说高通提供的安装脚本非常慢并且基本是失败的。这时候需要修改高通QNN_SDK中环境配置的python脚本<code>$&#123;QNN_SDK_ROOT&#125;/bin/check-python-dependency</code>，为其添加清华源，保证快速安装。</p>
+<p> ​
+        
+          <a class="article-more-a" href="/2025/08/21/QNN/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字图像处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/21/QNN/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-嵌入式神经网络部署泛谈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -837,72 +917,6 @@
 
 
   
-    <article id="post-智能座舱白皮书" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/11/%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1%E7%99%BD%E7%9A%AE%E4%B9%A6/">智能座舱白皮书</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/11/%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1%E7%99%BD%E7%9A%AE%E4%B9%A6/" class="archive-article-date">
-  	<time datetime="2021-12-11T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="智能座舱"><a href="#智能座舱" class="headerlink" title="智能座舱"></a>智能座舱</h1><p>##白皮书</p>
-<p>最近在阅读关于智能座舱的行业现状，看到这个，遂发出来共享给大家。<br>个人看来，座舱域更需要关注的信息不是娱乐以及覆盖手机的功能，更应该提供给用户行车更好的体验<br>例如HUD的布局，传统仪表盘会慢慢淘汰这是事实，做性能车的就搞”科技感加持性能“，做家用车就搞”舒适和实用“。<br>此外，座舱域也可以集成一些实用的功能，舱泊一体是个好方案，将AVM、AVP、APA功能集成进座舱域以后一定有市场。娱乐功能没那么重要，真开车肯定要认认真真开的！！！下班停到地库抽支烟的功夫，也是抱着手机的居多。<br>PS：移动端如果看不到这个PDF的话，只能换电脑来看了，QAQ。<br>这个白皮书写得很不错，值得一看。<br><a href="/assets/AUTO.pdf">白皮书</a></p>
-        
-          <a class="article-more-a" href="/2021/12/11/%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1%E7%99%BD%E7%9A%AE%E4%B9%A6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/11/%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1%E7%99%BD%E7%9A%AE%E4%B9%A6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1004,11 +1018,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数字图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tools</a>
+                <a href="javascript:void(0)" class="js-tag color2">数字图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1028,11 +1042,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
