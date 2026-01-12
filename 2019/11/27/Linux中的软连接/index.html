@@ -16,7 +16,7 @@
 <meta property="og:description" content="Linux 软连接的使用软连接是Linux中一个常用命令，它的功能是为某一个文件在另外一个位置建立一个同不的链接。具体用法是：ln -s 源文件 目标文件。当 我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在其它的 目录下用ln命令链接（link）就可以，不必重复的占用磁盘空间。例如： 1ln&#96; &#96;-s &#96;&#96;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-11-26T17:05:08.000Z">
-<meta property="article:modified_time" content="2023-01-18T06:19:45.915Z">
+<meta property="article:modified_time" content="2023-01-18T06:19:45.000Z">
 <meta property="article:author" content="TY-Chen">
 <meta property="article:tag" content="tools">
 <meta name="twitter:card" content="summary">
@@ -37,7 +37,7 @@
 
   
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -176,17 +176,17 @@
         <h1 id="Linux-软连接的使用"><a href="#Linux-软连接的使用" class="headerlink" title="Linux 软连接的使用"></a>Linux 软连接的使用</h1><p>软连接是Linux中一个常用命令，它的功能是为某一个文件在另外一个位置建立一个同不的链接。<br>具体用法是：ln -s 源文件 目标文件。<br>当 我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在其它的 目录下用ln命令链接（link）就可以，不必重复的占用磁盘空间。<br>例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `-s ``/usr/local/mysql/bin/mysql` `/usr/binL</span><br></pre></td></tr></table></figure>
 
-<p>这样我们就对&#x2F;usr&#x2F;bin目录下的mysql命令创建了软连接 L</p>
+<p>这样我们就对/usr/bin目录下的mysql命令创建了软连接 L</p>
 <p>【硬连接】<br>硬连接指通过索引节点来进行连接。在Linux的文件系统中，保存在磁盘分区中的文件不管是什么类型都给它分配一个编号，称为索引节点号(Inode Index)。在Linux中，多个文件名指向同一索引节点是存在的。一般这种连接就是硬连接。硬连接的作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止“误删”的功能。其原因如上所述，因为对应该目录的索引节点有一个以上的连接。只删除一个连接并不影响索引节点本身和其它的连接，只有当最后一个连接被删除后，文件的数据块及目录的连接才会被释放。也就是说，文件真正删除的条件是与之相关的所有硬连接文件均被删除。</p>
 <p>【软连接】<br>另外一种连接称之为符号连接（Symbolic Link），也叫软连接。软链接文件有类似于Windows的快捷方式。它实际上是一个特殊的文件。在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。</p>
 <p><strong>使用方式</strong></p>
 <p>创建软链接</p>
 <p>ln  -s [源文件或目录] [目标文件或目录]</p>
 <p>例：</p>
-<p>当前路径创建test 引向&#x2F;var&#x2F;www&#x2F;test 文件夹 </p>
+<p>当前路径创建test 引向/var/www/test 文件夹 </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `–s ``/var/www/test` `test</span><br></pre></td></tr></table></figure>
 
-<p>创建&#x2F;var&#x2F;test 引向&#x2F;var&#x2F;www&#x2F;test 文件夹 </p>
+<p>创建/var/test 引向/var/www/test 文件夹 </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln` `–s ``/var/www/test`  `/var/test</span><br></pre></td></tr></table></figure>
 
 <p>删除软链接</p>
@@ -292,7 +292,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 TY-Chen
+    		&copy; 2026 TY-Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -391,11 +391,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -403,11 +403,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -34,7 +34,7 @@
 
   
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -238,7 +238,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="鱼眼相机环视系统"><a href="#鱼眼相机环视系统" class="headerlink" title="鱼眼相机环视系统"></a>鱼眼相机环视系统</h1><p>此段笔记记录在对鱼眼广角相机标定、拼接的过程中遇到的问题和解决思路，并辅以相关的基础知识备忘。<br>源代码可以下载如下两个压缩包,1用锁实现了同步、2只是简单拼接。两者方法思路基本都是一致的，都可以作为了解原理的起点：<br><a href="/download/surround1.zip">点击下载代码 1</a><br><a href="/download/surround2.zip">点击下载代码 2</a><br>标定板的制作参考如下：<br>Camera Calibration Pattern Generator – calib.io<br><a target="_blank" rel="noopener" href="https://calib.io/pages/camera-calibration-pattern-generator">https://calib.io/pages/camera-calibration-pattern-generator</a><br>可以使用这个小软件来制作标定板</p>
+        <h1 id="鱼眼相机环视系统"><a href="#鱼眼相机环视系统" class="headerlink" title="鱼眼相机环视系统"></a>鱼眼相机环视系统</h1><p>此段笔记记录在对鱼眼广角相机标定、拼接的过程中遇到的问题和解决思路，并辅以相关的基础知识备忘。<br>源代码可以下载如下两个压缩包,1用锁实现了同步、2只是简单拼接。两者方法思路基本都是一致的，都可以作为了解原理的起点：<br><a href="/download/surround1.zip">点击下载代码 1</a><br><a href="/download/surround2.zip">点击下载代码 2</a><br>标定板的制作参考如下：<br>Camera Calibration Pattern Generator – calib.io<br><a href="https://calib.io/pages/camera-calibration-pattern-generator" target="_blank" rel="noopener">https://calib.io/pages/camera-calibration-pattern-generator</a><br>可以使用这个小软件来制作标定板</p>
 <h2 id="概念整理"><a href="#概念整理" class="headerlink" title="概念整理"></a>概念整理</h2><p>先理清两个概念：<br>1、畸变系数</p>
 <p>畸变系数，畸变主要分为径向畸变和切向畸变。<br>①径向畸变，沿着透镜半径方向分布的畸变；<br>产生原因：是由透镜质量引起的，光线在远离透镜中心的地方比靠近中心的地方更加弯曲。径向畸变主要包括桶形畸变和枕形畸变两种。<br>就好比把一个直线拉弯了，哈哈镜都玩过，一个原理<br>产生的原因是透镜形状和质量引起的，一般来说市场上的鱼眼相机是桶形畸变<br>②切向畸变，<br>切向畸变是由于透镜本身与相机传感器平面（像平面）或图像平面不平行而产生的。 切向畸变主要发生在相机传感器和镜头不平行的情况下；因为有夹角，所以光透过镜头传到图像传感器上时，成像位置发生了变化。</p>
 <p>[k1, k2, p1, p2, k3]<br>如果是使用的opencv的接口做的标定的话，那么畸变向量的顺序是这个样子的<br>其中k指的是径向畸变radial distortion<br>p指的是切向畸变TangentialDistortion</p>
@@ -386,7 +386,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="C-x2F-C-Advanced-Lint"><a href="#C-x2F-C-Advanced-Lint" class="headerlink" title="C&#x2F;C++ Advanced Lint"></a>C&#x2F;C++ Advanced Lint</h1><figure class="highlight plaintext"><figcaption><span>Visual Studio Code extension supporting a number of static code analyzers for C and C++ code.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个 Visual Studio Code 扩展，支持许多用于 C 和 C++ 代码的静态代码分析器。</span><br></pre></td></tr></table></figure>
+        <h1 id="C-C-Advanced-Lint"><a href="#C-C-Advanced-Lint" class="headerlink" title="C/C++ Advanced Lint"></a>C/C++ Advanced Lint</h1><figure class="highlight plaintext"><figcaption><span>Visual Studio Code extension supporting a number of static code analyzers for C and C++ code.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个 Visual Studio Code 扩展，支持许多用于 C 和 C++ 代码的静态代码分析器。</span><br></pre></td></tr></table></figure>
 
 <p>在文件保存时或文件编辑后，代码编辑器中的即时 linting。<br>自动查找可用的静态分析工具。<br>以最少的开发工作量轻松支持其他静态分析器。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Supported Static Analyzers</span><br><span class="line">Clang</span><br><span class="line">CppCheck</span><br><span class="line">FlawFinder</span><br><span class="line">PC-lint Plus</span><br><span class="line">Flexelint or PC-lint</span><br><span class="line">lizard</span><br></pre></td></tr></table></figure>
@@ -742,11 +742,11 @@
 <p>1、什么是设备的驱动程序</p>
 <p>2、Linux设备抽象</p>
 <h2 id="设备驱动程序原理"><a href="#设备驱动程序原理" class="headerlink" title="设备驱动程序原理"></a>设备驱动程序原理</h2><p>IO设备的主要功能：输入和输出能够读写字节序列，流或者数组常见的设备都满足这个模型</p>
-<p>终端&#x2F;串口–字节流char_device 打印机–字节流，例如postscript文件 硬盘–字节数组，按照块访问 GPU–字节流（控制）+字节数组（显示存储器）</p>
+<p>终端/串口–字节流char_device 打印机–字节流，例如postscript文件 硬盘–字节数组，按照块访问 GPU–字节流（控制）+字节数组（显示存储器）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">所以：</span><br><span class="line">操作系统：设备 == 支持各类操作的对象（文件）</span><br><span class="line">read --从设备某个指定的位置读出数据</span><br><span class="line">write --向设备某个指定位置写入数据</span><br><span class="line">ioctl -- 读取/设置设备的状态</span><br></pre></td></tr></table></figure>
 
 <p>把设备的寄存器直接暴露给用户是很糟糕和危险的，这显而易见。 这样，也给应用层的软件带来了很大的负担，出错的代价也会很大的 所以，我们要对设备做抽象，要在操作系统和实体设备（寄存器和协议）之间做一个抽象的层<br>这个尽可能统一的方式，如同一层API，就是设备驱动程序 我们不用知道寄存器的编号是多少，不用知道写进去后怎么样才能操作完成 这一层，就叫做驱动。</p>
-<p>所有的这些设备：I&#x2F;O设备，最重要的功能就是：数据往应用里送往外出。 char——device</p>
+<p>所有的这些设备：I/O设备，最重要的功能就是：数据往应用里送往外出。 char——device</p>
 <p>补充一下字节流byte_stream，比如说，键盘的按键，它输入的就是一系列的事件，按下的这一大串按键 就可以看作一个字节流</p>
 <p>block——device一块一块的，字节块。 有意思的事情：我们的显卡，是什么设备？ 显存不是按块访问的，显卡暨是字节流，又是一个字节数组<br><a href="/download/device.jpg">驱动</a></p>
 <p>这一大坨设备的抽象，最重要的就是读写和控制，设备驱动程序就是为设备建立起这个模型的代码<br>需要一段代码，需要把例如read这一段系统调用，翻译成设备寄存器能听得懂的这一段话。<br>这一段代码，把系统调用翻译，注意是翻译，我们能看到的一大坨通用API,变成一堆五花八门的设备之间的翻译</p>
@@ -892,7 +892,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 TY-Chen
+    		&copy; 2026 TY-Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -991,11 +991,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1003,11 +1003,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
               </li>
              
               <li class="article-tag-list-item">

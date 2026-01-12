@@ -18,12 +18,12 @@
 <meta property="og:image" content="http://jyywiki.cn/pages/OS/img/CAAQA.jpg">
 <meta property="og:image" content="http://jyywiki.cn/pages/OS/img/80486-arch.jpg">
 <meta property="og:image" content="http://example.com/download/Linux_OS.png">
-<meta property="og:image" content="e:\My_Blog\source\download\Linux_OS.png">
+<meta property="og:image" content="e:/My_Blog/source/download/Linux_OS.png">
 <meta property="og:image" content="http://jyywiki.cn/pages/OS/img/ge.jpg">
 <meta property="og:image" content="http://example.com/download/OS_signal.jpg">
-<meta property="og:image" content="e:\My_Blog\source\download\OS_signal.jpg">
+<meta property="og:image" content="e:/My_Blog/source/download/OS_signal.jpg">
 <meta property="article:published_time" content="2022-10-07T03:05:08.000Z">
-<meta property="article:modified_time" content="2023-02-04T16:00:30.207Z">
+<meta property="article:modified_time" content="2023-02-04T16:00:30.000Z">
 <meta property="article:author" content="TY-Chen">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -45,7 +45,7 @@
 
   
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -181,10 +181,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="操作系统OS"><a href="#操作系统OS" class="headerlink" title="操作系统OS"></a>操作系统OS</h1><p>这份笔记是在学习操作系统课程时候所记录的备案，希望能在以后的工作，生活中常常看看，温习复习，温故而知新。我学习的路线是南大蒋教授开设的春季班，欢迎大家到蒋教授的个人主页去观看和学习：<a target="_blank" rel="noopener" href="http://jyywiki.cn/">蒋教授的主页</a><br>课程的讲义都放在了这个tag下面，整个章节全部一起，没有分P，直接食用。</p>
-<p>​	<span id="more"></span></p>
+        <h1 id="操作系统OS"><a href="#操作系统OS" class="headerlink" title="操作系统OS"></a>操作系统OS</h1><p>这份笔记是在学习操作系统课程时候所记录的备案，希望能在以后的工作，生活中常常看看，温习复习，温故而知新。我学习的路线是南大蒋教授开设的春季班，欢迎大家到蒋教授的个人主页去观看和学习：<a href="http://jyywiki.cn/" target="_blank" rel="noopener">蒋教授的主页</a><br>课程的讲义都放在了这个tag下面，整个章节全部一起，没有分P，直接食用。</p>
+<p>​    <span id="more"></span></p>
 <p>自己因为课题繁忙和实习的原因，断断续续在学习，实在惭愧。</p>
-<p>在开始之前，要求我们有基本的C语言基础：[C语言参考手册](<a target="_blank" rel="noopener" href="http://wiki.shucantech.com/reference/zh/zh/c.html">C 参考手册 (shucantech.com)</a>)</p>
+<p>在开始之前，要求我们有基本的C语言基础：[C语言参考手册](<a href="http://wiki.shucantech.com/reference/zh/zh/c.html" target="_blank" rel="noopener">C 参考手册 (shucantech.com)</a>)</p>
 <h1 id="1、操作系统概论，为什么要学习操作系统"><a href="#1、操作系统概论，为什么要学习操作系统" class="headerlink" title="1、操作系统概论，为什么要学习操作系统"></a>1、操作系统概论，为什么要学习操作系统</h1><p>害，说起来操作系统这个概念在我很小的时候就接触了，但是那时候整天混在语数外理化生的填鸭里，即使有兴趣也没办法实践和操作。<br>为什么鼠标会动，为什么屏幕会亮，为什么点击鼠标就能选中文件，为什么会有一个空洞的的命令行。<br>好，这些问题最后都可以在学习操作系统中得到解决。因为带着问题，需要求解，现代社会所使用的电子设备，手机、电脑、汽车主控，全部都会使用到操作系统，当然单片机这些没有操作系统的，裸机不使用操作系统也能运行（现在RTOS这些实时操作系统也应用得很广泛了），基于这一切的问题，我希望把过往的开发经验和过去尚未掌握的知识总结和提炼，让自己的内功提升一个等级。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS：好吧，说来惭愧，身为一个未来的工程师，其实408的这些课程真的是我到了研究生阶段才好好形成系统的。</span><br><span class="line">本科时候课程学微型计算机原理-接口技术、C编程、数据结构，计算机组成原理。很奇怪的是竟然没有操作系统，哦对了确实浅显地接触了一点点Linux，完全没有深入理解。这就好像学了微积分学了级数但是完全没有理解为啥有这些个数学工具一样。学了相当多的数学工具和技巧，但是不知道拿来干嘛，经常看论文不去复现，懵懵懂懂写不出来。很幸运的是我还有机会能突破应用层、算法这些“看起来高大上的”东西，更深入地去理解和探索。</span><br></pre></td></tr></table></figure>
 
@@ -203,15 +203,15 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">空前复杂的系统出现</span><br><span class="line">操作系统要面对：非对称多处理器，什么大核小核</span><br><span class="line">NUMA：Non-uniform-memory</span><br><span class="line">更多的硬件机制</span><br><span class="line">更多的设备和资源，SSD  GPU   FPGA  网卡</span><br><span class="line">复杂的应用需求和应用环境：服务器 个人电脑 智能手机  手表 手环 IoT 微控制器</span><br></pre></td></tr></table></figure>
 
 <p>总结：<br>理解操作系统的三个根本问题：</p>
-<p>1、操作系统服务谁？ 程序 &#x3D; 状态机<br>课程涉及：多线程Linux应用程序</p>
-<p>2、操作系统为程序提供什么服务？<br>操作系统 &#x3D; 对象 + API<br>课程涉及： POSIX +部分Linux特性</p>
-<p>3、如何实现操作系统提供的服务？<br>操作系统 &#x3D; C程序<br>完成初始化后就成为：interrupt&#x2F;trap&#x2F;fault handler<br>课程设计：xv6 自制迷你操作系统</p>
+<p>1、操作系统服务谁？ 程序 = 状态机<br>课程涉及：多线程Linux应用程序</p>
+<p>2、操作系统为程序提供什么服务？<br>操作系统 = 对象 + API<br>课程涉及： POSIX +部分Linux特性</p>
+<p>3、如何实现操作系统提供的服务？<br>操作系统 = C程序<br>完成初始化后就成为：interrupt/trap/fault handler<br>课程设计：xv6 自制迷你操作系统</p>
 <h1 id="2、什么是操作系统中的程序？状态机"><a href="#2、什么是操作系统中的程序？状态机" class="headerlink" title="2、什么是操作系统中的程序？状态机"></a>2、什么是操作系统中的程序？状态机</h1><p>有意思的是，在以往的学习中，我们并无从得知为什么程序可以运行，好在我最早熟悉的语言是汇编，在一堆MOV和JUMP中迷失自我23333，用更形象的话来说，操作的数据本身DATA-SEGMENT是内存和寄存器，那么其实就是内存和寄存器中的数据体的状态随着一个个指令在不断地转化，其实绝大部分指令都是计算，例如ADD，每次M（内存）、R（寄存器）中的值随着时间一个个状态进行转移，这就是最朴素的理解。</p>
 <p>指令有两种：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、计算:所有我们见到的程序，本质上都是计算</span><br><span class="line">2、syscall</span><br></pre></td></tr></table></figure>
 <p>但是在更多的时候，例如我们要显示一张图片，只能说我们的进程把一个2D的矩阵计算出来放在内存里，但是要在输出设备上显示出来就不是这个进程做的事情了，而实际上，要显示，就是这个进程去呼叫操作系统，然后操作系统帮我们帮这张图片输出出来。操作系统会帮我们解决，操作系统会干剩下的事情，应用不需要它是怎么干的，这就是应用眼中的操作系统。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">有办法让状态机停下来嘛？？</span><br><span class="line">答案是纯计算的状态机是不能停下来的</span><br><span class="line">要么死循环，要么undefined behavior</span><br><span class="line"></span><br><span class="line">解决办法呢？ syscall</span><br><span class="line"><span class="meta"># <span class="keyword">include</span><span class="string">&lt;sys/syscall.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	syscall(SYS_exit,<span class="number">42</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其实“状态机视角”下的程序只需要这样朴素的理解（当然它非常复杂，但是为了理解必须做出抽象和简化），在C&#x2F;CPP视角下的状态机，就是变量和栈帧随着时间一次次进行状态改变，在Asm视角下，就是内存M和寄存器R随着时间一次次进行状态改变。这两者其实是有直接的联系的，联系这两者的就是complier，编译器。那么状态机顺便解决了一个重要的问题，什么是编译器？？？</p>
+<p>其实“状态机视角”下的程序只需要这样朴素的理解（当然它非常复杂，但是为了理解必须做出抽象和简化），在C/CPP视角下的状态机，就是变量和栈帧随着时间一次次进行状态改变，在Asm视角下，就是内存M和寄存器R随着时间一次次进行状态改变。这两者其实是有直接的联系的，联系这两者的就是complier，编译器。那么状态机顺便解决了一个重要的问题，什么是编译器？？？</p>
 <p>我们在工作中经常使用gcc、g++，还有各种交叉编译的编译器。这玩意儿是啥？感性理解其实很简单，让机器读懂代码的软件就是编译器，更不要说大一就学了预处理编译链接这样的知识。 </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">编译器：源代码C（状态机）--&gt;二进制代码S（状态机）</span><br><span class="line">C = compile（S）</span><br></pre></td></tr></table></figure>
 <p>一个更基本的问题是：什么是正确的编译（优化）？ <code>S和C的可观测行为严格一致</code><br>正确的，但是低效的：就是直接执行，直接翻译<br>现代的编译优化： <code>保证观测一致性的前提下改写代码</code><br>但也有需要超稳定的编译器的场合，比如说，某些没办法修bug的场合，例如上天的飞行器，编译它内部代码的编译器要求100%的正确性(当然这个是数学上被证明可以实现的)</p>
@@ -239,7 +239,7 @@
 <h1 id="3、线程，并发，现代处理器与宽松内存模型"><a href="#3、线程，并发，现代处理器与宽松内存模型" class="headerlink" title="3、线程，并发，现代处理器与宽松内存模型"></a>3、线程，并发，现代处理器与宽松内存模型</h1><p>这节课的主要内容</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、并发程序的状态机模型</span><br><span class="line">2、线程库`thread.h`</span><br><span class="line">3、多线程带来的麻烦</span><br></pre></td></tr></table></figure>
 <p>线程是CPU调度的最小单位。这个概念很微妙。我们在以前学过<code>原子操作</code>。<br>所有的应用程序本身都只能改变内存的状态，而剩下的东西是由操作系统来完成的。<br>在多处理器时代，程序视角下和上一章讲的单线程有什么不同呢？这一节来讲这个问题。</p>
-<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>操作系统是最早的并发程序之一：系统调用的代码，就是最早的并发程序。<br>今天遍地都是多处理器系统，为什么？<br>并发的基本单位 <code>线程</code> ：共享内存的多个执行流<br>执行流拥有独立的堆栈&#x2F;寄存器<br>共享全部的内存 (指针可以互相引用)</p>
+<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>操作系统是最早的并发程序之一：系统调用的代码，就是最早的并发程序。<br>今天遍地都是多处理器系统，为什么？<br>并发的基本单位 <code>线程</code> ：共享内存的多个执行流<br>执行流拥有独立的堆栈/寄存器<br>共享全部的内存 (指针可以互相引用)</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;全局变量   <span class="built_in">malloc</span>&#125;  ----&gt; （全局共享的元素Global）</span><br><span class="line"></span><br><span class="line">（线程---执行链）:</span><br><span class="line">T1：O -&gt; O -&gt; O --&gt;syscall--&gt;....</span><br><span class="line">         |______________________________ 在这个状态就可以选择是执行T1</span><br><span class="line"></span><br><span class="line">T2：O -&gt; O -&gt; O --&gt;syscall--&gt;....</span><br><span class="line">         |______________________________ 还是执行T2</span><br><span class="line"></span><br><span class="line">....还有许多的线程</span><br></pre></td></tr></table></figure>
 <p>并发就体现在，我们在每一个状态，是选择T1 or T2<br>当我选择T1执行的时候，相当于在当前时间片，是T1和共享元素共同构成一个单线程的状态机，然后执行一步，执行完后，产生新的Global、T1，T2不变，然后又从这个新的状态，选择T1 or T2。当然，选择T2执行的时候，同理。这个过程会不断进行，直到所有状态机结束。c</p>
 <p>那么问题来了，并发程序的每一步，如果没有条件限定、没有边界或者控制，那将会产生无序。下面这段代码展示了一个非常简单的多线程实现方法</p>
@@ -260,11 +260,11 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;thread.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> balance = <span class="number">100</span>;<span class="comment">//定一个无符号long型的balance价格</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Alipay_withdraw</span><span class="params">(<span class="type">int</span> amt)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (balance &gt;= amt) &#123;<span class="comment">//检查一下余额是否够用？</span></span><br><span class="line">    usleep(<span class="number">1</span>); <span class="comment">// unexpected delays</span></span><br><span class="line">    balance -= amt; <span class="comment">//是的话就扣掉</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Talipay</span><span class="params">(<span class="type">int</span> id)</span> &#123;<span class="comment">//创建‘支付’线程</span></span><br><span class="line">  Alipay_withdraw(<span class="number">100</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  create(Talipay);<span class="comment">//任务1</span></span><br><span class="line">  create(Talipay);<span class="comment">//任务2</span></span><br><span class="line">  join();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;balance = %lu\n&quot;</span>, balance);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>我们可以从上面这个例子看到，同时支付的时候：</p>
-<p>balance &#x3D; 18446744073709551516</p>
+<p>balance = 18446744073709551516</p>
 <ul>
 <li><p>账户里会多出用不完的钱！</p>
 </li>
-<li><p>Bug&#x2F;漏洞不跟你开玩笑：Mt. Gox Hack 损失650,000比特币：今天价值 $28,000,000,000</p>
+<li><p>Bug/漏洞不跟你开玩笑：Mt. Gox Hack 损失650,000比特币：今天价值 $28,000,000,000</p>
 </li>
 </ul>
 <p>再看一个小实验</p>
@@ -306,7 +306,10 @@
 <li>其实我们日常使用的高级语言例如Java和Python都有考虑到这些，有现成的轮子</li>
 </ul>
 <hr>
-<h2 id="现代处理器：处理器也是-动态-编译器！"><a href="#现代处理器：处理器也是-动态-编译器！" class="headerlink" title="现代处理器：处理器也是 (动态) 编译器！"></a>现代处理器：处理器也是 (动态) 编译器！</h2><h2 id="单个处理器把汇编代码-用电路-“编译”-成更小的-μops，嘿嘿嘿，汇编代码也是可以拆分的，没想到吧？"><a href="#单个处理器把汇编代码-用电路-“编译”-成更小的-μops，嘿嘿嘿，汇编代码也是可以拆分的，没想到吧？" class="headerlink" title="单个处理器把汇编代码 (用电路) “编译” 成更小的 μops，嘿嘿嘿，汇编代码也是可以拆分的，没想到吧？"></a>单个处理器把汇编代码 (用电路) “编译” 成更小的 μops，嘿嘿嘿，汇编代码也是可以拆分的，没想到吧？<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- RF[9] = load(RF[7] + 400)</span><br><span class="line">- store(RF[12], RF[13])</span><br><span class="line">- RF[3] = RF[4] + RF[5]</span><br><span class="line">  - 每个μop 都有 Fetch, Issue, Execute, Commit 四个阶段</span><br></pre></td></tr></table></figure></h2><p><img src="http://jyywiki.cn/pages/OS/img/CAAQA.jpg" alt="img"><br>在任何时刻，处理器都维护一个μop 的 “池子”</p>
+<h2 id="现代处理器：处理器也是-动态-编译器！"><a href="#现代处理器：处理器也是-动态-编译器！" class="headerlink" title="现代处理器：处理器也是 (动态) 编译器！"></a>现代处理器：处理器也是 (动态) 编译器！</h2><p>单个处理器把汇编代码 (用电路) “编译” 成更小的 μops，嘿嘿嘿，汇编代码也是可以拆分的，没想到吧？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- RF[9] = load(RF[7] + 400)</span><br><span class="line">- store(RF[12], RF[13])</span><br><span class="line">- RF[3] = RF[4] + RF[5]</span><br><span class="line">  - 每个μop 都有 Fetch, Issue, Execute, Commit 四个阶段</span><br></pre></td></tr></table></figure>
+<hr>
+<p><img src="http://jyywiki.cn/pages/OS/img/CAAQA.jpg" alt="img" loading="lazy"><br>在任何时刻，处理器都维护一个μop 的 “池子”</p>
 <ul>
 <li>每一周期向池子补充尽可能多的μop<ul>
 <li>“多发射”</li>
@@ -317,12 +320,12 @@
 </ul>
 </li>
 <li>这就是《计算机体系结构》 (剩下就是木桶效应，哪里短板补哪里)</li>
-<li>可以看这个链接，这个作者也是学习的本课程<a target="_blank" rel="noopener" href="https://www.rexhao.work/2022/12/21/duo-chu-li-qi-bian-cheng-cong-ru-men-dao-fang-qi/#:~:text=%E6%AF%8F%E4%B8%AA">博客</a><br>我们的现代处理器，就是一个动态的数据流处理中心。多处理器编程下，程序的理解要有相应的变化。</li>
+<li>可以看这个链接，这个作者也是学习的本课程<a href="https://www.rexhao.work/2022/12/21/duo-chu-li-qi-bian-cheng-cong-ru-men-dao-fang-qi/#:~:text=%E6%AF%8F%E4%B8%AA" target="_blank" rel="noopener">博客</a><br>我们的现代处理器，就是一个动态的数据流处理中心。多处理器编程下，程序的理解要有相应的变化。</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">多处理器程序 = 状态机 [ 共享内存；非确定选择线程执行]</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="4、理解并发程序的执行"><a href="#4、理解并发程序的执行" class="headerlink" title="4、理解并发程序的执行"></a>4、理解并发程序的执行</h1><p><strong>并发程序  &#x3D; 多个执行流、共享内存的状态机</strong></p>
+<h1 id="4、理解并发程序的执行"><a href="#4、理解并发程序的执行" class="headerlink" title="4、理解并发程序的执行"></a>4、理解并发程序的执行</h1><p><strong>并发程序  = 多个执行流、共享内存的状态机</strong></p>
 <p>如何理解教科书、互联网上的各种并发程序？？</p>
 <p>主要内容：<code>画状态机理解并发程序</code></p>
 <h2 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h2><p>在开始后面的内容之前一定要厘清临界区的定义：</p>
@@ -337,17 +340,17 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Mutex</span>:</span><br><span class="line">    locked = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @thread</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">t1</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">while</span> self.locked == <span class="string">&#x27;🔒&#x27;</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            self.locked = <span class="string">&#x27;🔒&#x27;</span></span><br><span class="line">            cs = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">del</span> cs</span><br><span class="line">            self.locked = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @thread</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">t2</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">while</span> self.locked == <span class="string">&#x27;🔒&#x27;</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            self.locked = <span class="string">&#x27;🔒&#x27;</span></span><br><span class="line">            cs = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">del</span> cs</span><br><span class="line">            self.locked = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @marker</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mark_t1</span>(<span class="params">self, state</span>):</span><br><span class="line">        <span class="keyword">if</span> localvar(state, <span class="string">&#x27;t1&#x27;</span>, <span class="string">&#x27;cs&#x27;</span>): <span class="keyword">return</span> <span class="string">&#x27;blue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @marker</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mark_t2</span>(<span class="params">self, state</span>):</span><br><span class="line">        <span class="keyword">if</span> localvar(state, <span class="string">&#x27;t2&#x27;</span>, <span class="string">&#x27;cs&#x27;</span>): <span class="keyword">return</span> <span class="string">&#x27;green&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @marker</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mark_both</span>(<span class="params">self, state</span>):</span><br><span class="line">        <span class="keyword">if</span> localvar(state, <span class="string">&#x27;t1&#x27;</span>, <span class="string">&#x27;cs&#x27;</span>) <span class="keyword">and</span> localvar(state, <span class="string">&#x27;t2&#x27;</span>, <span class="string">&#x27;cs&#x27;</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;red&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>​	如果要可视化的话，也可也用管道把输出给一个可视化脚本：<a href="/download/visualize.py">visualize.py</a></p>
-<p>​	生成的html文件可以直接用浏览器打开看，将观察到状态机的每一个状态。在绝大部分情况下，写的程序都是正确的，但是这个状态机真的全部正确吗？不一定，我们的状态空间里面有很多状态，而这个视角下相当于把计算机线程的问题转化为了一种<strong>图论问题</strong>。</p>
-<p>​	可视化之后我们看到了这个有向图，给一个起点初试状态，若有一条路径到一个错误的状态，那么说明程序本身是unsafe的；若没有这样一条的路径，那可以证明，程序是线程安全的。即是否从任何状态出发，都能在有限的步骤里，（无论线程怎么调度），都能到达一个安全的节点（临界区只有一个线程）。在上面的例子里，这个状态机特别特别复杂，能简化它吗？能否用一个树来表达呢？能否控制和简化这张图呢？这个我们在后面继续探索。</p>
+<p>​    如果要可视化的话，也可也用管道把输出给一个可视化脚本：<a href="/download/visualize.py">visualize.py</a></p>
+<p>​    生成的html文件可以直接用浏览器打开看，将观察到状态机的每一个状态。在绝大部分情况下，写的程序都是正确的，但是这个状态机真的全部正确吗？不一定，我们的状态空间里面有很多状态，而这个视角下相当于把计算机线程的问题转化为了一种<strong>图论问题</strong>。</p>
+<p>​    可视化之后我们看到了这个有向图，给一个起点初试状态，若有一条路径到一个错误的状态，那么说明程序本身是unsafe的；若没有这样一条的路径，那可以证明，程序是线程安全的。即是否从任何状态出发，都能在有限的步骤里，（无论线程怎么调度），都能到达一个安全的节点（临界区只有一个线程）。在上面的例子里，这个状态机特别特别复杂，能简化它吗？能否用一个树来表达呢？能否控制和简化这张图呢？这个我们在后面继续探索。</p>
 <p>我们需要<code>Model checker</code>工具来帮助我们理解这个复杂的状态机，并且使用这些工具来帮助我们少写bug。操作系统是一个巨大的工程，没有编程，测试，调试的工具怎么才能写呢。没人能阻止程序员写bug，但是工具可以。</p>
-<h2 id="并发-1"><a href="#并发-1" class="headerlink" title="并发"></a>并发</h2><p>并发程序 &#x3D; 状态机 —线程共享内存 — 每一步非确定选择线程执行<br>画状态机就对了：当然要用工具：<code>Model checker</code></p>
+<h2 id="并发-1"><a href="#并发-1" class="headerlink" title="并发"></a>并发</h2><p>并发程序 = 状态机 —线程共享内存 — 每一步非确定选择线程执行<br>画状态机就对了：当然要用工具：<code>Model checker</code></p>
 <hr>
-<h1 id="5、并发控制：互斥-、自旋锁、互斥锁、Futex"><a href="#5、并发控制：互斥-、自旋锁、互斥锁、Futex" class="headerlink" title="5、并发控制：互斥: 、自旋锁、互斥锁、Futex"></a>5、并发控制：互斥: 、自旋锁、互斥锁、<code>Futex</code></h1><h2 id="这一节的主题：怎么样正确的在多处理器上实现高效率的互斥呢？"><a href="#这一节的主题：怎么样正确的在多处理器上实现高效率的互斥呢？" class="headerlink" title="这一节的主题：怎么样正确的在多处理器上实现高效率的互斥呢？"></a>这一节的主题：怎么样正确的在多处理器上实现高效率的互斥呢？</h2><h2 id="共享内存上的互斥"><a href="#共享内存上的互斥" class="headerlink" title="共享内存上的互斥"></a>共享内存上的互斥</h2><p>回顾一下上一届的并发编程，线程 &#x3D; 大脑能完成局部存储与计算 ； 共享内存 &#x3D; 物理世界（物理世界天生并行） 一切都是状态机。</p>
-<p>先抛出一个点： 持有一把具有<code>排他性</code>的锁，当前资源是被保护的，别人是无法使用被锁保护的资源。如果某个线程持有锁，则其他线程不能返回或者访问这个线程正在访问的资源。为啥在共享内存上实现互斥这么困难呢？本质是原因是：<em>不能同时读 &#x2F; 写共享内存</em>，写的时候不知道里面的状态，读的时候不知道这个状态是不是对的，也不知道把什么改成了什么。<strong>目标：要用简单粗暴有效的方式解决互斥这个问题。</strong></p>
+<h1 id="5、并发控制：互斥-、自旋锁、互斥锁、Futex"><a href="#5、并发控制：互斥-、自旋锁、互斥锁、Futex" class="headerlink" title="5、并发控制：互斥: 、自旋锁、互斥锁、Futex"></a>5、并发控制：互斥: 、自旋锁、互斥锁、<code>Futex</code></h1><h2 id="这一节的主题：怎么样正确的在多处理器上实现高效率的互斥呢？"><a href="#这一节的主题：怎么样正确的在多处理器上实现高效率的互斥呢？" class="headerlink" title="这一节的主题：怎么样正确的在多处理器上实现高效率的互斥呢？"></a>这一节的主题：怎么样正确的在多处理器上实现高效率的互斥呢？</h2><h2 id="共享内存上的互斥"><a href="#共享内存上的互斥" class="headerlink" title="共享内存上的互斥"></a>共享内存上的互斥</h2><p>回顾一下上一届的并发编程，线程 = 大脑能完成局部存储与计算 ； 共享内存 = 物理世界（物理世界天生并行） 一切都是状态机。</p>
+<p>先抛出一个点： 持有一把具有<code>排他性</code>的锁，当前资源是被保护的，别人是无法使用被锁保护的资源。如果某个线程持有锁，则其他线程不能返回或者访问这个线程正在访问的资源。为啥在共享内存上实现互斥这么困难呢？本质是原因是：<em>不能同时读 / 写共享内存</em>，写的时候不知道里面的状态，读的时候不知道这个状态是不是对的，也不知道把什么改成了什么。<strong>目标：要用简单粗暴有效的方式解决互斥这个问题。</strong></p>
 <h2 id="5-1-自旋锁（Spin-lock）"><a href="#5-1-自旋锁（Spin-lock）" class="headerlink" title="5-1 自旋锁（Spin_lock）"></a>5-1 自旋锁（<code>Spin_lock</code>）</h2><p><em>解决问题的两种方法</em></p>
 <blockquote>
-<p>提出算法、解决问题 (Dekker&#x2F;Peterson&#x2F;…’s Protocols)<br>或者……&gt; 改变假设 (软件不够，硬件来凑)</p>
+<p>提出算法、解决问题 (Dekker/Peterson/…’s Protocols)<br>或者……&gt; 改变假设 (软件不够，硬件来凑)</p>
 </blockquote>
 <hr>
 <p>假设硬件能为我们提供一条 “瞬间完成” 的读 + 写指令</p>
@@ -361,7 +364,7 @@
 <hr>
 <p>Atomic exchange (load + store)</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">xchg</span><span class="params">(<span class="keyword">volatile</span> <span class="type">int</span> *addr, <span class="type">int</span> newval)</span> &#123;</span><br><span class="line">  <span class="type">int</span> result;</span><br><span class="line">  <span class="keyword">asm</span> <span class="title function_">volatile</span> <span class="params">(<span class="string">&quot;lock xchg %0, %1&quot;</span></span></span><br><span class="line"><span class="params">    : <span class="string">&quot;+m&quot;</span>(*addr), <span class="string">&quot;=a&quot;</span>(result) : <span class="string">&quot;1&quot;</span>(newval))</span>;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>更多的原子指令：<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/header/stdatomic.h">stdatomic.h (C11)</a></p>
+<p>更多的原子指令：<a href="https://en.cppreference.com/w/cpp/header/stdatomic.h" target="_blank" rel="noopener">stdatomic.h (C11)</a></p>
 <p>我们来看这个例子X-86原子操作：LOCK指令前缀</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分两个线程，计算 1+1+1+...+1+1+1+…+1 (共计 2n个 1)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;thread.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 100000000</span></span><br><span class="line"><span class="type">long</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Tsum</span><span class="params">()</span> &#123; </span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">asm</span> <span class="title function_">volatile</span><span class="params">(<span class="string">&quot;lock addq &amp;1, %0&quot;</span>: <span class="string">&quot;+m&quot;</span>(sum))</span>;<span class="comment">//注意这里</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  create(Tsum);</span><br><span class="line">  create(Tsum);</span><br><span class="line">  join();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;sum = %ld\n&quot;</span>, sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -425,7 +428,7 @@
 <p>睡眠锁 (通过系统调用访问 locked)<br>更快的 slow path:<code>上锁失败线程不再占用 CPU</code><br>更慢的 fast path:<code>即便上锁成功也需要进出内核 (syscall)</code></p>
 <p>这俩结合起来：Futex</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">在这里插入一个概念：内核态和用户态，这是经常被提及的，对于理解计算机系统来说很重要的概念。</span><br><span class="line"></span><br><span class="line"> -- 用户态与内核态只是不同权限的资源范围</span><br><span class="line"></span><br><span class="line">在说用户态与内核态之前，有必要说一下 C P U 指令集，指令集是 C P U 实现软件指挥硬件执行的媒介，具体来说每一条汇编语句都对应了一条 C P U 指令，而非常非常多的 C P U 指令 在一起，可以组成一个、甚至多个集合，指令的集合叫 C P U 指令集。同时 C P U 指令集 有权限分级，大家试想，C P U 指令集 可以直接操作硬件的，要是因为指令操作的不规范`，造成的错误会影响整个计算机系统的。好比你写程序，因为对硬件操作不熟悉，导致操作系统内核、及其他所有正在运行的程序，都可能会因为操作失误而受到不可挽回的错误，最后只能重启计算机才行。而对于硬件的操作是非常复杂的，参数众多，出问题的几率相当大，必须谨慎的进行操作，对开发人员来说是个艰巨的任务，还会增加负担，同时开发人员在这方面也不被信任，所以操作系统内核直接屏蔽开发人员对硬件操作的可能，都不让你碰到这些 C P U 指令集。</span><br><span class="line"></span><br><span class="line">针对上面的需求，硬件设备商直接提供硬件级别的支持，做法就是对 C P U 指令集设置了权限，不同级别权限能使用的 C P U 指令集 是有限的，以 Inter C P U 为例，Inter把 C P U 指令集 操作的权限由高到低划为4级：</span><br><span class="line"></span><br><span class="line">                                        ring 0</span><br><span class="line">                                        ring 1</span><br><span class="line">                                        ring 2</span><br><span class="line">                                        ring 3</span><br><span class="line"></span><br><span class="line">其中 ring 0 权限最高，可以使用所有 C P U 指令集，ring 3 权限最低，仅能使用常规 C P U 指令集，不能使用操作硬件资源的 C P U 指令集，比如 I O 读写、网卡访问、申请内存都不行，Linux系统仅采用ring 0 和 ring 3 这2个权限。</span><br><span class="line"></span><br><span class="line">高情商：</span><br><span class="line">ring 0被叫做内核态，完全在操作系统内核中运行。</span><br><span class="line">ring 3被叫做用户态，在应用程序中运行。</span><br><span class="line"></span><br><span class="line">低情商：</span><br><span class="line">执行内核空间的代码，具有ring 0保护级别，有对硬件的所有操作权限，可以执行所有C P U 指令集，访问任意地址的内存，在内核模式下的任何异常都是灾难性的，将会导致整台机器停机。在用户模式下，具有ring 3保护级别，代码没有对硬件的直接控制权限，也不能直接访问地址的内存，程序是通过调用系统接口(System Call APIs)来达到访问硬件和内存，在这种保护模式下，即时程序发生崩溃也是可以恢复的，在电脑上大部分程序都是在用户模式下运行的。</span><br></pre></td></tr></table></figure>
-<p><img src="/download/Linux_OS.png" alt="img"></p>
+<p><img src="/download/Linux_OS.png" alt="img" loading="lazy"></p>
 <img src="E:\My_Blog\source\download\Linux_OS.png" style="zoom: 67%;" />
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">从上图我们可以看出来通过系统调用将Linux整个体系分为用户态和内核态，为了使应用程序访问到内核的资源，如CPU、内存、I/O，内核必须提供一组通用的访问接口，这些接口就叫系统调用。库函数就是屏蔽这些复杂的底层实现细节，减轻程序员的负担，从而更加关注上层的逻辑实现，它对系统调用进行封装，提供简单的基本接口给程序员。</span><br><span class="line"></span><br><span class="line">Shell顾名思义，就是外壳的意思，就好像把内核包裹起来的外壳，它是一种特殊的应用程序，俗称命令行。Shell也是可编程的，它有标准的Shell 语法，符合其语法的文本叫Shell脚本，很多人都会用Shell脚本实现一些常用的功能，可以提高工作效率。</span><br><span class="line"></span><br><span class="line">-- 最后来说说，什么情况会导致用户态到内核态切换</span><br><span class="line">系统调用：用户态进程主动切换到内核态的方式，用户态进程通过系统调用向操作系统申请资源完成工作，例如 fork（）就是一个创建新进程的系统调用，系统调用的机制核心使用了操作系统为用户特别开放的一个中断来实现，如Linux 的 int 80h 中断，也可以称为软中断</span><br><span class="line">异常：当 C P U 在执行用户态的进程时，发生了一些没有预知的异常，这时当前运行进程会切换到处理此异常的内核相关进程中，也就是切换到了内核态，如缺页异常</span><br><span class="line">中断：当 C P U 在执行用户态的进程时，外围设备完成用户请求的操作后，会向 C P U 发出相应的中断信号，这时 C P U 会暂停执行下一条即将要执行的指令，转到与中断信号对应的处理程序去执行，也就是切换到了内核态。如硬盘读写操作完成，系统会切换到硬盘读写的中断处理程序中执行后边的操作等。</span><br></pre></td></tr></table></figure>
@@ -463,7 +466,7 @@
 <p>本次课主要的内容：</p>
 <ul>
 <li><strong>典型的同步问题：生产者-消费者；哲学家吃饭</strong></li>
-<li><strong>同步的实现方法：信号量、条件变量</strong></li>
+<li><strong>同步的实现方法：信号量、条件变量</strong> </li>
 </ul>
 <h2 id="同步的概念"><a href="#同步的概念" class="headerlink" title="同步的概念"></a>同步的概念</h2><p>synchronization </p>
 <p>两个或者两个以上随时间变化的量在变化过程中保持一定的相对关系。互斥是竞争，同步是协作。互斥是同步的特殊情况。 例如：同步电路，所有的触发器在边沿同时触发。异步就是不同步，例如异步电机，稍微想一想就知道了。</p>
@@ -472,9 +475,9 @@
 <img src="http://jyywiki.cn/pages/OS/img/ge.jpg" alt="img" style="zoom: 50%;" />
 
 <ul>
-<li>NPY：等我洗个头就出门&#x2F;等我打完这局游戏就来</li>
+<li>NPY：等我洗个头就出门/等我打完这局游戏就来</li>
 <li>舍友：等我修好这个 bug 就吃饭</li>
-<li>导师：等我出差回来就讨论这个课题</li>
+<li>导师：等我出差回来就讨论这个课题 </li>
 </ul>
 <p><strong>有没有可能编程实现这样的一个协议（状态）？一个线程是自己，一个线程是室友，达成一个“两个人都吃饭”这个函数，一个人完成这个任务，另一个人完成另外一个任务，谁先完成，谁就要等对方，然后一起执行某个事件。</strong></p>
 <h3 id="生产者-消费者问题：学会你就赢了"><a href="#生产者-消费者问题：学会你就赢了" class="headerlink" title="生产者-消费者问题：学会你就赢了"></a>生产者-消费者问题：学会你就赢了</h3><p>99%的实际并发问题都可以用<code>生产者-消费者</code>模型来解决。还记得之前讲线程的第一节的时候，循环交替打印a和b那个源文件吗？来看下面这段。</p>
@@ -484,8 +487,8 @@
 <ul>
 <li>一定是某个合法括号序列的前缀</li>
 <li>括号嵌套的深度不超过n<ul>
-<li><em>n</em>&#x3D;3, <code>((()))</code> 合法</li>
-<li><em>n</em>&#x3D;3, <code>(((())))</code>, <code>(()))</code> 不合法</li>
+<li><em>n</em>=3, <code>((()))</code> 合法</li>
+<li><em>n</em>=3, <code>(((())))</code>, <code>(()))</code> 不合法</li>
 </ul>
 </li>
 <li>同步<ul>
@@ -503,22 +506,22 @@
 <ul>
 <li>左括号：嵌套深度 (队列) 不足 <em>n</em> 时才能打印</li>
 <li>右括号：嵌套深度 (队列)&gt;1时才能打印<ul>
-<li>当然是等到满足条件时再打印了<a target="_blank" rel="noopener" href="http://jyywiki.cn/pages/OS/2022/demos/pc.c">pc.c</a><ul>
+<li>当然是等到满足条件时再打印了<a href="http://jyywiki.cn/pages/OS/2022/demos/pc.c" target="_blank" rel="noopener">pc.c</a><ul>
 <li>用互斥锁保持条件成立</li>
 </ul>
 </li>
-<li>压力测试的检查当然不能少：<a target="_blank" rel="noopener" href="http://jyywiki.cn/pages/OS/2022/demos/pc-check.py">pc-check.py</a></li>
-<li>Model checker 当然也不能少</li>
+<li>压力测试的检查当然不能少：<a href="http://jyywiki.cn/pages/OS/2022/demos/pc-check.py" target="_blank" rel="noopener">pc-check.py</a></li>
+<li>Model checker 当然也不能少 </li>
 </ul>
 </li>
 </ul>
 <p>注意：队列</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*pc.c:生产者-消费者*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;thread.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;thread-sync.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, count = <span class="number">0</span>;</span><br><span class="line"><span class="type">mutex_t</span> lk = MUTEX_INIT();</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Tproduce</span><span class="params">()</span> &#123;<span class="comment">//生产者</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">retry:</span><br><span class="line">    mutex_lock(&amp;lk);<span class="comment">//先上锁</span></span><br><span class="line">    <span class="keyword">if</span> (count == n) &#123;</span><br><span class="line">      mutex_unlock(&amp;lk);</span><br><span class="line">      <span class="keyword">goto</span> retry;</span><br><span class="line">    &#125;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;(&quot;</span>);</span><br><span class="line">    mutex_unlock(&amp;lk);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Tconsume</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">retry:</span><br><span class="line">    mutex_lock(&amp;lk);</span><br><span class="line">    <span class="keyword">if</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">      mutex_unlock(&amp;lk);</span><br><span class="line">      <span class="keyword">goto</span> retry;</span><br><span class="line">    &#125;</span><br><span class="line">    count--;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;)&quot;</span>);</span><br><span class="line">    mutex_unlock(&amp;lk);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> &#123;</span><br><span class="line">  assert(argc == <span class="number">2</span>);</span><br><span class="line">  n = atoi(argv[<span class="number">1</span>]);<span class="comment">//C库函数int atoi(const char *str) 把参数str所指向的字符串转换为一个整数，类型为 int</span></span><br><span class="line">  setbuf(<span class="built_in">stdout</span>, <span class="literal">NULL</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">    create(Tproduce);</span><br><span class="line">    create(Tconsume);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>阅读一下这段代码就很清爽知道它在做什么。main开始，n假设为3，开16个线程，count &#x3D; 0。</p>
+<p>阅读一下这段代码就很清爽知道它在做什么。main开始，n假设为3，开16个线程，count = 0。</p>
 <ul>
-<li>生产者：初始状态没有上锁，进入函数<code>Tproduce()</code>，第一步执行上锁的操作，使当前线程进入临界区被保护。n &#x3D; 3，count &#x3D; 0，不相等，则if条件不成立，说明：生产者的产出还没有达到边界3。然后执行count++，此时count &#x3D; 1，然后打印出<code>（</code>当然这个的意是生产了一个左括号在输出缓存区，生产完后解锁释放当前生产者线程。当然，若n &#x3D; 3,count &#x3D;3则生产者已经生产了足够的元素，不需要再多<code>（</code>，于是释放资源啊，解锁，等待消费者消费。</li>
-<li>消费者：初始状态没有上锁，进入函数<code>Tconsume()</code>，第一步先上锁，保证在消费的时候不受到打扰，如果当前count &#x3D; 0即代表没有可以消费的产物，于是得解锁释放资源等待，若<code>count！=0</code>，代表有产物可以消费，则将<code>count--</code>，代表当前消费者线程已经消费了一个产物，然后解锁。</li>
+<li>生产者：初始状态没有上锁，进入函数<code>Tproduce()</code>，第一步执行上锁的操作，使当前线程进入临界区被保护。n = 3，count = 0，不相等，则if条件不成立，说明：生产者的产出还没有达到边界3。然后执行count++，此时count = 1，然后打印出<code>（</code>当然这个的意是生产了一个左括号在输出缓存区，生产完后解锁释放当前生产者线程。当然，若n = 3,count =3则生产者已经生产了足够的元素，不需要再多<code>（</code>，于是释放资源啊，解锁，等待消费者消费。</li>
+<li>消费者：初始状态没有上锁，进入函数<code>Tconsume()</code>，第一步先上锁，保证在消费的时候不受到打扰，如果当前count = 0即代表没有可以消费的产物，于是得解锁释放资源等待，若<code>count！=0</code>，代表有产物可以消费，则将<code>count--</code>，代表当前消费者线程已经消费了一个产物，然后解锁。</li>
 </ul>
 <p>for循环创建了8个生产者，8个消费者，一共16个线程，并实现了它们之间的相互协作输出正确的匹配的结果。当然，也可增加消费者或者增加生产者，可以用上面的<code>pc-checker.py</code>来验证它的正确性：<code>./produce_cust x | python3 pc-check.py x</code>，x是正整数随意。这样确保了生产和消费的有序，相当于<code>互相协作</code>，从代码层面上看：条件成立，上锁使用，条件不成立，解锁释放，确保线程的安全且确保互相之间协作的有序性。</p>
 <h2 id="6-2-条件变量：万能同步方法"><a href="#6-2-条件变量：万能同步方法" class="headerlink" title="6-2 条件变量：万能同步方法"></a>6-2 条件变量：万能同步方法</h2><p>在生产者-消费者的模型中，有没有可能，把这套方法优化一下，在上一段代码中，还是有缺陷，即：不管这个包包（生产者产出的空间）是空的还是满的，每个线程都在尝试把它拿出来“看看”。对吧，这是一个很浪费资源的操作，互斥锁本身就是独占式的，虽然不是自旋锁，但是某种意义上它仍然耗费了很多资源。</p>
@@ -545,7 +548,7 @@
 
 <p>为啥会这样，原因是：消费者唤醒了消费者线程。</p>
 <p>可以简单画张图来看一下。</p>
-<p><img src="/download/OS_signal.jpg" alt="事故原因"></p>
+<p><img src="/download/OS_signal.jpg" alt="事故原因" loading="lazy"></p>
 <img src="E:\My_Blog\source\download\OS_signal.jpg" style="zoom: 25%;" />
 
 <p>正确的解决方案是需要两个条件变量。</p>
@@ -669,7 +672,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 TY-Chen
+    		&copy; 2026 TY-Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -768,11 +771,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -780,11 +783,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
               </li>
              
               <li class="article-tag-list-item">

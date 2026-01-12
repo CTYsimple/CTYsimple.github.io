@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/download/OpenGL_fisheye/image-20240630195558301.png">
 <meta property="article:published_time" content="2024-03-21T10:05:08.000Z">
-<meta property="article:modified_time" content="2024-06-30T13:33:55.894Z">
+<meta property="article:modified_time" content="2024-06-30T13:33:55.000Z">
 <meta property="article:author" content="TY-Chen">
 <meta property="article:tag" content="数字图像处理">
 <meta name="twitter:card" content="summary">
@@ -39,7 +39,7 @@
 
   
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -177,12 +177,12 @@
       
         <h1 id="使用OpenGL处理鱼眼图像信号"><a href="#使用OpenGL处理鱼眼图像信号" class="headerlink" title="使用OpenGL处理鱼眼图像信号"></a>使用OpenGL处理鱼眼图像信号</h1><p>本篇章是OpenGL编程的一个经典应用，可以广泛使用在带有GPU的各种设备上。通过阅读本篇章，可以完全了解如何使用标定好的相机内参数据对鱼眼图像进行去畸变处理。</p>
 <h2 id="OpenGL"><a href="#OpenGL" class="headerlink" title="OpenGL"></a>OpenGL</h2><p>OpenGL是一套通用GPU编程接口，是操纵GPU进行图像处理的一套方法，抑或是渲染管线。</p>
-<p>关于OpenGL的基础环境、基础原理，可以参考：<a target="_blank" rel="noopener" href="https://learnopengl-cn.github.io/">主页 - LearnOpenGL CN (learnopengl-cn.github.io)</a></p>
+<p>关于OpenGL的基础环境、基础原理，可以参考：<a href="https://learnopengl-cn.github.io/" target="_blank" rel="noopener">主页 - LearnOpenGL CN (learnopengl-cn.github.io)</a></p>
 <p>本篇章就不再赘述现代渲染管线的一些基础知识。</p>
-<p>​	<span id="more"></span></p>
+<p>​    <span id="more"></span></p>
 <h2 id="超大FOV鱼眼相机的成像模型"><a href="#超大FOV鱼眼相机的成像模型" class="headerlink" title="超大FOV鱼眼相机的成像模型"></a>超大FOV鱼眼相机的成像模型</h2><p>参考OpenCV的官方文档，适合鱼眼的成像数学模型是K-B通用相机模型：Kanala-Brandt畸变模型。它不同于针孔相机的5参数径向切向畸变建模，而是采用了麦克劳林多项式对畸变的光路进行建模。参考论文：《A generic camera model and calibration method for conventional, wide-angle, and fish-eye lenses》在这里我把原文贴上，有需要可以直接拿取：<a href="/download/OpenGL_fisheye/KB.pdf">《A generic camera model and calibration method for conventional, wide-angle, and fish-eye lenses》</a></p>
 <p>这个成像模型可以对大于90度的相机进行适合的数学建模，OpenCV的fisheye模块也采用此篇论文的设计。</p>
-<p><img src="/download/OpenGL_fisheye/image-20240630195558301.png" alt="image-20240630195558301"></p>
+<p><img src="/download/OpenGL_fisheye/image-20240630195558301.png" alt="image-20240630195558301" loading="lazy"></p>
 <p>参考OpenCV doc并结合论文，可以直接了解这个成像模型，后续也将在OpenGL里实现这个模型。</p>
 <h2 id="GLSL实现K-B鱼眼相机模型"><a href="#GLSL实现K-B鱼眼相机模型" class="headerlink" title="GLSL实现K-B鱼眼相机模型"></a>GLSL实现K-B鱼眼相机模型</h2><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顶点着色器</span></span><br><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line"><span class="keyword">out</span> <span class="type">vec4</span> FragColor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">in</span> <span class="type">vec3</span> ourColor;</span><br><span class="line"><span class="keyword">in</span> <span class="type">vec2</span> TexCoord;</span><br><span class="line"></span><br><span class="line"><span class="comment">// texture sampler</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> texture1;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> main()</span><br><span class="line">&#123;</span><br><span class="line">	FragColor = <span class="built_in">texture</span>(texture1, TexCoord);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//段着色器</span></span><br><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> inputTexture;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> windowWidth;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> windowHeight;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">mat3</span> cameraMatrix;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec4</span> distortVector;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> textureWidth;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> textureHeight;</span><br><span class="line"></span><br><span class="line"><span class="keyword">in</span> <span class="type">vec2</span> TexCoord;</span><br><span class="line"><span class="keyword">out</span> <span class="type">vec4</span> fragColor;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> undistortFisheye()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> i = TexCoord.x * windowWidth;</span><br><span class="line">    <span class="type">float</span> j = TexCoord.y * windowHeight;</span><br><span class="line">    <span class="type">float</span> xc = (i - cameraMatrix[<span class="number">0</span>][<span class="number">2</span>]) / cameraMatrix[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    <span class="type">float</span> yc = (j - cameraMatrix[<span class="number">1</span>][<span class="number">2</span>]) / cameraMatrix[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">    <span class="type">float</span> r = <span class="built_in">sqrt</span>(xc * xc + yc * yc);</span><br><span class="line">    <span class="type">float</span> degree = <span class="built_in">atan</span>(r);</span><br><span class="line">    <span class="type">float</span> rd = degree + distortVector[<span class="number">0</span>] * <span class="built_in">pow</span>(degree, <span class="number">3</span>) + distortVector[<span class="number">1</span>] * <span class="built_in">pow</span>(degree, <span class="number">5</span>) + distortVector[<span class="number">2</span>] * <span class="built_in">pow</span>(degree, <span class="number">7</span>) + distortVector[<span class="number">3</span>] * <span class="built_in">pow</span>(degree, <span class="number">9</span>);</span><br><span class="line">    <span class="type">float</span> scale = rd / r;</span><br><span class="line">    <span class="type">float</span> x = xc * scale;</span><br><span class="line">    <span class="type">float</span> y = yc * scale;</span><br><span class="line">    <span class="type">float</span> u = cameraMatrix[<span class="number">0</span>][<span class="number">0</span>] * (x + <span class="number">0.01</span> * y) + cameraMatrix[<span class="number">0</span>][<span class="number">2</span>];</span><br><span class="line">    <span class="type">float</span> v = cameraMatrix[<span class="number">1</span>][<span class="number">1</span>] * y + cameraMatrix[<span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">    <span class="type">vec2</span> coords = <span class="type">vec2</span>(u / textureWidth, v / textureHeight);</span><br><span class="line">    <span class="keyword">if</span> (coords.x &gt;= <span class="number">0.0</span> &amp;&amp; coords.x &lt;= <span class="number">1.0</span> &amp;&amp; coords.y &gt;= <span class="number">0.0</span> &amp;&amp; coords.y &lt;= <span class="number">1.0</span>) &#123;</span><br><span class="line">        fragColor = <span class="built_in">texture</span>(inputTexture, coords);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        fragColor = <span class="type">vec4</span>(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> main() &#123;</span><br><span class="line">    undistortFisheye();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -283,7 +283,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 TY-Chen
+    		&copy; 2026 TY-Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -382,11 +382,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -394,11 +394,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:description" content="鱼眼相机环视系统此段笔记记录在对鱼眼广角相机标定、拼接的过程中遇到的问题和解决思路，并辅以相关的基础知识备忘。源代码可以下载如下两个压缩包,1用锁实现了同步、2只是简单拼接。两者方法思路基本都是一致的，都可以作为了解原理的起点：点击下载代码 1点击下载代码 2标定板的制作参考如下：Camera Calibration Pattern Generator – calib.iohttps:&#x2F;&#x2F;cali">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-11T11:05:08.000Z">
-<meta property="article:modified_time" content="2023-01-22T15:28:12.020Z">
+<meta property="article:modified_time" content="2023-01-22T15:28:12.000Z">
 <meta property="article:author" content="TY-Chen">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -172,7 +172,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="鱼眼相机环视系统"><a href="#鱼眼相机环视系统" class="headerlink" title="鱼眼相机环视系统"></a>鱼眼相机环视系统</h1><p>此段笔记记录在对鱼眼广角相机标定、拼接的过程中遇到的问题和解决思路，并辅以相关的基础知识备忘。<br>源代码可以下载如下两个压缩包,1用锁实现了同步、2只是简单拼接。两者方法思路基本都是一致的，都可以作为了解原理的起点：<br><a href="/download/surround1.zip">点击下载代码 1</a><br><a href="/download/surround2.zip">点击下载代码 2</a><br>标定板的制作参考如下：<br>Camera Calibration Pattern Generator – calib.io<br><a target="_blank" rel="noopener" href="https://calib.io/pages/camera-calibration-pattern-generator">https://calib.io/pages/camera-calibration-pattern-generator</a><br>可以使用这个小软件来制作标定板</p>
+        <h1 id="鱼眼相机环视系统"><a href="#鱼眼相机环视系统" class="headerlink" title="鱼眼相机环视系统"></a>鱼眼相机环视系统</h1><p>此段笔记记录在对鱼眼广角相机标定、拼接的过程中遇到的问题和解决思路，并辅以相关的基础知识备忘。<br>源代码可以下载如下两个压缩包,1用锁实现了同步、2只是简单拼接。两者方法思路基本都是一致的，都可以作为了解原理的起点：<br><a href="/download/surround1.zip">点击下载代码 1</a><br><a href="/download/surround2.zip">点击下载代码 2</a><br>标定板的制作参考如下：<br>Camera Calibration Pattern Generator – calib.io<br><a href="https://calib.io/pages/camera-calibration-pattern-generator" target="_blank" rel="noopener">https://calib.io/pages/camera-calibration-pattern-generator</a><br>可以使用这个小软件来制作标定板</p>
 <h2 id="概念整理"><a href="#概念整理" class="headerlink" title="概念整理"></a>概念整理</h2><p>先理清两个概念：<br>1、畸变系数</p>
 <p>畸变系数，畸变主要分为径向畸变和切向畸变。<br>①径向畸变，沿着透镜半径方向分布的畸变；<br>产生原因：是由透镜质量引起的，光线在远离透镜中心的地方比靠近中心的地方更加弯曲。径向畸变主要包括桶形畸变和枕形畸变两种。<br>就好比把一个直线拉弯了，哈哈镜都玩过，一个原理<br>产生的原因是透镜形状和质量引起的，一般来说市场上的鱼眼相机是桶形畸变<br>②切向畸变，<br>切向畸变是由于透镜本身与相机传感器平面（像平面）或图像平面不平行而产生的。 切向畸变主要发生在相机传感器和镜头不平行的情况下；因为有夹角，所以光透过镜头传到图像传感器上时，成像位置发生了变化。</p>
 <p>[k1, k2, p1, p2, k3]<br>如果是使用的opencv的接口做的标定的话，那么畸变向量的顺序是这个样子的<br>其中k指的是径向畸变radial distortion<br>p指的是切向畸变TangentialDistortion</p>
@@ -180,13 +180,13 @@
 <p>2、内参矩阵<br>内参矩阵是相机的固有属性，制造出来之后就是那样了。<br>如果不使用代码里的标定方法做内参标定，也可以使用Matlab工具箱里的相机标定工具，但是要注意它标定的内参需要转置一下才和OpenCV的结果一致，这点注意看代码就明白了。</p>
 <h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><p>所需求库：<br>Pillow<br>Pyqt5<br>Imutils<br>Pyyaml<br>np.flip已针对版本 v.1.12.0 及更高版本进行了介绍。对于较旧的版本，您可以考虑使用 np.fliplr 和 np.flipud。</p>
 <p>对于一个直线检测的方法<br>createLineSegmentDetector()</p>
-<p>来自 <a target="_blank" rel="noopener" href="https://docs.opencv.org/3.4.14/dd/d1a/group__imgproc__feature.html#ga6b2ad2353c337c42551b521a73eeae7d">https://docs.opencv.org/3.4.14/dd/d1a/group__imgproc__feature.html#ga6b2ad2353c337c42551b521a73eeae7d</a><br>由于源代码版权问题，受到保护，所以将其删除了</p>
+<p>来自 <a href="https://docs.opencv.org/3.4.14/dd/d1a/group__imgproc__feature.html#ga6b2ad2353c337c42551b521a73eeae7d" target="_blank" rel="noopener">https://docs.opencv.org/3.4.14/dd/d1a/group__imgproc__feature.html#ga6b2ad2353c337c42551b521a73eeae7d</a><br>由于源代码版权问题，受到保护，所以将其删除了</p>
 <p>代码的问题记录和解决方法备案：<br>环境准备：首先，由于一些函数的问题，opencv的版本不宜过高，我在之前的评论中看到关于版本的问题。<br>opencv选择4.0.0.21<br>第一个脚本：1. <code>run_calibrate_camera.py</code>：用于相机内参标定。<br>它的参数设置，需要指明</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># input video stream</span></span><br><span class="line">    <span class="comment"># 输入视频流的序号</span></span><br><span class="line">    parser.add_argument(<span class="string">&quot;-i&quot;</span>, <span class="string">&quot;--input&quot;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">0</span>,</span><br><span class="line">                        <span class="built_in">help</span>=<span class="string">&quot;input camera device&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># chessboard pattern size</span></span><br><span class="line">    <span class="comment"># 棋盘图案的尺寸</span></span><br><span class="line">    parser.add_argument(<span class="string">&quot;-grid&quot;</span>, <span class="string">&quot;--grid&quot;</span>, default=<span class="string">&quot;9x6&quot;</span>,</span><br><span class="line">                        <span class="built_in">help</span>=<span class="string">&quot;size of the calibrate grid pattern&quot;</span>)</span><br><span class="line"></span><br><span class="line">    parser.add_argument(<span class="string">&quot;-r&quot;</span>, <span class="string">&quot;--resolution&quot;</span>, default=<span class="string">&quot;640x480&quot;</span>,</span><br><span class="line">                        <span class="built_in">help</span>=<span class="string">&quot;resolution of the camera image&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 使用视频中的每一帧</span></span><br><span class="line">    parser.add_argument(<span class="string">&quot;-framestep&quot;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">30</span>,</span><br><span class="line">                        <span class="built_in">help</span>=<span class="string">&quot;use every nth frame in the video&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输出的yaml文件的存放路径</span></span><br><span class="line">    parser.add_argument(<span class="string">&quot;-o&quot;</span>, <span class="string">&quot;--output&quot;</span>, default=DEFAULT_PARAM_FILE,</span><br><span class="line">                        <span class="built_in">help</span>=<span class="string">&quot;path to output yaml file&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置这是否是鱼眼相机</span></span><br><span class="line">    parser.add_argument(<span class="string">&quot;-fisheye&quot;</span>, <span class="string">&quot;--fisheye&quot;</span>, action=<span class="string">&quot;store_true&quot;</span>, default=<span class="literal">True</span>,</span><br><span class="line">                        <span class="built_in">help</span>=<span class="string">&quot;set ture if this is a fisheye camera&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 相机的翻转方法？</span></span><br><span class="line">    parser.add_argument(<span class="string">&quot;-flip&quot;</span>, <span class="string">&quot;--flip&quot;</span>, default=<span class="number">0</span>, <span class="built_in">type</span>=<span class="built_in">int</span>,</span><br><span class="line">                        <span class="built_in">help</span>=<span class="string">&quot;flip method of the camera&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果不使用 gstreamer 进行相机捕获，则设置为 true</span></span><br><span class="line">    parser.add_argument(<span class="string">&quot;--no_gst&quot;</span>, action=<span class="string">&quot;store_true&quot;</span>, default=<span class="literal">True</span>,</span><br><span class="line">                        <span class="built_in">help</span>=<span class="string">&quot;set true if not use gstreamer for the camera capture&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>这样设置：-input 0 -grid “9x6” -fisheye –no_gst<br>如果使用的是usb请将最后一个参数设置为true</p>
 <p>第二个脚本2. <code>run_get_projection_maps.py</code>：用于手动标定获取到地面的投影矩阵。<br> Overload resolution failed重载解析失败的问题<br>它会报错在cv2.fisheye.initUndistortRectifyMap这个函数的位置，提示我们Can’t parse ‘size’. Sequence item with index 0 has a wrong type。<br>这个问题的解决很简单。我更换了使用的环境，python3.6 、opencv4.0.0.21 、pillow问题都得到了解决，主要是使用的函数接口版本较为旧，在往后的opencv中被更改了。<br>获得射影变换的四个点时，不能随意选择，一般来说是选择地面上一个矩形区域的四个顶点，实在不行一个四边形的四个顶点也行,我将在后面的博客中去实现一个自动化检测四个投影点的脚本。</p>
-<p>最重要的是：假设你选择了地面上的四个点 {P1, P2, P3, P4}，并且它们在投影后的鸟瞰图中的像素坐标是 {x_i, y_i, i&#x3D;1,2,3,4} (这些是你自己定义的)，<br>那么你需要将这里的 dstL, dstF 手动替换为它们的坐标，并且在点击时按照一样的顺序来点击。你可能需要了解一些关于射影变换和四点对应的知识来更好的理解这一部分。</p>
-<p>如果要求出投影矩阵，必须的在投影前的图像上选取4个点，同时选择与投影前4个点相对应的透视变换的四个点；变换后的四个点在get_projection_maps.py脚本给出，即dstF,dstL。<br>需要人工选择的其实就是投影前的四个点，这个其实就是get_projection_maps.py脚本里的<br>colors &#x3D; [(0, 0, 255), (0, 255, 0), (255, 0, 0), (0, 255, 255)] ，而且我也注意到了这几颜色点的顺序必须与鼠标点击的顺序一致；<br>以上步骤其实都是ok，而且是可以拼接成功的，只是随着每次标注的位置不同，拼接的结果会有很大不同，而且要完美呈现实验里的效果着实有些困难，不过最后我还是搞出了比较完美的结果，<br>我反复看了示例给出的两幅手动标定图，数着那四个点在方格上的准确位置，4辐图严格按照相同的格子位置进行的标注，最后才ok的。<br>为了使得效果更好，同一行两个点的y坐标最好是一样的。我实验了很多次，如果不严格按照示例给出的点的位置进行标注，拼出来的图很不好看。</p>
+<p>最重要的是：假设你选择了地面上的四个点 {P1, P2, P3, P4}，并且它们在投影后的鸟瞰图中的像素坐标是 {x_i, y_i, i=1,2,3,4} (这些是你自己定义的)，<br>那么你需要将这里的 dstL, dstF 手动替换为它们的坐标，并且在点击时按照一样的顺序来点击。你可能需要了解一些关于射影变换和四点对应的知识来更好的理解这一部分。</p>
+<p>如果要求出投影矩阵，必须的在投影前的图像上选取4个点，同时选择与投影前4个点相对应的透视变换的四个点；变换后的四个点在get_projection_maps.py脚本给出，即dstF,dstL。<br>需要人工选择的其实就是投影前的四个点，这个其实就是get_projection_maps.py脚本里的<br>colors = [(0, 0, 255), (0, 255, 0), (255, 0, 0), (0, 255, 255)] ，而且我也注意到了这几颜色点的顺序必须与鼠标点击的顺序一致；<br>以上步骤其实都是ok，而且是可以拼接成功的，只是随着每次标注的位置不同，拼接的结果会有很大不同，而且要完美呈现实验里的效果着实有些困难，不过最后我还是搞出了比较完美的结果，<br>我反复看了示例给出的两幅手动标定图，数着那四个点在方格上的准确位置，4辐图严格按照相同的格子位置进行的标注，最后才ok的。<br>为了使得效果更好，同一行两个点的y坐标最好是一样的。我实验了很多次，如果不严格按照示例给出的点的位置进行标注，拼出来的图很不好看。</p>
 <p>+<code>-camera</code>:指定是哪个相机。<br>+<code>-scale</code>:校正后画面的横向和纵向放缩比。<br>+<code>-shift</code>:校正后画面中心的横向和纵向平移距离。<br>这三个参数都很好理解，这个scale是放缩比例，shift是左右上下移动的像素距离，具体实现的方法是什么呢，在cv2.fisheye.initUndistortRectifyMap这个方法里第四个参数，<br>允许我们传入一个新的摄像机内参，这个矩阵可以由人为的改变其中的参数进行放缩，具体的代码是：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">update_undistort_maps</span>(<span class="params">self</span>):</span><br><span class="line">        new_matrix = self.camera_matrix.copy()</span><br><span class="line">        new_matrix[<span class="number">0</span>, <span class="number">0</span>] *= self.scale_xy[<span class="number">0</span>]</span><br><span class="line">        new_matrix[<span class="number">1</span>, <span class="number">1</span>] *= self.scale_xy[<span class="number">1</span>]</span><br><span class="line">        new_matrix[<span class="number">0</span>, <span class="number">2</span>] += self.shift_xy[<span class="number">0</span>]</span><br><span class="line">        new_matrix[<span class="number">1</span>, <span class="number">2</span>] += self.shift_xy[<span class="number">1</span>]</span><br><span class="line">        width, height = self.resolution</span><br><span class="line"></span><br><span class="line">        self.undistort_maps = cv2.fisheye.initUndistortRectifyMap(</span><br><span class="line">            self.camera_matrix,</span><br><span class="line">            self.dist_coeffs,</span><br><span class="line">            np.eye(<span class="number">3</span>),</span><br><span class="line">            new_matrix,</span><br><span class="line">            (width, height),</span><br><span class="line">            cv2.CV_16SC2</span><br><span class="line">        )</span><br><span class="line">        <span class="keyword">return</span> self</span><br></pre></td></tr></table></figure>
 
@@ -197,7 +197,7 @@
 <p>第四个脚本：4. <code>run_get_weight_matrices.py</code>：用于计算四个重叠区域对应的权重矩阵以及 mask 矩阵，并显示拼接效果。<br>这个脚本很关键，它是拼接实现环视影像的脚本。要求是必须要有重叠区域</p>
 <p>实现的方法也很简单，</p>
 <ol>
-<li>由于相邻相机之间有重叠的区域，所以这部分的融合是关键。如果直接采取两幅图像加权平均 (权重各自为 1&#x2F;2) 的方式融合的话你会得到类似下面的结果：</li>
+<li>由于相邻相机之间有重叠的区域，所以这部分的融合是关键。如果直接采取两幅图像加权平均 (权重各自为 1/2) 的方式融合的话你会得到类似下面的结果：</li>
 </ol>
 <p><a href="/assets/bad.jpg">直接加权</a></p>
 <p>这个产生的原因是：图像的重叠区域因为加权，仍然会损失很多信息，因为是“强拼”的性质，没有用特征匹配。你可以看到由于校正和投影的误差，相邻相机在重合区域的投影结果并不能完全吻合，导致拼接的结果出现乱码和重影。这里的关键在于权重系数应该是随像素变化而变化的，并且是随着像素连续变化。</p>
@@ -279,7 +279,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 TY-Chen
+    		&copy; 2026 TY-Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -378,11 +378,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -390,11 +390,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
               </li>
              
               <li class="article-tag-list-item">

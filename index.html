@@ -34,7 +34,7 @@
 
   
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -152,6 +152,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-QNN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/08/22/QNN/">高通8775 QNN部署端到端头部位姿估计模型</a>
+    </h1>
+  
+
+        
+        <a href="/2025/08/22/QNN/" class="archive-article-date">
+  	<time datetime="2025-08-22T02:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个专栏将介绍如何使用高通的QNN SDK部署一个自己训练的端到端头部位姿估计模型。我使用的平台是高通的汽车级8775处理器，是面向下一代的舱驾融合平台。开发环境是Ubuntu 22.04。由于高通的部署工具链是闭源且门槛费高昂，参考的资料很少，所以本文将以自己的经验和理解为主，介绍如何使用QNN SDK部署一个端到端头部位姿估计模型，模型用于DMS/OMS等专用应用。</p>
+<h3 id="1-环境安装"><a href="#1-环境安装" class="headerlink" title="1- 环境安装"></a>1- 环境安装</h3><p><img src="/../download/QNN_assets/Pasted_image_20250724155751.png" loading="lazy"></p>
+<p>从2.3.4QNN SDK的手册来看:<br>使用HTP，是V73版本的架构，Hexagon SDK 版本为5.4.0</p>
+<h4 id="qnn-python环境"><a href="#qnn-python环境" class="headerlink" title="qnn_python环境"></a>qnn_python环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1-创建虚拟python环境, qnn2.3.4版本只支持这个python版本，请注意</span></span><br><span class="line">conda create -n qnn234_env python==3.10.4</span><br><span class="line">conda activate qnn234_env</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /home/cty/hsae_data/qnn/qnn_sdk_v2.34.0_auto_qnx/qaisw-v2.34.0.250424201103_119471-auto-qnx/bin/</span><br><span class="line"><span class="comment"># 2-设置一下基础环境</span></span><br><span class="line"><span class="built_in">source</span> ./envsetup.sh</span><br><span class="line"><span class="comment"># 3- 准备安装相关的依赖</span></span><br><span class="line">python <span class="string">&quot;<span class="variable">$&#123;QNN_SDK_ROOT&#125;</span>/bin/check-python-dependency&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这里要注意了，因为是在国内，所以说高通提供的安装脚本非常慢并且基本是失败的。这时候需要修改高通QNN_SDK中环境配置的python脚本<code>$&#123;QNN_SDK_ROOT&#125;/bin/check-python-dependency</code>，为其添加清华源，保证快速安装。</p>
+<p> ​
+        
+          <a class="article-more-a" href="/2025/08/22/QNN/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字图像处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/22/QNN/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux下性能分析手册" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -200,86 +281,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2025/08/21/Linux%E4%B8%8B%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E6%89%8B%E5%86%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-QNN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/08/21/QNN/">高通8775 QNN部署端到端头部位姿估计模型</a>
-    </h1>
-  
-
-        
-        <a href="/2025/08/21/QNN/" class="archive-article-date">
-  	<time datetime="2025-08-20T17:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这个专栏将介绍如何使用高通的QNN SDK部署一个自己训练的端到端头部位姿估计模型。我使用的平台是高通的汽车级8775处理器，是面向下一代的舱驾融合平台。开发环境是Ubuntu 22.04。由于高通的部署工具链是闭源且门槛费高昂，参考的资料很少，所以本文将以自己的经验和理解为主，介绍如何使用QNN SDK部署一个端到端头部位姿估计模型，模型用于DMS&#x2F;OMS等专用应用。</p>
-<h3 id="1-环境安装"><a href="#1-环境安装" class="headerlink" title="1- 环境安装"></a>1- 环境安装</h3><p><img src="/download/QNN_assets/Pasted_image_20250724155751.png"><br>从2.3.4QNN SDK的手册来看:<br>使用HTP，是V73版本的架构，Hexagon SDK 版本为5.4.0</p>
-<h4 id="qnn-python环境"><a href="#qnn-python环境" class="headerlink" title="qnn_python环境"></a>qnn_python环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1-创建虚拟python环境, qnn2.3.4版本只支持这个python版本，请注意</span></span><br><span class="line">conda create -n qnn234_env python==3.10.4</span><br><span class="line">conda activate qnn234_env</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /home/cty/hsae_data/qnn/qnn_sdk_v2.34.0_auto_qnx/qaisw-v2.34.0.250424201103_119471-auto-qnx/bin/</span><br><span class="line"><span class="comment"># 2-设置一下基础环境</span></span><br><span class="line"><span class="built_in">source</span> ./envsetup.sh</span><br><span class="line"><span class="comment"># 3- 准备安装相关的依赖</span></span><br><span class="line">python <span class="string">&quot;<span class="variable">$&#123;QNN_SDK_ROOT&#125;</span>/bin/check-python-dependency&quot;</span></span><br></pre></td></tr></table></figure>
-<p>这里要注意了，因为是在国内，所以说高通提供的安装脚本非常慢并且基本是失败的。这时候需要修改高通QNN_SDK中环境配置的python脚本<code>$&#123;QNN_SDK_ROOT&#125;/bin/check-python-dependency</code>，为其添加清华源，保证快速安装。</p>
-<p> ​
-        
-          <a class="article-more-a" href="/2025/08/21/QNN/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字图像处理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/08/21/QNN/">展开全文 >></a>
         </p>
       
 
@@ -488,7 +489,7 @@
       
         <h1 id="使用OpenGL处理鱼眼图像信号"><a href="#使用OpenGL处理鱼眼图像信号" class="headerlink" title="使用OpenGL处理鱼眼图像信号"></a>使用OpenGL处理鱼眼图像信号</h1><p>本篇章是OpenGL编程的一个经典应用，可以广泛使用在带有GPU的各种设备上。通过阅读本篇章，可以完全了解如何使用标定好的相机内参数据对鱼眼图像进行去畸变处理。</p>
 <h2 id="OpenGL"><a href="#OpenGL" class="headerlink" title="OpenGL"></a>OpenGL</h2><p>OpenGL是一套通用GPU编程接口，是操纵GPU进行图像处理的一套方法，抑或是渲染管线。</p>
-<p>关于OpenGL的基础环境、基础原理，可以参考：<a target="_blank" rel="noopener" href="https://learnopengl-cn.github.io/">主页 - LearnOpenGL CN (learnopengl-cn.github.io)</a></p>
+<p>关于OpenGL的基础环境、基础原理，可以参考：<a href="https://learnopengl-cn.github.io/" target="_blank" rel="noopener">主页 - LearnOpenGL CN (learnopengl-cn.github.io)</a></p>
 <p>本篇章就不再赘述现代渲染管线的一些基础知识。</p>
 <p>​
         
@@ -643,7 +644,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="操作系统OS"><a href="#操作系统OS" class="headerlink" title="操作系统OS"></a>操作系统OS</h1><p>这份笔记是在学习操作系统课程时候所记录的备案，希望能在以后的工作，生活中常常看看，温习复习，温故而知新。我学习的路线是南大蒋教授开设的春季班，欢迎大家到蒋教授的个人主页去观看和学习：<a target="_blank" rel="noopener" href="http://jyywiki.cn/">蒋教授的主页</a><br>课程的讲义都放在了这个tag下面，整个章节全部一起，没有分P，直接食用。</p>
+        <h1 id="操作系统OS"><a href="#操作系统OS" class="headerlink" title="操作系统OS"></a>操作系统OS</h1><p>这份笔记是在学习操作系统课程时候所记录的备案，希望能在以后的工作，生活中常常看看，温习复习，温故而知新。我学习的路线是南大蒋教授开设的春季班，欢迎大家到蒋教授的个人主页去观看和学习：<a href="http://jyywiki.cn/" target="_blank" rel="noopener">蒋教授的主页</a><br>课程的讲义都放在了这个tag下面，整个章节全部一起，没有分P，直接食用。</p>
 <p>​
         
           <a class="article-more-a" href="/2022/10/07/Operating_System_NJUPT/#more">more >></a>
@@ -931,7 +932,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 TY-Chen
+    		&copy; 2026 TY-Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1030,11 +1031,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1042,11 +1043,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color5">不知所云</a>
               </li>
              
               <li class="article-tag-list-item">
