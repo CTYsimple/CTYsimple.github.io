@@ -332,6 +332,204 @@
 
 
   
+    <article id="post-HUD_thinkNote" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/04/21/HUD_thinkNote/">汽车HUD技术调研手册</a>
+    </h1>
+  
+
+        
+        <a href="/2025/04/21/HUD_thinkNote/" class="archive-article-date">
+  	<time datetime="2025-04-21T03:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="HUD技术调研手册"><a href="#HUD技术调研手册" class="headerlink" title="HUD技术调研手册"></a>HUD技术调研手册</h1><p>抬头显示起源于战斗机上的开火瞄准系统，抬头显示最早被大规模应用就在飞机上。<br>抬头显示（HUD）技术的综合分析，涵盖关键技术、技术方向、发展现状及主流产品形态<br><img src="/../download/HUD_thinkNote_assets/ori.png" alt="alt text" loading="lazy"><br>AR-HUD得到认可的根本</p>
+<ul>
+<li>清晰</li>
+<li>准确</li>
+<li>舒适</li>
+<li>平台化降低成本<br>作为下一代仪表的一种产品形态，AR-HUD只需要做到这四点，就能在市场中站稳。从用户角度来说，目前对HUD的接受程度不错，但仍不能完全替代传统仪表，两者是并行的状态。从车企角度来说，这个技术是还未完全经过市场考验的新技术，前装搭载和用户使用率收集上看，还处在新兴时期。但处在竞争前沿，这个技术是必须竞争的，必须要有的对标产品。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th>显示方式</th>
+<th>特点</th>
+<th>代表车型/企业</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">C-HUD</td>
+<td>独立树脂板投射</td>
+<td>结构简单、成本低；视野小、强光下效果差，渐被淘汰</td>
+<td>早期低端车型</td>
+</tr>
+<tr>
+<td align="left">W-HUD​​</td>
+<td>挡风玻璃反射</td>
+<td>成像面积更大（投影距2-4米），集成度高；当前主流（占比＞70%）</td>
+<td>丰田、理想L9（替代传统仪表）</td>
+</tr>
+<tr>
+<td align="left">AR-HUD</td>
+<td>虚实融合于远场路面</td>
+<td>支持动态导航（如车道级指引）、ADAS预警；需高精度传感器支持</td>
+<td>奔驰S级、问界M9、蔚来ES8</td>
+</tr>
+<tr>
+<td align="left">全景HUD</td>
+<td>覆盖整个挡风玻璃下部</td>
+<td>多乘员共享信息，支持娱乐功能（观影、游戏）</td>
+<td>新兴方案（P-HUD）</td>
+</tr>
+</tbody></table>
+<p>广视场角（＞10°）、远投影距（＞7.5米）、低延迟（＜100ms）</p>
+<h2 id="一、关键技术解析"><a href="#一、关键技术解析" class="headerlink" title="一、关键技术解析"></a>一、关键技术解析</h2><h3 id="1、原理和软件"><a href="#1、原理和软件" class="headerlink" title="1、原理和软件"></a>1、原理和软件</h3><h4 id="核心硬件和基本原理"><a href="#核心硬件和基本原理" class="headerlink" title="核心硬件和基本原理"></a>核心硬件和基本原理</h4><p>包括投影单元（PGU）、反射镜组、自由曲面镜、挡风玻璃（或独立介质）。</p>
+<p>通过精密光学计算实现虚像投射，需解决虚像距离（VID）、视场角（FOV）、畸变矫正等问题。 AR-HUD需更复杂光路设计，以支持7-10米远距投影和大成像面积。 HUD的凹面镜和凸面镜之间需要足够的光路空间，才能满足FOV以及虚像VID的要求，因此HUD的体积甚至可以达到15L，是一个相对较大的汽车电子产品，并因此产生碰撞时的风险。未来的趋势是将整个光机系统小型化。</p>
+<p><img src="/../download/HUD_thinkNote_assets/image.png" alt="alt text" loading="lazy"></p>
+<p>人眼看到的是虚像，图像由PGU单元产生，经由光源加强经过两次反射投到挡风玻璃上形成像，对于W-HUD来说，人眼和人脑通过自补足来产生清晰虚像。<br>目前国内做HUD行业的企业较多，最为突出的是华阳集团。华阳早在2012年就开始HUD研发，2018年完成AR-HUD的预研。华阳在HUD研发上的突破主要归功于三个领域的技术能力：激光运动（激光头单元）技术、微投影光学技术、汽车电子技术。华阳是全球最大的激光头制造商，提供全球三分之一的激光头单元产量。</p>
+<p>华阳提供的AR-HUD的打包方案有两种：</p>
+<ul>
+<li>一体机AR-HUD，结合内置计算平台（MCU、MPU）运行AR算法</li>
+<li> 基于DCU（域控制单元）系统的AR-HUD，将利用DCU的计算能力运行必要的算法</li>
+</ul>
+<p>根据这些信息，AR-HUD或者W-HUD本身典型结构就是<em>光机+计算单元</em>，光机指的是以发射头和反射镜为主体的一整个显示结构，计算单元是用于向光机输送信息的计算结构。主要的技术壁垒的发力点也在这两部分。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">AR-HUD的核心技术，包括</span><br><span class="line">(1)AR图像合成(或者叫投影算法、3D坐标变换)</span><br><span class="line">(2)图像畸变校正算法</span><br><span class="line">(3)工厂标定、离线校准与售后校准</span><br><span class="line">(4)眼球追踪算法(实时微调投影)</span><br><span class="line">(5)障碍物追踪算法(提供前车距离显示等)</span><br><span class="line">(6)高精度车道线检测，自车位置检测。</span><br><span class="line">(7)低延迟中间件技术</span><br></pre></td></tr></table></figure>
+
+<p>上述的概念中，描述了基本的硬件组件，实际上HUD这个产品本身有点像投影仪，只不过投影仪的成像平面是一块白布，而HUD的成像平面是一块玻璃并进行了几次反射。对于软件团队来说，HUD更像是一个外设。</p>
+<p>《SAE J1757-2_201811 Standard - Optical System HUD for Automotive》</p>
+
+
+	<div class="row">
+    <embed src="../download/HUD_thinkNote_assets/SAE%20J1757-2_201811%20Standard%20-Optical%20System%20HUD%20for%20Automotivea5.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+<p>上述由美国机动车工程师协会发布，该SAE标准提供了在典型汽车环境照明条件下确定HUD光学性能的测量方法。它涵盖了室内测量和模拟室外照明，用于HUD虚拟图像的测量。该标准涉及的HUD类型包括w-HUD(挡风玻璃HUD)和c-HUD(组合器HUD)，根据需要作为增强现实(AR)HUD的参考<br><a href="https://ndls.org.cn/standard/detail/f67bd2bc0bb07b0f23196a3cd14d933f" target="_blank" rel="noopener">SAE J1757-2_201811 Standard - Optical System HUD for Automotive</a></p>
+<h4 id="W-HUD与AR-HUD的区别"><a href="#W-HUD与AR-HUD的区别" class="headerlink" title="W-HUD与AR-HUD的区别"></a>W-HUD与AR-HUD的区别</h4><h5 id="W-HUD的效果"><a href="#W-HUD的效果" class="headerlink" title="W-HUD的效果"></a>W-HUD的效果</h5><p><img src="/../download/HUD_thinkNote_assets/w_hud.jpeg" alt="W-HUD" loading="lazy"><br>上图展示了一个基本的W-HUD的实际效果，目前装车量最大也是成熟技术的HUD就是W-HUD，它可以将一些基本的信息投射到挡风玻璃上，在有限的范围内显示一些辅助驾驶的地图等信息，替代了仪表的部分功能，是仪表技术的延展。</p>
+<h5 id="AR-HUD的效果"><a href="#AR-HUD的效果" class="headerlink" title="AR-HUD的效果"></a>AR-HUD的效果</h5><p>为了直观的展示两种HUD的区别和技术上的差异点，可以先看实际的效果。<br>上图是华为(VID＞7.5m，FOV：13°X5°)的AR-HUD的效果，包括黑夜和白天，可以很明显的看到，AR-HUD由动态位置部分和非动态位置部分元素构成，固定的元素包括了速度和限速的显示，车道线提示和转向提示等，当然也可以包括车灯等元素。非动态位置的元素包括一个路线的指示标，它跟随实际的车道线进行移动，通过ADAS传来的数据实时调节HUD的显示。当然，AR-HUD还可以动态的显示更多AR元素，例如前车的轮廓和实时距离，左右两侧的建筑的名字，预警行人的路径。</p>
+<h5 id="区别点"><a href="#区别点" class="headerlink" title="区别点"></a>区别点</h5><p><img src="/../download/HUD_thinkNote_assets/20250619173715.png" alt="W-HUD and AR-HUD" loading="lazy"><br>从上图可以看到，AR-HUD和W-HUD两者在基本原理上并无巨大差距，真正的区别在于W-HUD只能将固定的元素投影到固定的虚像平面上，AR-HUD使用了复杂的3D坐标转换将元素投影到现实世界的视觉目标点上，同时兼顾了将固定元素投影到固定虚像平面上。假设现实中有那么一个物体A，那么人眼看到的A实像能与投影的shape S相重合或者类似贴合，则能给大脑一种“这个shape S是存在于真实世界表面”这种感觉。</p>
+<p><img src="/../download/HUD_thinkNote_assets/20250617111908.png" loading="lazy"><br>这个图展示了不同HUD产品的FOV区别，从用户体验上来讲，AR-HUD与普通HUD是有一个大致的界限的。如果虚像是固定的平面，那么HUD的视场角则不需要做到那么大，仅仅覆盖某些范围以满足基本的信息显示即可，但是虚像需要贴合真实世界的某些物体，例如车道线、地面、障碍物等，这些物体的位置可能处于更远的视野投影点，则需要更大的FOV以满足显示的需求，AR-HUD的横向FOV至少是10度，虚像平面可控范围至少是7.5米，结合上面对于W-HUD和AR-HUD的区别点解释，可以很好的理解为什么要做大FOV。</p>
+<h5 id="双焦面AR-HUD"><a href="#双焦面AR-HUD" class="headerlink" title="双焦面AR-HUD"></a>双焦面AR-HUD</h5><p>目前一种量产的技术路线是双焦面HUD光机，要实现真正的AR-HUD，则像面不能只在一个虚像平面上，而是需要多个像面，第一个像面距离近，可以将一些直观的数据放在这个像面，在双焦面AR-HUD上，基本信息显示在近焦面，时速，电量等。把更丰富的道路信息，智能驾驶信息，导航，娱乐，ADAS警示等信息显示在远焦面。远焦面的虚拟相距要大，避免虚拟图像和真实对象(例如车道线和前方车辆)的深度匹配造成的视觉冲突，近焦面的虚像距深度要小，避免与真实世界对象重叠影响驾驶员。</p>
+<p>双焦面HUD的PGU单元逻辑分为两个区域，处理数据也是分区进行处理的。<br><img src="/../download/HUD_thinkNote_assets/20250630113144.png" loading="lazy"></p>
+<h4 id="软件与数据流"><a href="#软件与数据流" class="headerlink" title="软件与数据流"></a>软件与数据流</h4><p>从系统功能的角度来说，HUD是一个信息展示的平台，具体输入给系统的信息，则可以分成以下的三类</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1- 从车身总线上来的数据(CAN)</span><br><span class="line">包括</span><br><span class="line">- 车速</span><br><span class="line">- 档位</span><br><span class="line">- 灯状态</span><br><span class="line">- 转速</span><br><span class="line">- 油量</span><br><span class="line">- et....</span><br></pre></td></tr></table></figure>
+
+<p>这些数据一般经由MCU端管理的CAN总线送入，一般是动力域的数据和整车控制器上的车身信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2- 从上层应用来的数据</span><br><span class="line">包括</span><br><span class="line">- 限速（地图数据）</span><br><span class="line">- 微型地图（地图数据）</span><br><span class="line">- 道路转弯标识（地图数据）</span><br><span class="line">- 当前位置（地图数据）</span><br><span class="line">- 音乐和视频（娱乐系统数据）</span><br><span class="line">- 视讯通话和普通电话（通讯系统数据）</span><br></pre></td></tr></table></figure>
+<p>这些地图和定位数据是来自于专业的地图商和准确的GPS，北斗信号等，这些数据接入HUD的方式和仪表接入HUD的方式并无很大的区别。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">3- ADAS系统来的数据</span><br><span class="line">包括</span><br><span class="line">- 前车距离</span><br><span class="line">- 当前车道，车道线检测</span><br><span class="line">- 变道提醒，预测行车轨迹输出</span><br><span class="line">- 后方来车提醒</span><br><span class="line">- DMS数据，给出驾驶员当前的头部姿态，眼部位置</span><br><span class="line">- etc...</span><br></pre></td></tr></table></figure>
+<p>这些ADAS数据本身是有一定约定的，结构化的，容易解析的数据，同时，DMS的数据也可以视为ADAS数据的一部分，即使当前车辆没有辅助驾驶功能而单独有DMS，也可以使用这个数据来修正AR-HUD的显示，它与ADAS数据共存于一个中间件是可能的。</p>
+<p><img src="/../download/HUD_thinkNote_assets/image1.png" alt="alt text" loading="lazy"><br>上图可以很轻易的看到，使用座舱域控制器，所有的信息都在座舱端进行融合和梳理，并由座舱的算力进行处理，HUD仅仅作为一个显示用的外设，和普通的座舱屏幕底层逻辑并没有很大的区别。但是，AR-HUD多出了许多动态显示的元素，比如说换道提示，障碍物提示，车位提示，道路岔口提示，这些元素的显示需要外部的算法提供数据，并由特殊的坐标转换算法投影到对应的位置。同时，由于汽车的运动产生的抖动，人眼睛抬头低头产生的位移，需要DMS系统检测人眼微姿态数据并依此实时修正投影的位置。</p>
+<p><img src="/../download/HUD_thinkNote_assets/image2.png" alt="alt text" loading="lazy"></p>
+<h5 id="通配化中间件"><a href="#通配化中间件" class="headerlink" title="通配化中间件"></a>通配化中间件</h5><p><font color=Crimson>HUD的中间件与仪表类似,基本可以沿用仪表中间件的设计.</font><br>AR-HUD接收中间件数据之后,会再经过一层专用处理的信息聚合层,这一层的主要功能是将各个数据进行融合,并加载各种显示模型,实时计算投影矩阵和投影元素,最后将这些数据输出给HUD进行显示.这一层信息聚合层，也可以叫做AR-Creator。AR-HUD中间件的设计目标：低延迟，高性能；AR-Creator的设计目标是让HUD图像准确，清晰。</p>
+<p>举个例子,如果有地图提示的变道提醒,那么中间件应该及时处理并将数据给到HUD处理端，减少延迟，同时，高精度定位或者ADAS数据会告知系统当前车子处于哪个车道，应该变到哪个车道。定位到车道的世界坐标系位置，即系统已知车道和车之间的相对关系，并使用这个相对位置关系将虚拟的变道车道线投影到相应的位置。</p>
+<h5 id="AR-Creator"><a href="#AR-Creator" class="headerlink" title="AR-Creator"></a>AR-Creator</h5><table>
+<thead>
+<tr>
+<th>关键点</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.HUD显示与车道线 matching</td>
+<td>在多车道的情况下，车辆在第几车道，会影响AR-HUD投影信息指示的正确性，故车辆本身须具备车道侦测的相关技术，提供目前在第几车道的信息，且侦测补正系统会有时间延时，因此必须加上提前预测算法。相关技术：影像识别</td>
+</tr>
+<tr>
+<td>2. HUD显示与车头方向 matching</td>
+<td>AR HUD显示的信息须避开前方车辆遮蔽，投影在路面上，故需侦测前方障碍物的位置，动态调整AR HUD显示的信息位置,且侦测补正系统会有时间延时，因此必须加上提前预测算法。相关技术：77Ghz毫米波雷达/影像识别。<br></td>
+</tr>
+<tr>
+<td>3. HUD显示与前方障碍物标定 matching</td>
+<td>AR-HUD虚拟图像与车外实景结合时，会因车主的坐姿差异产生视角的差异，故需侦测眼球位置，动态调整虚拟图像的投射角度变动。相关技术：DMS/影像识别<br></td>
+</tr>
+<tr>
+<td>4. HUD显示与转弯路口 matching</td>
+<td>HUD显示的转弯箭头要达到精准标定到实际道路的路口，精密地图：提供路口精准的经纬度位置；精准定位：提供车辆所在的精准经纬度与方向；车头晃动补偿：HUD显示必须补偿车头上下晃动的偏差；收集高精度地图与V2X及六轴向陀螺仪、影像识别、毫米波雷达、GPS等各类传感器，通过复杂数字演算，精确定位目前车辆的位置，精密度需要至10cm等级。</td>
+</tr>
+</tbody></table>
+<h4 id="标定"><a href="#标定" class="headerlink" title="标定"></a>标定</h4><h5 id="产线标定"><a href="#产线标定" class="headerlink" title="产线标定"></a>产线标定</h5><!-- <video src="../download/HUD_thinkNote_assets/HUD_CALIB.mp4" /> -->
+
+<p>岚图追光豪华汽车，东风的高端产品的AVM/HUD/BEV标定车间。</p>
+<p>这个是W-HUD的产线标定方法,可以看到整个标定是一个带反馈回环的参数优化系统,由光机投影出特定的形状,由相机模拟人眼拍摄HUD实际成像形状,通过调整光机输出,直到光机输出使得相机接收到的图像符合一定的约束,去掉畸变和歪斜,并计算出对应关系的像素投影关系.</p>
+<p><img src="/../download/HUD_thinkNote_assets/20250620141345.png" alt="无畸变" loading="lazy"><br><img src="/../download/HUD_thinkNote_assets/20250620141359.png" alt="预畸变" loading="lazy"><br><img src="/../download/HUD_thinkNote_assets/20250620141327.png" alt="处理LUT" loading="lazy"></p>
+<p>主要步骤:</p>
+<ul>
+<li>1 获取标准标定版图像及标准标定版图像通过HUD显示的HUD畸变图像</li>
+<li>2 获取标准标定版图形学和对应HUD畸变图像中的特征点坐标</li>
+<li>3 确定标准标定版图像于对应HUD的畸变图像的映射关系</li>
+<li>4 对HUD待显示图像利用求解出的映射关系进行预畸变处理</li>
+</ul>
+<p><img src="/../download/HUD_thinkNote_assets/20250620142414.png" loading="lazy"></p>
+<p>通过以上描述，可以把由挡风玻璃形成的畸变描述为一种几何失真，或称之为几何畸变，不同于鱼眼相机形成的畸变可以用某种约定的高次多项式展开来描述畸变，HUD的畸变是由多种原因共同构成的，包括光路的复杂性、玻璃的材料、玻璃的厚度、玻璃的反射率、光源的位置、光源的光束等，这些因素过于复杂，无法直接进行分解的数学描述，只能从发射源到接受源之间通过特定的约束来建立关系，并由此求解几何畸变。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">几何畸变又可分为线性几何畸变和非线性几何畸变。通常情况下，线性几何畸变指缩放、平移、旋转等畸变。而非线性几何畸变是由成像面和物平面的倾斜、物平面本身的弯曲、光学系统的像差造成的畸变，表现为物体与实际的成像各部分比例失衡。</span><br><span class="line">常见几何畸变退化问题的复原大多是基于成像系统，如模拟鱼眼和针孔系统进行摄像机标定，通过确定摄像机畸变参数对所获取图像进行后续校正和复原处理。其优点是一旦确立成像模型，便可以快速有效地根据模型参数对基本图像进行几何变换，从而实现复原。但通常情况下我们面临的图像其成像系统未知且多样化，因此，这种方法不适合于解决一般性无法预知模型的畸变退化。</span><br><span class="line"></span><br><span class="line">比如由成像面不平整造成的曲面畸变。因此，另外一种常见的解决方法是多项式变换技术，其实质是利用数值分析的方法求解几何变换方程。其优点是不需要预先知道成像模型，对复杂曲面畸变能够进行校正和复原。缺点是运算量大，不适宜实时性较高系统，对多项式次数和控制点的选取要求严格，发生复原失控的概率很大，不适用于一些只存在投影变换和镜头畸变的图像。这里我们重点介绍基于多项式变换的几何校正方法，其基本流程是先建立几何校正的数学模型，比如针对畸变特点选择一次多项式或者二次多项式作为几何校正的数学模型；其次利用已知条件确定模型参数，通常以标准未畸变影像为参考，由用户在参考影像与畸变影像上选择控制点，从而解算出多项式系数，即确定出模型参数；最后根据模型对图像进行几何校正。</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2025/04/21/HUD_thinkNote/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字图像处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/04/21/HUD_thinkNote/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-嵌入式神经网络部署泛谈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -864,82 +1062,6 @@
 
 
   
-    <article id="post-怎么在main前print一个语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/01/%E6%80%8E%E4%B9%88%E5%9C%A8main%E5%89%8Dprint%E4%B8%80%E4%B8%AA%E8%AF%AD%E5%8F%A5/">C++怎么在main之前print一个东西</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/01/%E6%80%8E%E4%B9%88%E5%9C%A8main%E5%89%8Dprint%E4%B8%80%E4%B8%AA%E8%AF%AD%E5%8F%A5/" class="archive-article-date">
-  	<time datetime="2022-01-01T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="没啥用的小知识！"><a href="#没啥用的小知识！" class="headerlink" title="没啥用的小知识！"></a>没啥用的小知识！</h2><h1 id="C-怎么在main之前print一个东西"><a href="#C-怎么在main之前print一个东西" class="headerlink" title="C++怎么在main之前print一个东西"></a>C++怎么在main之前print一个东西</h1><p>在论坛上看到一个很搞的问题,正常程序执行都是从main函数开始，要在这之前执行print，哈哈哈。。。。只能想到构造器。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TT</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    TT() &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;print_a_line&quot;</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">TT t1;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;whats_up_man&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小tips</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/01/%E6%80%8E%E4%B9%88%E5%9C%A8main%E5%89%8Dprint%E4%B8%80%E4%B8%AA%E8%AF%AD%E5%8F%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1049,11 +1171,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
+                <a href="javascript:void(0)" class="js-tag color4">AVM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AVM</a>
+                <a href="javascript:void(0)" class="js-tag color1">小tips</a>
               </li>
              
               <li class="article-tag-list-item">
