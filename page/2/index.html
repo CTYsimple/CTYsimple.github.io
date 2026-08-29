@@ -152,6 +152,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-计算机多视几何学" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%9A%E8%A7%86%E5%87%A0%E4%BD%95%E5%AD%A6/">计算机多视几何学--学习参考和资料</a>
+    </h1>
+  
+
+        
+        <a href="/2022/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%9A%E8%A7%86%E5%87%A0%E4%BD%95%E5%AD%A6/" class="archive-article-date">
+  	<time datetime="2022-01-11T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="计算机多视几何"><a href="#计算机多视几何" class="headerlink" title="计算机多视几何"></a>计算机多视几何</h1><p>最近在研究计算机几何学，拿到手确实晦涩难懂。<br>这让我想起以前听南邮的崔子冠教授讲数字图像处理，还有通信工程学院的另一个很温柔的女老师讲计算机几何。<br>这两门课总是有很多疑问，上到一半还总是打瞌睡，虽然考试成绩还不错。<br>但当时没机会动手好好实践，现在重新捡起来学习梳理一遍。<br>我找到了很难找的两本原书，现在这些资料都被各种翻版，很多概念都没有被完整记录和描述。<br>可以参考以下链接来下载。<br>中文版安徽大学出版社有出版，可以找一找。<br><a href="/download/MultipleView.pdf">英文版：计算机多视几何</a><br>附上第一章和第二章的总结<br><a href="/download/MultiViewSUM.pdf">公式总结和整理下载</a><br>如果想在线预览请点击more</p>
+        
+          <a class="article-more-a" href="/2022/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%9A%E8%A7%86%E5%87%A0%E4%BD%95%E5%AD%A6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%9A%E8%A7%86%E5%87%A0%E4%BD%95%E5%AD%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-怎么在main前print一个语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -792,97 +857,9 @@
 
 
   
-    <article id="post-驱动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/07/%E9%A9%B1%E5%8A%A8/">计算机操作系统/驱动篇</a>
-    </h1>
-  
-
-        
-        <a href="/2021/08/07/%E9%A9%B1%E5%8A%A8/" class="archive-article-date">
-  	<time datetime="2021-08-07T04:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="驱动是什么东西？为什么需要驱动？"><a href="#驱动是什么东西？为什么需要驱动？" class="headerlink" title="驱动是什么东西？为什么需要驱动？"></a>驱动是什么东西？为什么需要驱动？</h1><p>从计算机的眼睛里看，设备就是一组寄存器，比如说IO设备， 串口，键盘，磁盘，打印机，总线，中断控制器，DMA，GPU 这些设备就是挂在计算机下面的。那么，操作系统，如何使应用程序能访问这些设备？</p>
-<h2 id="本质上需要驱动的原因：操作系统需要能够访问和操作这些设备。"><a href="#本质上需要驱动的原因：操作系统需要能够访问和操作这些设备。" class="headerlink" title="本质上需要驱动的原因：操作系统需要能够访问和操作这些设备。"></a>本质上需要驱动的原因：操作系统需要能够访问和操作这些设备。</h2><p>我们知道，IO设备在计算机看来，或者说在处理器看来就是一组<code>#寄存器和协议#</code>。</p>
-<p>本节内容主要解决两个问题：</p>
-<p>1、什么是设备的驱动程序</p>
-<p>2、Linux设备抽象</p>
-<h2 id="设备驱动程序原理"><a href="#设备驱动程序原理" class="headerlink" title="设备驱动程序原理"></a>设备驱动程序原理</h2><p>IO设备的主要功能：输入和输出能够读写字节序列，流或者数组常见的设备都满足这个模型</p>
-<p>终端/串口–字节流char_device 打印机–字节流，例如postscript文件 硬盘–字节数组，按照块访问 GPU–字节流（控制）+字节数组（显示存储器）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">所以：</span><br><span class="line">操作系统：设备 == 支持各类操作的对象（文件）</span><br><span class="line">read --从设备某个指定的位置读出数据</span><br><span class="line">write --向设备某个指定位置写入数据</span><br><span class="line">ioctl -- 读取/设置设备的状态</span><br></pre></td></tr></table></figure>
-
-<p>把设备的寄存器直接暴露给用户是很糟糕和危险的，这显而易见。 这样，也给应用层的软件带来了很大的负担，出错的代价也会很大的 所以，我们要对设备做抽象，要在操作系统和实体设备（寄存器和协议）之间做一个抽象的层<br>这个尽可能统一的方式，如同一层API，就是设备驱动程序 我们不用知道寄存器的编号是多少，不用知道写进去后怎么样才能操作完成 这一层，就叫做驱动。</p>
-<p>所有的这些设备：I/O设备，最重要的功能就是：数据往应用里送往外出。 char——device</p>
-<p>补充一下字节流byte_stream，比如说，键盘的按键，它输入的就是一系列的事件，按下的这一大串按键 就可以看作一个字节流</p>
-<p>block——device一块一块的，字节块。 有意思的事情：我们的显卡，是什么设备？ 显存不是按块访问的，显卡暨是字节流，又是一个字节数组<br><a href="/download/device.jpg">驱动</a></p>
-<p>这一大坨设备的抽象，最重要的就是读写和控制，设备驱动程序就是为设备建立起这个模型的代码<br>需要一段代码，需要把例如read这一段系统调用，翻译成设备寄存器能听得懂的这一段话。<br>这一段代码，把系统调用翻译，注意是翻译，我们能看到的一大坨通用API,变成一堆五花八门的设备之间的翻译</p>
-<p>其实shell也是类似的原理，<br>shell是把命令，翻译成一组系统调用，这些系统调用的序列，再通过驱动层，翻译成为了实际的寄存器操作，被执行了起来，就是一层层往下的这个过程</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/07/%E9%A9%B1%E5%8A%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 

@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | CtySimple</title>
+  <title>车载智能座舱AI Agent | CtySimple</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做一个一直努力的人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CtySimple">
-<meta property="og:url" content="http://example.com/archives/page/2/index.html">
+  <meta name="description" content="座舱 Tier1 ：AI Agent 落地大模型&#x2F;多模态大模型&#x2F;Agent最近很火热，2025年下半年最火热的就是这一块儿了，当然，汽车作为终端承载体肯定也会积极贴近AI汽车这个概念。这篇文章是站在客观的角度分析大模型怎么上车，上车的条件，Agent部署的真正难点。最后，我针对行业内实际的现状，提出了一种可能的发展路径，个人观点，作为学习的总结。 一、AI 座舱落地能力“接入大模型”在 2025">
+<meta property="og:type" content="article">
+<meta property="og:title" content="车载智能座舱AI Agent">
+<meta property="og:url" content="http://example.com/2025/12/21/%E8%BD%A6%E8%BD%BD%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1/index.html">
 <meta property="og:site_name" content="CtySimple">
-<meta property="og:description" content="做一个一直努力的人">
+<meta property="og:description" content="座舱 Tier1 ：AI Agent 落地大模型&#x2F;多模态大模型&#x2F;Agent最近很火热，2025年下半年最火热的就是这一块儿了，当然，汽车作为终端承载体肯定也会积极贴近AI汽车这个概念。这篇文章是站在客观的角度分析大模型怎么上车，上车的条件，Agent部署的真正难点。最后，我针对行业内实际的现状，提出了一种可能的发展路径，个人观点，作为学习的总结。 一、AI 座舱落地能力“接入大模型”在 2025">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-21T02:05:08.000Z">
+<meta property="article:modified_time" content="2026-08-29T16:54:43.090Z">
 <meta property="article:author" content="TY-Chen">
 <meta name="twitter:card" content="summary">
   
@@ -150,349 +152,296 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-车载智能座舱" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      车载智能座舱AI Agent
+    </h1>
+  
+
+        
+        <a href="/2025/12/21/%E8%BD%A6%E8%BD%BD%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1/" class="archive-article-date">
+  	<time datetime="2025-12-21T02:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="座舱-Tier1-：AI-Agent-落地"><a href="#座舱-Tier1-：AI-Agent-落地" class="headerlink" title="座舱 Tier1 ：AI Agent 落地"></a>座舱 Tier1 ：AI Agent 落地</h1><p>大模型/多模态大模型/Agent最近很火热，2025年下半年最火热的就是这一块儿了，当然，汽车作为终端承载体肯定也会积极贴近AI汽车这个概念。这篇文章是站在客观的角度分析大模型怎么上车，上车的条件，Agent部署的真正难点。<br>最后，我针对行业内实际的现状，提出了一种可能的发展路径，个人观点，作为学习的总结。</p>
+<h2 id="一、AI-座舱落地能力"><a href="#一、AI-座舱落地能力" class="headerlink" title="一、AI 座舱落地能力"></a>一、AI 座舱落地能力</h2><p>“接入大模型”在 2025 年这个时间段已经是零信息量的表述，豆包，DS，Qwen等等都有各自的开源大模型，云端基础设施也已经日渐完善。Agent这个概念其实提出很久了，但是碍于基础模型的发展进度，慢慢从自动化工具-&gt;任务助手-&gt;场景管家-&gt;自主决策体进行演变，2025-2026-2027必定是Agent发展迅速的时间段，2026～2027年左右，计算机世界的研究热点将会大量集中在这个方向，它也会迅速进入汽车的世界。同时大模型不等于Agent，它只是Agent的核心基座之一，用户孤零零的对着聊天框说话，并得到大语言模型的回复，这并不智能，我相信除了工作和学习查询，很少有人闲到和大模型对话来打发时间，Agent简单来说就是大模型通过对接接插件层，能在模糊意图下分析和执行各种功能的一套可出入的循环，当然这么说有点抽象，但实际上这个东西并不多么复杂，后续会继续记录这个东西的内部结构和知识。</p>
+<p>转回正题，多家头部Tier1都在进行预研和开发Agent上车，差距全在接得多深、跑在哪里、谁在为时延和成本买单，这里就一些细碎但关键的知识来进行分析，与同行业的朋友和爱好者分享学习成果。</p>
+<h3 id="1-1-先拆开工程约束：AI-座舱到底难在哪"><a href="#1-1-先拆开工程约束：AI-座舱到底难在哪" class="headerlink" title="1.1 先拆开工程约束：AI 座舱到底难在哪"></a>1.1 先拆开工程约束：AI 座舱到底难在哪</h3><p>把“AI 座舱”从营销词还原成工程问题，卡点只有四个，而且互相牵制：</p>
+<p><strong>约束一：内存，不是算力</strong></p>
+<p>这是最反直觉的一条。座舱 SoC 上 LPDDR 总量通常在 12–16GB 量级，需要同时喂给 Android 座舱、仪表安全域、Hypervisor 以及多路摄像头。留给端侧模型的余量往往只有 2–4GB。一个 INT4 量化后的 2B–3B 模型权重就要占 1.5–2GB，再加上 KV Cache 随上下文线性增长，长对话很快就撑爆。所以端侧模型的规模上限是内存定的，不是 TOPS 定的。上述的是典型的情况，但是如果外挂一个单独的芯片给大模型用，典型的RK的AI协处理器(1828)，情况则会不一样，但是成本和硬件工程的难度随之增大，这个在业内还逐步推进和讨论，而NVDIA似乎对这一块儿没有积极跟进，它把精力放在了除了AI基础设施外的工作站上，我倒是觉得座舱大模型协处理器是一个很大的市场。</p>
+<p><strong>约束二：内存带宽决定 decode 速度</strong></p>
+<p>自回归解码是典型的内存带宽瓶颈型负载。座舱 SoC 的带宽还要和 GPU 渲染多屏 UI、ISP 处理摄像头流抢。实际结果就是：Demo 里流畅的模型，一旦叠加三屏渲染加 DMS/OMS 常开，吐字速度会明显掉档。这也是为什么很多车型的 AI 功能在导航全屏时会变慢。</p>
+<p><strong>约束三：时延预算是分段的</strong></p>
+<p>用户能接受的语音响应大约在 1 秒内出首字。这个预算要分给：唤醒与拾音、VAD 判停、ASR、意图理解、（云端则加网络往返）、执行、TTS 首帧。端侧首 token 做到 300–500ms 才有体验优势；云端大模型一旦叠加弱网，P95 时延经常冲到 2 秒以上。真正的技术含量在端云路由策略，不在模型本身。</p>
+<p><strong>约束四：功耗与热</strong></p>
+<p>座舱域控多为自然散热或简单风冷，长时间高负载推理会触发降频。夏天暴晒后上车正好是 AI 功能最该好用的时刻，也是最容易掉性能的时刻。这条在实车路试才暴露，Demo 阶段完全看不出来。但是也有特殊的方案，典型的就是航盛的舱驾一体的方案，辅助驾驶和座舱在一个域内，功耗拉满的情况下直接上的水冷，但是这里讨论的是舱内AI Agent，智驾这一块儿另说。</p>
+<p>这四条决定了一个判断标准：凡是不谈内存占用、不谈 P95 时延、不谈热降频的 AI 座舱方案介绍，基本都还在 Demo 阶段。</p>
+<span id="more"></span>
+
+<h3 id="1-2-算力底座：芯片选择决定-AI-天花板"><a href="#1-2-算力底座：芯片选择决定-AI-天花板" class="headerlink" title="1.2 算力底座：芯片选择决定 AI 天花板"></a>1.2 算力底座：芯片选择决定 AI 天花板</h3><table>
+<thead>
+<tr>
+<th>平台</th>
+<th>定位</th>
+<th>AI 可用性</th>
+<th>四家使用情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高通 8155</td>
+<td>上一代主力，仍是中端主战场</td>
+<td>NPU 算力有限，端侧只能跑极小模型或传统 NLU，AI 基本靠云</td>
+<td>四家都有大量在产项目</td>
+</tr>
+<tr>
+<td>高通 8295</td>
+<td>当前高端标配</td>
+<td>NPU 算力跨代提升，可支撑 1B–3B 级端侧模型，是“真端侧 AI”的起点</td>
+<td>德赛量最大，华阳跟进，博泰有项目</td>
+</tr>
+<tr>
+<td>高通 8397</td>
+<td>舱驾一体新一代</td>
+<td>座舱加智驾算力同片，AI 感知链路可共用</td>
+<td>德赛西威为主要落地方</td>
+</tr>
+<tr>
+<td>龙鹰一号 SE1000</td>
+<td>7nm 国产座舱芯片</td>
+<td>对标 8155 区间，性价比与供应自主为主要卖点</td>
+<td>亿咖通（关联芯擎）独有</td>
+</tr>
+<tr>
+<td>英伟达 Orin 系</td>
+<td>智驾主力</td>
+<td>大算力，跨域方案中可承担 AI 感知</td>
+<td>德赛西威深度绑定</td>
+</tr>
+</tbody></table>
+<p>这张表最该被读出来的一层：8155 与 8295 之间是 AI 座舱的真实分水岭。8155 平台上的“AI 座舱”绝大多数是云端方案套壳，端侧只做唤醒和简单分类。所以看一家 Tier1 的 AI 能力，先看它 8295 及以上平台的项目占比，这个数字比任何发布会都可靠。</p>
+<h3 id="1-3-语音链路的三代演进：判断在哪一代"><a href="#1-3-语音链路的三代演进：判断在哪一代" class="headerlink" title="1.3 语音链路的三代演进：判断在哪一代"></a>1.3 语音链路的三代演进：判断在哪一代</h3><p><strong>第一代（规则 NLU）：</strong> ASR 转文本，正则或分类器匹配意图，映射到固定 API。优点是时延低、可控、成本低；缺点是不支持自然表达，说法一变就失效。今天中低配车型的绝大多数语音仍是这一代。</p>
+<p><strong>第二代（大模型兜底）：</strong> 保留规则链路做高频指令，识别失败时兜给云端大模型。这是当前量产主流。工程重点是路由阈值——兜太早，成本和时延失控；兜太晚，用户已经放弃。</p>
+<p><strong>第三代（端侧模型主链路 + Agent）：</strong> 端侧小模型直接做意图理解与函数调用，云端只处理需要外部知识的请求。这一代的门槛不在模型，在车控 API 的开放度和权限治理。</p>
+<h4 id="为什么-Agent-卡在权限而不是模型"><a href="#为什么-Agent-卡在权限而不是模型" class="headerlink" title="为什么 Agent 卡在权限而不是模型"></a>为什么 Agent 卡在权限而不是模型</h4><p>让模型“理解”用户想开空调很容易；让它真的能开，需要主机厂把车身控制、座椅、空调、氛围灯、驾驶模式等信号通过 SOA 服务接口开放出来，还要解决三件事：谁有权调用、误调用如何回滚、安全相关信号如何隔离。这些都是主机厂的架构决策，Tier1 只能配合。</p>
+<p>推论很关键：Agent 能力的上限往往由主机厂的电子电气架构决定，不由 Tier1 的 AI 水平决定。所以同一家 Tier1 在不同主机厂项目上的 AI 表现可以差很远。写文章时如果不点出这一层，四家的横向对比就会失真——你可能在比较主机厂，而不是在比较供应商。</p>
+<h3 id="1-4-端云路由：谁为成本买单"><a href="#1-4-端云路由：谁为成本买单" class="headerlink" title="1.4 端云路由：谁为成本买单"></a>1.4 端云路由：谁为成本买单</h3><p>这是最少被写、但商务上最要紧的一环。云端大模型调用按 token 计费，一辆车的重度用户每天几十到上百次交互，乘上百万辆保有量就是可观的持续支出。三种承担方式：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>成本承担</th>
+<th>对 Tier1 的含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主机厂直连模型厂</td>
+<td>主机厂</td>
+<td>Tier1 只做集成，赚不到软件钱，也不背成本</td>
+</tr>
+<tr>
+<td>Tier1 打包服务</td>
+<td>Tier1 先垫，含在项目报价或年费里</td>
+<td>有软件收入机会，但用量超预期会侵蚀毛利</td>
+</tr>
+<tr>
+<td>端侧为主，云端兜底</td>
+<td>硬件一次性加少量云调用</td>
+<td>毛利最健康，但要求端侧能力真实可用</td>
+</tr>
+</tbody></table>
+<p>这解释了一个表面矛盾：越有能力把 AI 做到端侧的 Tier1，越有动力这么做——不只是体验，更是为了把可变成本转成一次性硬件价值。反过来，端侧能力弱的公司只能做云端集成，长期看在商业模式上是被动的。</p>
+<h3 id="1-5-四家的实际差异"><a href="#1-5-四家的实际差异" class="headerlink" title="1.5 四家的实际差异"></a>1.5 四家的实际差异</h3><h4 id="德赛西威"><a href="#德赛西威" class="headerlink" title="德赛西威"></a>德赛西威</h4><p>跨域算力复用 · 量产数据回流</p>
+<p>结构性优势在算力共享。舱驾一体架构下，座舱域与智驾域在同一 SoC 或同一板级方案内，DMS/OMS 的视觉感知、外部环境感知可以共用摄像头与算力，不需要为 AI 座舱单独堆硬件。这条路华阳和博泰因为没有智驾业务，结构上走不了。</p>
+<p>它的第二个优势是量产基数带来的数据与工程反馈：热降频、弱网退化、多屏并发下的性能塌陷，这些问题只有大规模实车才能暴露，也只有暴露过才能修。8295/8397 项目占比是四家里最高的，端侧模型有落地土壤。</p>
+<p>真实短板：算力芯片全外购，端侧优化受高通、英伟达工具链和开放度约束，做不到底层算子级调优。组织上以硬件与系统工程为主导，AI 应用层的产品定义敏感度不如互联网公司，对外叙事偏保守。此外智驾业务占用大量研发资源，AI 座舱在内部优先级需要打问号。</p>
+<h4 id="华阳集团"><a href="#华阳集团" class="headerlink" title="华阳集团"></a>华阳集团</h4><p>AR-HUD 作为 AI 显示出口</p>
+<p>唯一成立的 AI 支点是 HUD。AI Agent 的输出最终要落到某块屏上，而 AR-HUD 是最贴合驾驶场景的输出面——导航融合、ADAS 提示、未来的意图确认与风险预警都适合在这里呈现。华阳在这条产品线上有真实技术积累（光学设计、畸变校正、光波导路线布局），这是德赛和亿咖通都不具备的差异化通道。垂直整合的成本控制让它在 15 万级以下项目里能把有限的 AI 功能做稳，自主品牌很吃这套。</p>
+<p>真实短板：四家里 AI 能力最弱，且是结构性的。软件与算法团队规模有限，端侧模型部署、量化、算子优化缺乏积累。主力平台集中在 8155 及以下算力区间，物理上跑不了有意义的端侧模型，AI 只能做云端接入。更关键的是它没有可对外输出的 AI 技术标签——HUD 是显示能力，不是 AI 能力，在主机厂做技术评审时这两件事是分开打分的。</p>
+<h4 id="亿咖通"><a href="#亿咖通" class="headerlink" title="亿咖通"></a>亿咖通</h4><p>全栈自研 · 算子级调优空间</p>
+<p>唯一能从芯片层往上做 AI 优化的一家。自研芯片加自研 OS 意味着理论上可以做别人做不到的事：针对 Transformer 算子定制 NPU 指令映射、按模型访存特征调度内存、把量化方案和硬件精度支持对齐、在 OS 调度层给推理任务留确定性时间片。这些恰好都是 1.1 节那四条约束的解法。全栈叙事最有说服力的落点就在这里——不是“什么都自己做”，而是“内存和带宽这两个真瓶颈我能自己调”。吉利体系还提供了快速量产验证场，从定义到上车的周期比外部 Tier1 短一整轮。</p>
+<p>真实短板：芯片生态成熟度是硬伤，而且是最难补的一种。高通有完整的 AI 工具链、模型转换器、算子库、第三方生态和大量踩过坑的工程师；自研平台这些都要从零建，主机厂评估时会直接问：模型换代时适配周期多久、出问题谁能兜底、五年后维护团队还在不在。第二个问题是算力区间——龙鹰一号对标的是 8155 区间，在“能跑多大端侧模型”这个物理指标上，自主可控的优势没法弥补代际差距。第三是持续投入能力，亏损状态下全栈研发的成本压在自己身上，AI 投入的可持续性存疑。</p>
+<h4 id="博泰"><a href="#博泰" class="headerlink" title="博泰"></a>博泰</h4><p>服务生态 · 云端工程化</p>
+<p>被低估的是“可调用服务”的存量。Agent 的价值不在能听懂，而在听懂之后有什么可执行。除了车控信号，另一半是外部服务——停车、加油充电、票务、内容、账号打通。博泰在车联网和 TSP 上的长期运营，积累的正是这一侧的接口和运营关系，这是纯硬件 Tier1 的空白区。它也懂云侧工程化：账号体系、鉴权、灰度发布、服务降级，这些做过多年网联运营才会有的能力，在端云协同架构里是真资产。产品定义上的用户视角也确实比硬件厂敏感。</p>
+<p>真实短板：AI 落地受硬件规模死锁。没有足够量产车型，就没有真实场景的数据回流，端侧模型无从打磨；没有硬件与芯片，端侧优化的空间也不在自己手里。更本质的是项目型交付难以沉淀平台能力——一车一版的定制让 AI 功能无法复用，研发投入摊薄不了。叠加规模最小、盈利能力弱，AI 是四家里投入产出比最不利的。对外声量与实际体量的落差，也容易在主机厂技术评审时被识破。</p>
+<h3 id="1-6-尽调清单：十二个问题"><a href="#1-6-尽调清单：十二个问题" class="headerlink" title="1.6 尽调清单：十二个问题"></a>1.6 尽调清单：十二个问题</h3><p>如果要判断一家 Tier1 的 AI 能力真假，这些问题的回答质量比任何 PPT 都有效：</p>
+<ol>
+<li>端侧模型参数量、量化精度、权重内存占用分别是多少</li>
+<li>推理时峰值内存占用，与 Android 座舱抢内存的策略是什么</li>
+<li>首 token 时延和吐字速率，P50 与 P95 分别是多少</li>
+<li>三屏渲染加 DMS 常开状态下，上述指标掉多少</li>
+<li>85℃ 环境舱内连续推理，多久触发降频，降频后性能剩多少</li>
+<li>端云路由的判定逻辑是什么，云端调用占比多少</li>
+<li>云端 token 成本由谁承担，超量怎么算</li>
+<li>已打通的车控 API 有多少个，覆盖哪些域</li>
+<li>误执行的回滚机制和安全信号隔离方案</li>
+<li>无网络状态下哪些 AI 功能可用，哪些降级</li>
+<li>模型换代时的适配周期，工具链自研还是外部</li>
+<li>已 SOP 的车型清单，以及各车型上实际开启的 AI 功能范围</li>
+</ol>
+<h2 id="二、客户结构"><a href="#二、客户结构" class="headerlink" title="二、客户结构"></a>二、客户结构</h2><p>客户结构不只关乎营收稳定性。它同时决定单车价值量的天花板、被自研替代的概率，以及现金流的健康度。</p>
+<h3 id="2-1-拆成三层看，而不是一层"><a href="#2-1-拆成三层看，而不是一层" class="headerlink" title="2.1 拆成三层看，而不是一层"></a>2.1 拆成三层看，而不是一层</h3><p><strong>第一层 · 分布：</strong> 自主/合资/外资/新势力四象限占比——看天花板与周期敞口</p>
+<p><strong>第二层 · 集中度：</strong> 前五大客户占比、单一客户最大占比——看波动风险</p>
+<p><strong>第三层 · 质量：</strong> 项目是主销车型还是边缘车型、客户账期与回款、是否平台化定点——看利润能否真正落袋</p>
+<p>第三层最容易被忽略，却最能解释一件怪事：营收增长和现金流恶化同时发生。拿到大客户的边缘车型，销量不达预期，模具与研发投入摊不回来；或者客户强势、账期拉长，营收漂亮但应收账款和存货一起涨。写客户结构时如果只看占比不看质量，会得出和财报相反的结论。</p>
+<h3 id="2-2-单车价值量：决定同样一个客户值多少钱"><a href="#2-2-单车价值量：决定同样一个客户值多少钱" class="headerlink" title="2.2 单车价值量：决定同样一个客户值多少钱"></a>2.2 单车价值量：决定同样一个客户值多少钱</h3><table>
+<thead>
+<tr>
+<th>产品</th>
+<th>单车价值量量级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>座舱域控（高端）</td>
+<td>数千元</td>
+<td>8295/8397 平台，含多屏驱动，价值量最高的单品</td>
+</tr>
+<tr>
+<td>座舱域控（中端）</td>
+<td>一至两千元区间</td>
+<td>8155 及以下，价格战最激烈的区间</td>
+</tr>
+<tr>
+<td>AR-HUD</td>
+<td>一至三千元区间</td>
+<td>光学件成本占比高，技术溢价相对能守住</td>
+</tr>
+<tr>
+<td>中控/仪表</td>
+<td>数百至千元</td>
+<td>高度通用化，毛利最薄</td>
+</tr>
+<tr>
+<td>智驾域控</td>
+<td>数千至上万元</td>
+<td>算力平台决定，单车价值量最高</td>
+</tr>
+<tr>
+<td>软件/网联服务</td>
+<td>百元级或年费</td>
+<td>金额小但毛利高，且可持续</td>
+</tr>
+</tbody></table>
+<p>把这张表和客户结构叠起来，才能算出真实差距：同样拿下一家主机厂，能配几个件、配在哪个价位车型上，决定了实际含金量差好几倍。德赛能在一台车上同时放座舱域控加智驾域控加网联，华阳可能是 HUD 加中控，博泰主要是软件与服务——客户名单看着接近，单车价值量完全不是一回事。这是横向对比时最该点破的一层。</p>
+<h3 id="2-3-定点机制：客户关系是怎么真正形成的"><a href="#2-3-定点机制：客户关系是怎么真正形成的" class="headerlink" title="2.3 定点机制：客户关系是怎么真正形成的"></a>2.3 定点机制：客户关系是怎么真正形成的</h3><p>不了解定点流程，就看不懂客户结构为什么很难改变。典型链路：</p>
+<p><code>预研/技术交流 → RFI → RFQ 报价 → 技术加商务双轨评审 → 定点（A 点/B 点）→ 样件 A/B/C 阶段 → PPAP → SOP → 量产爬坡</code></p>
+<p><strong>周期锁定效应：</strong> 从定点到 SOP 通常一到两年，SOP 后生命周期三到五年。这意味着今天的营收反映的是两年前的竞争力，而今天的定点要两年后才体现在报表上。判断一家公司要看在手定点，不是看当期营收。</p>
+<p><strong>A 点/B 点差异：</strong> 主机厂常做双供应商，A 点吃大头。公开信息里“进入某主机厂供应商体系”经常是 B 点甚至只是样件阶段，含金量差别巨大。</p>
+<p><strong>技术与商务双轨：</strong> 技术评审看方案与验证数据，商务评审看财务健康、产能、质量体系、持续经营能力。技术过了商务过不了，是小公司丢单的高频原因，而这部分从来不会写在新闻稿里。</p>
+<p><strong>切换成本：</strong> 换供应商意味着重新走验证与 PPAP，主机厂不会轻易做。所以一旦进了主销车型的平台化项目，粘性远比外界想象的强。</p>
+<h3 id="2-4-主机厂自研的真实边界"><a href="#2-4-主机厂自研的真实边界" class="headerlink" title="2.4 主机厂自研的真实边界"></a>2.4 主机厂自研的真实边界</h3><p>“主机厂全都自研了，Tier1 没空间”是流传最广也最粗糙的判断。实际分成三种模式，而且同一家主机厂在不同层级车型上会同时用三种：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>Tier1 的角色</th>
+<th>收入形态</th>
+<th>适用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主机厂全栈自研</td>
+<td>硬件代工或 ODM</td>
+<td>纯硬件、毛利最低</td>
+<td>头部主机厂旗舰车型</td>
+</tr>
+<tr>
+<td>联合开发/半自研</td>
+<td>底软加平台，主机厂做应用层</td>
+<td>硬件加 NRE 加部分软件</td>
+<td>当前最主流</td>
+</tr>
+<tr>
+<td>整体交付</td>
+<td>软硬件全包</td>
+<td>硬件加软件 License</td>
+<td>中小主机厂、海外品牌、下沉车型</td>
+</tr>
+</tbody></table>
+<p>关键推论：自研浪潮压缩的不是订单量，是软件部分的毛利。硬件量仍在 Tier1 手里，因为主机厂不会自建产线。所以真正的胜负手变成了两件事：能不能在联合开发模式下卖出底软与平台能力（而不是纯硬件），以及能不能在中小主机厂和出海项目上守住整体交付的高毛利业务。按这个尺子，德赛和亿咖通的位置比华阳和博泰更主动。</p>
+<h3 id="2-5-四家客户结构的具体判断"><a href="#2-5-四家客户结构的具体判断" class="headerlink" title="2.5 四家客户结构的具体判断"></a>2.5 四家客户结构的具体判断</h3><h4 id="德赛西威-1"><a href="#德赛西威-1" class="headerlink" title="德赛西威"></a>德赛西威</h4><p>最被低估的护城河。自主、合资、外资、新势力四类都有实际量产项目，单一客户波动对整体影响有限——这在主机厂销量剧烈分化的周期里价值极大，过去几年不少 Tier1 就是被单一客户销量崩塌拖垮的。它还享受 2.2 节说的叠加效应：同一客户可以卖座舱加智驾加网联，单客户价值量最高。合资与外资项目带来的质量体系背书，反过来又成为竞标其他项目的资格证。</p>
+<p>要盯的风险：新势力大客户占比上升带来新的集中度，而新势力的销量波动和账期都比传统主机厂差；合资份额随合资品牌整体萎缩承压；体量大之后增速自然放缓，而估值预期是按高增长给的——它的风险主要在资本市场侧，不在经营侧。</p>
+<h4 id="华阳集团-1"><a href="#华阳集团-1" class="headerlink" title="华阳集团"></a>华阳集团</h4><p>客户结构决定了天花板。深度绑定长安、长城、奇瑞、比亚迪等自主品牌，受益于自主向上与智能化下沉，这两年的增长逻辑是成立的。HUD 的专业度提供了额外保护——它不完全是通用件，切换供应商要重新做光学标定与验证。</p>
+<p>结构性约束：中端车型为主，单车价值量受限，且正好落在价格战最狠的区间；高端项目与外资体系基本进不去，缺少质量体系背书的正循环；没有智驾业务，享受不到叠加效应，同一客户能挖的价值量比德赛少一半以上；国际化程度低，主机厂出海时跟不上，而出海项目恰恰是当前少有的高毛利增量。</p>
+<h4 id="亿咖通-1"><a href="#亿咖通-1" class="headerlink" title="亿咖通"></a>亿咖通</h4><p>吉利体系既是最大资产也是最大负债。资产在于天然的量产入口、需求定义阶段的深度参与、快速迭代，以及跟随沃尔沃、Polestar、smart、宝腾出海的通道——这条海外路径的结构性价值在四家里是独特的。</p>
+<p>负债在于关联关系本身。外部主机厂对“给竞争对手关联供应商付研发费”有天然抵触，而且这不是靠商务谈判能解决的顾虑，涉及数据、需求信息和技术路线的竞争敏感性。更麻烦的是它形成闭环：外部客户拓不开→营收规模上不去→亏损持续→商务评审时持续经营能力被质疑→外部客户更难拓。判断这家公司只需要跟踪一个指标：非吉利系营收占比的变化趋势。这个数字如果两三年没有实质提升，全栈技术叙事再完整也无法转化成估值。</p>
+<h4 id="博泰-1"><a href="#博泰-1" class="headerlink" title="博泰"></a>博泰</h4><p>名单不差，结构最脆弱。服务过外资品牌的网联业务，这类长周期运营合同的壁垒确实被低估——一旦承接了某品牌在华的网联服务，数据、账号和运营连续性让切换成本很高，是它最稳的一块收入。对中小主机厂和新品牌也友好，愿意陪着磨需求。</p>
+<p>三重风险叠加：其一，收入项目型特征强，缺平台化定点，波动大且难以预测；其二，2.3 节说的商务评审是它最现实的关卡——主机厂会直接质疑资金链与持续经营能力，这与技术能力无关，却经常是丢单的真实原因，上市进程反复会放大这个疑虑（请核实最新状态）；其三，软件与服务是主机厂最容易收回自研的部分，因为不涉及产线投资，只需要组建团队，替代门槛比硬件低得多。</p>
+<h2 id="三、交叉结论"><a href="#三、交叉结论" class="headerlink" title="三、交叉结论"></a>三、交叉结论</h2><p>两个维度叠起来，四家的位置和它们的困境根源都清楚了：</p>
+<p><strong>德赛西威</strong>——双维度都强，且互相强化：客户规模带来 AI 的数据与工程反馈，跨域能力又提升单客户价值量。风险集中在估值预期与新势力集中度，属于“好公司的贵价问题”。</p>
+<p><strong>亿咖通</strong>——技术叙事最完整、客户结构最脆弱，而两者的解法是同一个：只有拓开外部客户，全栈投入才能被摊薄和验证。它的问题不是技术问题。</p>
+<p><strong>华阳集团</strong>——两个维度都不突出，但靠 HUD 的细分壁垒和垂直整合的成本能力活得稳。真正的风险不是掉队，是被锁在中端区间，随着 HUD 通用化而慢慢失去溢价。</p>
+<p><strong>博泰</strong>——产品定义能力与资源规模严重错配。它最缺的不是技术也不是创意，是让主机厂敢在五年生命周期项目上签字的那种确定性。</p>
+<p>更值得作为结论的一层：座舱硬件在通用化与价格战里毛利只会更薄，主机厂自研压缩的又恰好是软件毛利。两头挤压之下，真正的分水岭是能不能吃到舱驾一体这一轮架构升级带来的单车价值量跃升，以及能不能把 AI 交互从云端成本中心做成端侧的一次性硬件价值。这两件事都需要芯片平台、算力规模和客户体量同时到位。</p>
+<h2 id="四、对下一阶段的一些看法"><a href="#四、对下一阶段的一些看法" class="headerlink" title="四、对下一阶段的一些看法"></a>四、对下一阶段的一些看法</h2><p>座舱AI是个很大的板块，凡事从根上开始看，所谓的座舱AI的根在模型，模型之下是基础设施，模型之上是生态和调用链。这个事情要分三层去看。</p>
+<p><em>模型</em> 现在的LLM/VLM/VLA都还处于万物token化的阶段，视觉/音频/文本都是统统tokenlizer，我认为这是一种中间阶段的产物。transformer有其天然的处理序列数据的优点，但是典型的，视觉任务上，不管是CLIP方案还是其他，都是视觉编码器给转了一道，视觉任务会耗用非常多的token，越用，成本越高，这在工程上并不算好。而视觉小模型虽然成本更低(各种意义上),占用更少，但是全部都是专用模型，存在领域的局限。ASR同理，只不过是transformer为基座的专用模型。在没有出现跨时代的多模态统一模型之前，现在的agent一定是一种中间阶段，是使用工程和模型互相协作的阶段。</p>
+<p><em>基础设施</em> 座舱基础设施分为端侧和云侧。端侧的基础设施主要是内存和LLM协处理器，例如高通一定要把自家DSP给干到更通用(高通所谓的NPU或者神经网络加速器都是它内部的DSP，一步步优化新增改名字)，它从视觉AI时代就在做加速，从SNPE到现在换成QAIRT，但是换汤不换药，它内部的高性能加速器一直在不停迭代，目的就是把协处理器这一块的蛋糕自己吃下，但是这一定存在瓶颈，从我使用多年高通设备的经验来说，芯片发热和带宽问题一定会存在，8797这么强的芯片，芯片尺寸也会越做越大，不然根本放不下。外挂AI协处理器(不和主控放在同一块基板上)，当成类似于PCIE显卡的方法来使用其实是工程上一种解决方案。把脑子从嵌入式领域移出来，看看现在的PC机，不仅能通用的跑各种AI，只要显存够大，8G显存都可以随便跑7B模型，如果有3D堆叠的存算一体技术，能做到更好。 云侧就是高并发负载，这一块儿已经非常成熟了，主要攻关的就是各种推理的基础设施，SGLang这种。网络通信这一块儿，已经有很多厂商有很先进的方案了。</p>
+<p><em>生态和调用链</em> 座舱的统一生态建设其实是一个超级大的关键点，从Android车机时代起，谷歌就想把终端生态给统一掉，当然也形成了事实的统一，座舱各种东西都跑在安卓上面，各个厂家无非自己魔改一点东西。而到了AI时代，Agent的调用很多时候也经过系统，但是在系统层之上，如何形成一套事实标准来作为智能体的手脚(工具调用)，是一个有挑战的领域，吃下这个领域，在业内就有很大的话语权。当然，这对于行业也是友好的，大量的工程不需要重复开发轮子，主机厂的评判和实验也能少做，标准品出问题的概率也小很多。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%9A%E8%A7%86%E5%87%A0%E4%BD%95%E5%AD%A6/" class="archive-article-date">
-  	<time datetime="2022-01-11T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%9A%E8%A7%86%E5%87%A0%E4%BD%95%E5%AD%A6/">计算机多视几何学--学习参考和资料</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/01/01/%E6%80%8E%E4%B9%88%E5%9C%A8main%E5%89%8Dprint%E4%B8%80%E4%B8%AA%E8%AF%AD%E5%8F%A5/" class="archive-article-date">
-  	<time datetime="2022-01-01T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/01/01/%E6%80%8E%E4%B9%88%E5%9C%A8main%E5%89%8Dprint%E4%B8%80%E4%B8%AA%E8%AF%AD%E5%8F%A5/">C++怎么在main之前print一个东西</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小tips</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/12/11/%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1%E7%99%BD%E7%9A%AE%E4%B9%A6/" class="archive-article-date">
-  	<time datetime="2021-12-11T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/12/11/%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1%E7%99%BD%E7%9A%AE%E4%B9%A6/">智能座舱白皮书</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/12/11/%E9%B1%BC%E7%9C%BC%E7%9B%B8%E6%9C%BA%E7%8E%AF%E8%A7%86%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2021-12-11T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2025/08/22/QNN/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">高通8775 QNN部署端到端头部位姿估计模型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/12/11/%E9%B1%BC%E7%9C%BC%E7%9B%B8%E6%9C%BA%E7%8E%AF%E8%A7%86%E7%B3%BB%E7%BB%9F/">鱼眼相机环视系统</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/11/15/Process_description/" class="archive-article-date">
-  	<time datetime="2021-11-15T01:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/11/15/Process_description/">车位识别算法子模块</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AVM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/10/11/Cpp_advanced_Lint/" class="archive-article-date">
-  	<time datetime="2021-10-10T17:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/10/11/Cpp_advanced_Lint/">VSCODE代码提示的问题，插件：C/C++Advanced Lint</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCODE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/10/11/DMPR%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2021-10-10T17:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/10/11/DMPR%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">DMPR论文解析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/09/07/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6--%E5%B0%8F%E5%B0%8F%E6%80%9D%E8%80%83/" class="archive-article-date">
-  	<time datetime="2021-09-07T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/09/07/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6--%E5%B0%8F%E5%B0%8F%E6%80%9D%E8%80%83/">自动驾驶--小小思考</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/11/YOLO%E4%B8%8E%E6%95%B0%E6%8D%AE%E9%9B%86(%E8%BF%9E%E8%BD%BD)/" class="archive-article-date">
-  	<time datetime="2021-08-11T13:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/11/YOLO%E4%B8%8E%E6%95%B0%E6%8D%AE%E9%9B%86(%E8%BF%9E%E8%BD%BD)/">YOLO目标检测识别及其部署备案(待填坑)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">目标检测</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/07/%E5%9B%BE%E5%83%8F%E7%9F%A9%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-08-07T07:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/07/%E5%9B%BE%E5%83%8F%E7%9F%A9%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BD%BF%E7%94%A8/">图像矩的概念和使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -516,8 +465,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

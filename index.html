@@ -152,6 +152,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-车载智能座舱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/12/21/%E8%BD%A6%E8%BD%BD%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1/">车载智能座舱AI Agent</a>
+    </h1>
+  
+
+        
+        <a href="/2025/12/21/%E8%BD%A6%E8%BD%BD%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1/" class="archive-article-date">
+  	<time datetime="2025-12-21T02:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="座舱-Tier1-：AI-Agent-落地"><a href="#座舱-Tier1-：AI-Agent-落地" class="headerlink" title="座舱 Tier1 ：AI Agent 落地"></a>座舱 Tier1 ：AI Agent 落地</h1><p>大模型/多模态大模型/Agent最近很火热，2025年下半年最火热的就是这一块儿了，当然，汽车作为终端承载体肯定也会积极贴近AI汽车这个概念。这篇文章是站在客观的角度分析大模型怎么上车，上车的条件，Agent部署的真正难点。<br>最后，我针对行业内实际的现状，提出了一种可能的发展路径，个人观点，作为学习的总结。</p>
+<h2 id="一、AI-座舱落地能力"><a href="#一、AI-座舱落地能力" class="headerlink" title="一、AI 座舱落地能力"></a>一、AI 座舱落地能力</h2><p>“接入大模型”在 2025 年这个时间段已经是零信息量的表述，豆包，DS，Qwen等等都有各自的开源大模型，云端基础设施也已经日渐完善。Agent这个概念其实提出很久了，但是碍于基础模型的发展进度，慢慢从自动化工具-&gt;任务助手-&gt;场景管家-&gt;自主决策体进行演变，2025-2026-2027必定是Agent发展迅速的时间段，2026～2027年左右，计算机世界的研究热点将会大量集中在这个方向，它也会迅速进入汽车的世界。同时大模型不等于Agent，它只是Agent的核心基座之一，用户孤零零的对着聊天框说话，并得到大语言模型的回复，这并不智能，我相信除了工作和学习查询，很少有人闲到和大模型对话来打发时间，Agent简单来说就是大模型通过对接接插件层，能在模糊意图下分析和执行各种功能的一套可出入的循环，当然这么说有点抽象，但实际上这个东西并不多么复杂，后续会继续记录这个东西的内部结构和知识。</p>
+<p>转回正题，多家头部Tier1都在进行预研和开发Agent上车，差距全在接得多深、跑在哪里、谁在为时延和成本买单，这里就一些细碎但关键的知识来进行分析，与同行业的朋友和爱好者分享学习成果。</p>
+<h3 id="1-1-先拆开工程约束：AI-座舱到底难在哪"><a href="#1-1-先拆开工程约束：AI-座舱到底难在哪" class="headerlink" title="1.1 先拆开工程约束：AI 座舱到底难在哪"></a>1.1 先拆开工程约束：AI 座舱到底难在哪</h3><p>把“AI 座舱”从营销词还原成工程问题，卡点只有四个，而且互相牵制：</p>
+<p><strong>约束一：内存，不是算力</strong></p>
+<p>这是最反直觉的一条。座舱 SoC 上 LPDDR 总量通常在 12–16GB 量级，需要同时喂给 Android 座舱、仪表安全域、Hypervisor 以及多路摄像头。留给端侧模型的余量往往只有 2–4GB。一个 INT4 量化后的 2B–3B 模型权重就要占 1.5–2GB，再加上 KV Cache 随上下文线性增长，长对话很快就撑爆。所以端侧模型的规模上限是内存定的，不是 TOPS 定的。上述的是典型的情况，但是如果外挂一个单独的芯片给大模型用，典型的RK的AI协处理器(1828)，情况则会不一样，但是成本和硬件工程的难度随之增大，这个在业内还逐步推进和讨论，而NVDIA似乎对这一块儿没有积极跟进，它把精力放在了除了AI基础设施外的工作站上，我倒是觉得座舱大模型协处理器是一个很大的市场。</p>
+<p><strong>约束二：内存带宽决定 decode 速度</strong></p>
+<p>自回归解码是典型的内存带宽瓶颈型负载。座舱 SoC 的带宽还要和 GPU 渲染多屏 UI、ISP 处理摄像头流抢。实际结果就是：Demo 里流畅的模型，一旦叠加三屏渲染加 DMS/OMS 常开，吐字速度会明显掉档。这也是为什么很多车型的 AI 功能在导航全屏时会变慢。</p>
+<p><strong>约束三：时延预算是分段的</strong></p>
+<p>用户能接受的语音响应大约在 1 秒内出首字。这个预算要分给：唤醒与拾音、VAD 判停、ASR、意图理解、（云端则加网络往返）、执行、TTS 首帧。端侧首 token 做到 300–500ms 才有体验优势；云端大模型一旦叠加弱网，P95 时延经常冲到 2 秒以上。真正的技术含量在端云路由策略，不在模型本身。</p>
+<p><strong>约束四：功耗与热</strong></p>
+<p>座舱域控多为自然散热或简单风冷，长时间高负载推理会触发降频。夏天暴晒后上车正好是 AI 功能最该好用的时刻，也是最容易掉性能的时刻。这条在实车路试才暴露，Demo 阶段完全看不出来。但是也有特殊的方案，典型的就是航盛的舱驾一体的方案，辅助驾驶和座舱在一个域内，功耗拉满的情况下直接上的水冷，但是这里讨论的是舱内AI Agent，智驾这一块儿另说。</p>
+<p>这四条决定了一个判断标准：凡是不谈内存占用、不谈 P95 时延、不谈热降频的 AI 座舱方案介绍，基本都还在 Demo 阶段。</p>
+        
+          <a class="article-more-a" href="/2025/12/21/%E8%BD%A6%E8%BD%BD%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/12/21/%E8%BD%A6%E8%BD%BD%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-QNN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -997,74 +1074,9 @@
 
 
   
-    <article id="post-计算机多视几何学" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%9A%E8%A7%86%E5%87%A0%E4%BD%95%E5%AD%A6/">计算机多视几何学--学习参考和资料</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%9A%E8%A7%86%E5%87%A0%E4%BD%95%E5%AD%A6/" class="archive-article-date">
-  	<time datetime="2022-01-11T11:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="计算机多视几何"><a href="#计算机多视几何" class="headerlink" title="计算机多视几何"></a>计算机多视几何</h1><p>最近在研究计算机几何学，拿到手确实晦涩难懂。<br>这让我想起以前听南邮的崔子冠教授讲数字图像处理，还有通信工程学院的另一个很温柔的女老师讲计算机几何。<br>这两门课总是有很多疑问，上到一半还总是打瞌睡，虽然考试成绩还不错。<br>但当时没机会动手好好实践，现在重新捡起来学习梳理一遍。<br>我找到了很难找的两本原书，现在这些资料都被各种翻版，很多概念都没有被完整记录和描述。<br>可以参考以下链接来下载。<br>中文版安徽大学出版社有出版，可以找一找。<br><a href="/download/MultipleView.pdf">英文版：计算机多视几何</a><br>附上第一章和第二章的总结<br><a href="/download/MultiViewSUM.pdf">公式总结和整理下载</a><br>如果想在线预览请点击more</p>
-        
-          <a class="article-more-a" href="/2022/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%9A%E8%A7%86%E5%87%A0%E4%BD%95%E5%AD%A6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%9A%E8%A7%86%E5%87%A0%E4%BD%95%E5%AD%A6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
